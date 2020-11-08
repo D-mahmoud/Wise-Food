@@ -13,8 +13,16 @@ class _HomePageeState extends State<HomePage> {
         child: ListView(
           children: <Widget>[
             ListTile(
+              title: Text('Home'),
+              onTap: () => Navigator.pushNamed(context, 'home'),
+            ),
+            ListTile(
               title: Text('Profile'),
               onTap: () => Navigator.pushNamed(context, 'profile'),
+            ),
+            ListTile(
+              title: Text('Recommendations'),
+              onTap: () => Navigator.pushNamed(context, 'recommend'),
             ),
             ListTile(
               title: Text('Cuisines'),
@@ -35,6 +43,14 @@ class _HomePageeState extends State<HomePage> {
             ListTile(
               title: Text('Help'),
               onTap: () => Navigator.pushNamed(context, 'help'),
+            ),
+            ListTile(
+              title: Text('Sign In'),
+              onTap: () => Navigator.pushNamed(context, 'sign in'),
+            ),
+            ListTile(
+              title: Text('Sign Up'),
+              onTap: () => Navigator.pushNamed(context, 'sign up'),
             ),
           ],
         ),

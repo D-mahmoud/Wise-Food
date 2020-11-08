@@ -60,6 +60,9 @@ class _SignUpPageState extends State<SignUpPage> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign up'),
+      ),
       body: Center(
         child: Container(
           color: Colors.white,

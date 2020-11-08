@@ -43,6 +43,9 @@ class _SignInPageState extends State<SignInPage> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign in'),
+      ),
       body: Center(
         child: Container(
           color: Colors.white,
