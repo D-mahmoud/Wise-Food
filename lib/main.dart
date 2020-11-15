@@ -25,11 +25,13 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         'Home Page': (context) => HomePage(),
+        'Sign Up':(context)=>SignUpPage(),
         'profile': (context) => ProfilePage(),
         'cuisines': (context) => CuisinePage(),
         'settings': (context) => SettingsPage(),
         'faqs': (context) => FAQPage(),
-        'help': (context) => HelpPage()
+        'help': (context) => HelpPage(),
+        'join us':(context)=>JoinUsPage()
       },
     );
   }

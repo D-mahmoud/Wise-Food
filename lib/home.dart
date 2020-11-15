@@ -16,6 +16,10 @@ class _HomePageeState extends State<HomePage> {
               title: Text('Profile'),
               onTap: () => Navigator.pushNamed(context, 'profile'),
             ),
+             ListTile(
+              title: Text('Sign Up'),
+              onTap: () => Navigator.pushNamed(context, 'Sign Up'),
+            ),
             ListTile(
               title: Text('Cuisines'),
               onTap: () => Navigator.pushNamed(context, 'cuisines'),
