@@ -4,12 +4,11 @@ import 'package:wisefood/faq.dart';
 import 'package:wisefood/help.dart';
 import 'package:wisefood/joinus.dart';
 import 'package:wisefood/profile.dart';
-import 'package:wisefood/recommend.dart';
+// import 'package:wisefood/recommend.dart';
 import 'package:wisefood/settings.dart';
 import 'package:wisefood/signup.dart';
 import 'package:wisefood/signin.dart';
 import 'package:wisefood/home.dart';
-import 'package:wisefood/signin.dart';
 
 /// SHAHD AHO
 void main() {
