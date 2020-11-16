@@ -11,6 +11,7 @@ import 'package:wisefood/signin.dart';
 import 'package:wisefood/home.dart';
 import 'package:wisefood/signin.dart';
 
+/// SHAHD AHO
 void main() {
   runApp(MyApp());
 }
@@ -27,14 +28,14 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         'Home Page': (context) => HomePage(),
-        'Sign Up':(context)=>SignUpPage(),
-        'Sign IN':(context)=>SignInPage(),
+        'Sign Up': (context) => SignUpPage(),
+        'Sign IN': (context) => SignInPage(),
         'profile': (context) => ProfilePage(),
         'cuisines': (context) => CuisinePage(),
         'settings': (context) => SettingsPage(),
         'faqs': (context) => FAQPage(),
         'help': (context) => HelpPage(),
-        'join us':(context)=>JoinUsPage()
+        'join us': (context) => JoinUsPage()
       },
     );
   }
