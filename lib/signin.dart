@@ -8,7 +8,7 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   final _formKey = GlobalKey<FormState>();
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,8 +60,7 @@ class _SignInPageState extends State<SignInPage> {
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Please enter data';
-                      }
-
+                      } else {}
                       return null;
                     },
                     onSaved: (value) {
@@ -90,13 +89,13 @@ class _SignInPageState extends State<SignInPage> {
 
                           Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text('Your Data is Processed')));
+                          _formKey.currentState.save();
 
                           _formKey.currentState.reset();
                         } else {
                           Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text('Please Fill all Fields')));
                         }
-                        _formKey.currentState.save();
                       },
                       child: Text('Login'),
                     ),
