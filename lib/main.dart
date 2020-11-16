@@ -10,7 +10,7 @@ import 'package:wisefood/signup.dart';
 import 'package:wisefood/signin.dart';
 import 'package:wisefood/home.dart';
 
-/// SHAHD AHO
+
 void main() {
   runApp(MyApp());
 }
