@@ -7,7 +7,7 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-   final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,9 @@ class _SignInPageState extends State<SignInPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Image.asset(
-                    "images/logo.jpg",
-                    fit: BoxFit.contain,
-                  ),
+                  "images/logo.jpg",
+                  fit: BoxFit.contain,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: TextFormField(
@@ -69,7 +69,6 @@ class _SignInPageState extends State<SignInPage> {
                     },
                   ),
                 ),
-                
                 SizedBox(
                   height: 20.0,
                 ),
@@ -89,14 +88,13 @@ class _SignInPageState extends State<SignInPage> {
                         if (_formKey.currentState.validate()) {
                           // If the form is valid, display a Snackbar.
 
-                          Scaffold.of(context).showSnackBar(
-                              SnackBar(content: Text('Your Data is Processed')));
-                       
-                        _formKey.currentState.reset();
-                        }else{
-                             Scaffold.of(context).showSnackBar(
-                              SnackBar(content: Text('Please Fill all Fields')));
-                     
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text('Your Data is Processed')));
+
+                          _formKey.currentState.reset();
+                        } else {
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text('Please Fill all Fields')));
                         }
                         _formKey.currentState.save();
                       },
