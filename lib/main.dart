@@ -9,7 +9,6 @@ import 'package:wisefood/settings.dart';
 import 'package:wisefood/signup.dart';
 import 'package:wisefood/signin.dart';
 import 'package:wisefood/home.dart';
-import 'package:wisefood/signin.dart';
 
 void main() {
   runApp(MyApp());
