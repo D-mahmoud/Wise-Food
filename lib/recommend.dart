@@ -10,20 +10,6 @@ class _RecommendPageState extends State<RecommendPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
-          child: ListView(
-            children: <Widget>[
-              ListTile(
-                title: Text('Profile'),
-                onTap: () => Navigator.pushNamed(context, 'profile'),
-              ),
-              ListTile(
-                title: Text('Cuisines'),
-                onTap: () => Navigator.pushNamed(context, 'cuisines'),
-              ),
-            ],
-          ),
-        ),
         appBar: AppBar(
           title: Text('Recommendations'),
         ),
