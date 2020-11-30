@@ -128,12 +128,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
                           Scaffold.of(context).showSnackBar(
                               SnackBar(content: Text('Processing Data')));
-                       
-                        _formKey.currentState.reset();
-                        }else{
-                             Scaffold.of(context).showSnackBar(
-                              SnackBar(content: Text('Please Fill all Fields')));
-                     
+
+                          _formKey.currentState.reset();
+                        } else {
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text('Please Fill all Fields')));
                         }
                         _formKey.currentState.save();
                       },

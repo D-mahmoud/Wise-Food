@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageeState createState() => _HomePageeState();
 }
 
-class _HomePageeState extends State<HomePage> {
+class _HomePageeState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  Animation<double> animation;
+  AnimationController controller;
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        AnimationController(duration: const Duration(seconds: 2), vsync: this);
+    animation = Tween<double>(begin: 0, end: 300).animate(controller)
+      ..addListener(() {
+        setState(() {
+          // The state that has changed here is the animation object’s value.
+        });
+      });
+    controller.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +70,6 @@ class _HomePageeState extends State<HomePage> {
               title: Text('Help'),
               onTap: () => Navigator.pushNamed(context, 'help'),
             ),
-           
           ],
         ),
       ),
@@ -73,7 +90,10 @@ class _HomePageeState extends State<HomePage> {
                   ),
                 ),
               ),
-              Container(child: Image(image: AssetImage('images/logo.jpg'))),
+              Container(
+                  height: animation.value,
+                  width: animation.value,
+                  child: Image(image: AssetImage('images/logo.png'))),
               RaisedButton(
                 color: Colors.green[100],
                 onPressed: () {},
