@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/menu_tile.dart';
+import 'menu_data.dart';
 
 class RecommendPage extends StatefulWidget {
   @override
@@ -7,6 +8,7 @@ class RecommendPage extends StatefulWidget {
 }
 
 class _RecommendPageState extends State<RecommendPage> {
+  final StoreData appLogic = StoreData();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +19,10 @@ class _RecommendPageState extends State<RecommendPage> {
           padding: const EdgeInsets.all(8.0),
           child: GridView.count(
               padding: const EdgeInsets.all(5),
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               children: <Widget>[
                 MenuTile(
-                    image: 'images/chicken.jpg', text: 'Chicken Drumsticks'),
+                    image: appLogic.getData()[2], text: appLogic.getData()[0]),
                 MenuTile(image: 'images/ramen.jpg', text: 'Ramen Noodles'),
                 MenuTile(image: 'images/hotdogs.jpg', text: 'Hotdogs'),
                 MenuTile(image: 'images/nachos.jpg', text: 'Nachos'),

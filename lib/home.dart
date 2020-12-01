@@ -84,7 +84,7 @@ class _HomePageeState extends State<HomePage>
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   child: Text(
-                    'Order food online in Egypt!                 Your everyday, right way.           Navigate Online from hundreds of restaurants and shops nearby.',
+                    'Order food online in Egypt!                 Your everyday, right way.           ',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
@@ -107,5 +107,11 @@ class _HomePageeState extends State<HomePage>
             ]),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }

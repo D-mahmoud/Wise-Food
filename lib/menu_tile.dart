@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'menu_data.dart';
 
 class MenuTile extends StatelessWidget {
   final String image;
   final String text;
+  final StoreData appLogic = StoreData();
+  
+
   MenuTile({this.image, this.text});
   @override
   Widget build(BuildContext context) {
