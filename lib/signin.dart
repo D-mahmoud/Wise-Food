@@ -13,9 +13,9 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Login'),
-      // ),
+      appBar: AppBar(
+        title: Text('Login'),
+      ),
       body: Builder(
         builder: (context) => Form(
           key: _formKey,
@@ -25,7 +25,7 @@ class _SignInPageState extends State<SignInPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Image.asset(
-                  "images/logo.jpg",
+                  "images/logo.png",
                   fit: BoxFit.contain,
                 ),
                 Padding(
