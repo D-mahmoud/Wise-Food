@@ -26,21 +26,6 @@ class _RecommendPageState extends State<RecommendPage> {
                 MenuTile(
                     image: appLogic.getData(0)[2],
                     text: appLogic.getData(0)[0]),
-                RaisedButton(
-                    color: Colors.green[200],
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => StoreProfile()),
-                      );
-                    },
-                    child: Text(
-                      'Start Exploring',
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    )),
                 MenuTile(
                     image: appLogic.getData(1)[2],
                     text: appLogic.getData(1)[0]),

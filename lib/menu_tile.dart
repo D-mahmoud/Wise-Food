@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'menu_data.dart';
+import 'store_profile.dart';
 
 class MenuTile extends StatelessWidget {
   final String image;
   final String text;
-  final StoreData appLogic = StoreData();
 
   MenuTile({this.image, this.text});
   @override
@@ -39,10 +38,19 @@ class MenuTile extends StatelessWidget {
               ),
             ),
             FlatButton(
-                color: Colors.green[200], onPressed: () {
-
-                  
-                }, child: Text('View'))
+                color: Colors.green[200],
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => StoreProfile()),
+                  );
+                },
+                child: Text(
+                  'Start Exploring',
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ))
           ])),
     );
   }

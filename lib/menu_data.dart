@@ -3,7 +3,8 @@ class Store {
   String rating;
   String image;
   String location;
-  Store({this.storeTitle, this.rating, this.image, this.location});
+  String number;
+  Store({this.storeTitle, this.rating, this.image, this.location, this.number});
 }
 
 class StoreData {
@@ -14,37 +15,43 @@ class StoreData {
         storeTitle: 'Gringos Burrito Grill',
         rating: '3',
         image: 'images/Gringos.jpg',
-        location: 'Zamalek'),
+        location: 'Zamalek',
+        number: '19734'),
     Store(
         //1
         storeTitle: 'Mezcal',
         rating: '5',
         image: 'images/mezcal.png',
-        location: 'Zamalek'),
+        location: 'Zamalek',
+        number: '19742'),
     Store(
         //2
         storeTitle: 'Tacos Mexican Food',
         rating: '4',
         image: 'images/tacos.jpg',
-        location: 'Maadi'),
+        location: 'Maadi',
+        number: '19792'),
     Store(
         //3
         storeTitle: 'El Chico',
         rating: "5",
         image: 'images/elchico.jpeg',
-        location: 'Nasr City'),
+        location: 'Nasr City',
+        number: '19233'),
     Store(
         //4
         storeTitle: 'CaiRoma',
         rating: "4",
         image: 'images/cairoma.jpg',
-        location: 'Nasr City'),
+        location: 'Nasr City',
+        number: '19242'),
     Store(
         //5
         storeTitle: 'Osmanly Restaurant',
         rating: "4",
         image: 'images/osmanly.jpeg',
-        location: 'Abdeen'),
+        location: 'Abdeen',
+        number: '19432'),
   ];
 
   List getData(int level) {
@@ -52,7 +59,8 @@ class StoreData {
       storeDB[level].storeTitle,
       storeDB[level].rating,
       storeDB[level].image,
-      storeDB[level].location
+      storeDB[level].location,
+      storeDB[level].number
     ];
   }
 }

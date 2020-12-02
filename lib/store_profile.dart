@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/cusines.dart';
 import 'menu_data.dart';
+import 'store_tile.dart';
 
 class StoreProfile extends StatefulWidget {
   @override
@@ -9,105 +9,27 @@ class StoreProfile extends StatefulWidget {
 
 class _StoreProfileState extends State<StoreProfile> {
   final StoreData appLogic = StoreData();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Store Profile'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-              child: Text(
-                'My Profile',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-              ),
-            ),
-            Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(90.0),
-                color: Colors.green[100],
-              ),
-            ),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CuisinePage()),
-                    );
-                  },
-                  child: Text(
-                    'Cuisines',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CuisinePage()),
-                    );
-                  },
-                  child: Text(
-                    'My Orders',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Tank()),
-                    // );
-                  },
-                  child: Text(
-                    'About Us',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Tank()),
-                    // );
-                  },
-                  child: Text(
-                    'Log Out',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
-          ],
+        appBar: AppBar(
+          title: Text('Store Profile'),
         ),
-      ),
-    );
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GridView.count(
+              padding: const EdgeInsets.all(5),
+              crossAxisCount: 1,
+              children: <Widget>[
+                StoreTile(
+                  storeTitle: appLogic.getData(0)[0],
+                  rating: appLogic.getData(0)[1],
+                  image: appLogic.getData(0)[2],
+                  location: appLogic.getData(0)[3],
+                  number: appLogic.getData(0)[4],
+                )
+              ]),
+        ));
   }
 }
