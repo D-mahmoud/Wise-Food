@@ -31,7 +31,7 @@ class StoreData {
         //3
         storeTitle: 'El Chico',
         rating: "5",
-        image: 'images/gringos.jpg',
+        image: 'images/elchico.jpeg',
         location: 'Nasr City'),
     Store(
         //4
@@ -47,12 +47,12 @@ class StoreData {
         location: 'Abdeen'),
   ];
 
-  List getData() {
+  List getData(int level) {
     return [
-      storeDB[storyLevel].storeTitle,
-      storeDB[storyLevel].rating,
-      storeDB[storyLevel].image,
-      storeDB[storyLevel].location
+      storeDB[level].storeTitle,
+      storeDB[level].rating,
+      storeDB[level].image,
+      storeDB[level].location
     ];
   }
 }

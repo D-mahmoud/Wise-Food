@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/menu_tile.dart';
 import 'menu_data.dart';
+import 'store_profile.dart';
 
 class RecommendPage extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class RecommendPage extends StatefulWidget {
 
 class _RecommendPageState extends State<RecommendPage> {
   final StoreData appLogic = StoreData();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +24,35 @@ class _RecommendPageState extends State<RecommendPage> {
               crossAxisCount: 1,
               children: <Widget>[
                 MenuTile(
-                    image: appLogic.getData()[2], text: appLogic.getData()[0]),
-                MenuTile(image: 'images/ramen.jpg', text: 'Ramen Noodles'),
-                MenuTile(image: 'images/hotdogs.jpg', text: 'Hotdogs'),
-                MenuTile(image: 'images/nachos.jpg', text: 'Nachos'),
-                MenuTile(image: 'images/burgers.jpg', text: 'Butter Burgers'),
+                    image: appLogic.getData(0)[2],
+                    text: appLogic.getData(0)[0]),
+                RaisedButton(
+                    color: Colors.green[200],
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => StoreProfile()),
+                      );
+                    },
+                    child: Text(
+                      'Start Exploring',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    )),
+                MenuTile(
+                    image: appLogic.getData(1)[2],
+                    text: appLogic.getData(1)[0]),
+                MenuTile(
+                    image: appLogic.getData(2)[2],
+                    text: appLogic.getData(2)[0]),
+                MenuTile(
+                    image: appLogic.getData(3)[2],
+                    text: appLogic.getData(3)[0]),
+                MenuTile(
+                    image: appLogic.getData(4)[2],
+                    text: appLogic.getData(4)[0]),
               ]),
         ));
   }

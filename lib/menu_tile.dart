@@ -6,7 +6,6 @@ class MenuTile extends StatelessWidget {
   final String image;
   final String text;
   final StoreData appLogic = StoreData();
-  
 
   MenuTile({this.image, this.text});
   @override
@@ -40,7 +39,10 @@ class MenuTile extends StatelessWidget {
               ),
             ),
             FlatButton(
-                color: Colors.green[200], onPressed: () {}, child: Text('Add'))
+                color: Colors.green[200], onPressed: () {
+
+                  
+                }, child: Text('View'))
           ])),
     );
   }

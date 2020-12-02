@@ -3,7 +3,7 @@ import 'package:wisefood/cusines.dart';
 import 'package:wisefood/faq.dart';
 import 'package:wisefood/help.dart';
 import 'package:wisefood/joinus.dart';
-import 'package:wisefood/profile.dart';
+import 'package:wisefood/user_profile.dart';
 import 'package:wisefood/recommend.dart';
 //import 'package:wisefood/recommend.dart';
 import 'package:wisefood/settings.dart';
