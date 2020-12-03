@@ -25,8 +25,8 @@ class _RecommendPageState extends State<RecommendPage> {
               children: <Widget>[
                 MenuTile(
                     image: appLogic.getData(0)[2],
-                    text: appLogic.getData(0)[0]),
-                MenuTile(
+                    text: appLogic.getData(0)[0],
+),                MenuTile(
                     image: appLogic.getData(1)[2],
                     text: appLogic.getData(1)[0]),
                 MenuTile(

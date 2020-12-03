@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 class Store {
   String storeTitle;
   String rating;
@@ -7,16 +10,21 @@ class Store {
   Store({this.storeTitle, this.rating, this.image, this.location, this.number});
 }
 
-class StoreData {
+class StoreData {   
+
   int storyLevel = 0;
   List<Store> storeDB = [
+
     Store(
+          
         //0
         storeTitle: 'Gringos Burrito Grill',
         rating: '3',
         image: 'images/Gringos.jpg',
         location: 'Zamalek',
-        number: '19734'),
+        number: '19734',
+          )   ,
+
     Store(
         //1
         storeTitle: 'Mezcal',
@@ -64,3 +72,4 @@ class StoreData {
     ];
   }
 }
+
