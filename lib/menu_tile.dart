@@ -16,7 +16,7 @@ class _MenuTileState extends State<MenuTile> {
   @override
   Widget build(BuildContext context) {
     Set<String> savedWords = Set<String>();
-    bool alreadySaved = savedWords.contains();
+    bool alreadySaved = savedWords.contains(this.widget.text);
 
     return Padding(
       padding: const EdgeInsets.only(top: 15.0),
