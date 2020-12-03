@@ -11,12 +11,12 @@ class MenuTile extends StatefulWidget {
   @override
   _MenuTileState createState() => _MenuTileState();
 }
-
+ 
 class _MenuTileState extends State<MenuTile> {
   @override
   Widget build(BuildContext context) {
-    Set<String> savedWords = Set<String>();
-    bool alreadySaved = savedWords.contains(this.widget.text);
+List<String> savedWords = List<String>();
+                    savedWords=['Mezcal'];
 
     return Padding(
       padding: const EdgeInsets.only(top: 15.0),
@@ -28,26 +28,25 @@ class _MenuTileState extends State<MenuTile> {
                 alignment: Alignment.centerRight,
                 child: new IconButton(
                   icon: new Icon(
-                      // alreadySaved ? Icons.favorite : Icons.favorite_border,
-                      // color: alreadySaved ? Colors.red : null,
-                      Icons.favorite_border),
+                       savedWords.contains(widget.text) ? Icons.favorite : Icons.favorite_border,
+                       color: savedWords.contains(widget.text) ? Colors.red : null,),
+                     // Icons.favorite_border),
+                     
                   onPressed: () {
-                    if (alreadySaved) {
-                      savedWords.remove(this.widget.text);
-                      print('saved');
-                      print(this.widget.text);
-                    } else {
-                      savedWords.add(this.widget.text);
-                     print(this.widget.text);
+                    //bool alreadySaved = savedWords.contains(widget.text);
+                     //setState(() {
+                      if (savedWords.contains(widget.text)) {
+                        savedWords.remove(widget.text);
+                        print('save aslan');
+                      } 
+                      else {
+                        savedWords.add(widget.text);
+                        print('h save 7alan');
+                      }
 
-                    }
-                    // setState(() {
-                    //   if (alreadySaved) {
-                    //     savedWords.remove(this.widget.text);
-                    //   } else {
-                    //     savedWords.add(this.widget.text);
-                    //   }
                     // });
+                    //print(savedWords.length);
+
                   },
                 )),
             Expanded(
@@ -71,7 +70,6 @@ class _MenuTileState extends State<MenuTile> {
                   fontSize: 20,
                 ),
               ),
-              
             ),
             FlatButton(
                 color: Colors.green[200],
