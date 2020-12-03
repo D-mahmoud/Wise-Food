@@ -6,12 +6,37 @@ class CuisinePage extends StatefulWidget {
 }
 
 class __CuisinePageState extends State<CuisinePage> {
+  bool isSearch = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cuisines'),
-      ),
+          title: !isSearch
+              ? Text('Cuisines')
+              : TextField(
+                  decoration:
+                      InputDecoration(hintText: 'Search For Cusines Here'),
+                ),
+          actions: <Widget>[
+            isSearch
+                ? IconButton(
+                    icon: Icon(Icons.cancel),
+                    color: Colors.black,
+                    onPressed: () {
+                      setState(() {
+                        this.isSearch = false;
+                      });
+                    })
+                : IconButton(
+                    icon: Icon(Icons.search),
+                    color: Colors.black,
+                    onPressed: () {
+                      setState(() {
+                        this.isSearch = true;
+                      });
+                    })
+          ]),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
