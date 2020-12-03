@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class StoreTile extends StatelessWidget {
   final String storeTitle;
@@ -39,13 +40,27 @@ class StoreTile extends StatelessWidget {
                       fontSize: 22))),
         ]),
       ),
-      new Container(
-          child: Text(rating,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'MajorMono',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22))),
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: new Container(
+            child: RatingBar.builder(
+          initialRating: 3,
+          minRating: 1,
+          direction: Axis.horizontal,
+          allowHalfRating: true,
+          itemCount: 5,
+          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+          itemBuilder: (context, _) => Icon(
+            Icons.star,
+            color: Colors.amber,
+          ),
+          onRatingUpdate: (rating) {
+            print(rating);
+          },
+        )
+          
+            ),
+      ),
       new Container(
           child: Text(location,
               textAlign: TextAlign.center,
