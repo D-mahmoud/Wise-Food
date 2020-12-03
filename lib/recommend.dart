@@ -10,13 +10,36 @@ class RecommendPage extends StatefulWidget {
 
 class _RecommendPageState extends State<RecommendPage> {
   final StoreData appLogic = StoreData();
-
+  bool isSearch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Recommendations'),
-        ),
+            title:
+                !isSearch ? Text('Recommendations') : TextField(decoration: InputDecoration(hintText: 'Search For Restaurants Here'),),
+            actions: <Widget>[
+              isSearch?
+              IconButton(
+                  icon: Icon(Icons.cancel),
+                  color: Colors.black,
+                  onPressed: () {
+                    setState(() {
+                      this.isSearch=false;
+
+                    });
+                  })
+                  :
+                   IconButton(
+                  icon: Icon(Icons.search),
+                  color: Colors.black,
+                  onPressed: () {
+                    setState(() {
+                      this.isSearch=true;
+
+                    });
+                  })
+                  
+            ]),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GridView.count(
