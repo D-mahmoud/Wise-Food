@@ -113,7 +113,7 @@ class _HomePageeState extends State<HomePage>
                     child: Image(image: AssetImage('images/logo.png'))),
                 RaisedButton(
                   color: Colors.green[100],
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(context, 'recommend'),
                   child: Text(
                     'Start Exploring',
                     textAlign: TextAlign.center,
