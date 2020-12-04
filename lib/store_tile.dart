@@ -41,6 +41,7 @@ class StoreTile extends StatelessWidget {
         ]),
       ),
       Padding(
+        ///Rating Bar using Flutter extension
         padding: const EdgeInsets.all(10.0),
         child: new Container(
             child: RatingBar.builder(

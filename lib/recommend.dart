@@ -15,6 +15,7 @@ class _RecommendPageState extends State<RecommendPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          ///search bar by using textfields
             title:
                 !isSearch ? Text('Recommendations') : TextField(decoration: InputDecoration(hintText: 'Search For Restaurants Here'),),
             actions: <Widget>[

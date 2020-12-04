@@ -76,12 +76,14 @@ class _HomePageeState extends State<HomePage>
         title: Text('Home'),
       ),
       body: Container(
+        ///adding image as background fpor our app
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/image_2.jpg"),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.6), BlendMode.dstATop),
+                ///dealing with image opacity to write on top of it or add containers
           ),
         ),
         child: Center(
@@ -93,9 +95,9 @@ class _HomePageeState extends State<HomePage>
                   child: Container(
                     child: Text(
                       'WISE-FOOD      ',
-                      //'Wise-Food  \n\n A service to Trust',
+                     
                       textAlign: TextAlign.center,
-                      //style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                     ///diffrent fonts to use when needed
                       style: TextStyle(
                         // fontFamily: 'MajorMono',
                         fontFamily: 'Pacifico',
@@ -131,7 +133,7 @@ class _HomePageeState extends State<HomePage>
                               width: 2,
                               color: Colors.black,
                               style: BorderStyle.solid)),
-
+///Make the button circular
                       // RaisedButton(
                       color: Colors.green,
                       onPressed: () =>
