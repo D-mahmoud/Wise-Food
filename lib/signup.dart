@@ -149,54 +149,6 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
 
-    // final emailField = TextField(
-    //   style: style,
-    //   decoration: InputDecoration(
-    //       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    //       hintText: "Email",
-    //       border:
-    //           OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-    // );
-    // final nameField = TextField(
-    //   obscureText: false,
-    //   style: style,
-    //   decoration: InputDecoration(
-    //       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    //       hintText: "Full Name",
-    //       border:
-    //           OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-    // );
-    // final passwordField = TextField(
-    //   obscureText: true,
-    //   style: style,
-    //   decoration: InputDecoration(
-    //       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    //       hintText: "Password",
-    //       border:
-    //           OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-    // );
-    // final confirmPasswordField = TextField(
-    //   obscureText: true,
-    //   style: style,
-    //   decoration: InputDecoration(
-    //       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    //       hintText: "ConfirmPassword",
-    //       border:
-    //           OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-    // );
-    // final signupButon = Material(
-    //   elevation: 5.0,
-    //   borderRadius: BorderRadius.circular(30.0),
-    //   color: Colors.green[300],
-    //   child: MaterialButton(
-    //     minWidth: MediaQuery.of(context).size.width,
-    //     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    //     onPressed: () {},
-    //     child: Text("Sign Up",
-    //         textAlign: TextAlign.center,
-    //         style: style.copyWith(
-    //             color: Colors.white, fontWeight: FontWeight.bold)),
-    //   ),
-    // );
+   
   }
 }
