@@ -5,6 +5,7 @@ import 'store_profile.dart';
 class MenuTile extends StatelessWidget {
   final String image;
   final String text;
+  
 
   MenuTile({this.image, this.text});
   @override

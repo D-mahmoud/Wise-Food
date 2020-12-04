@@ -50,6 +50,7 @@ class _RecommendPageState extends State<RecommendPage> {
                 MenuTile(
                     image: appLogic.getData(0)[2],
                     text: appLogic.getData(0)[0]),
+                    
                 MenuTile(
                     image: appLogic.getData(1)[2],
                     text: appLogic.getData(1)[0]),

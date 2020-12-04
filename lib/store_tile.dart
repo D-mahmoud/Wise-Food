@@ -8,9 +8,15 @@ class StoreTile extends StatelessWidget {
   final String image;
   final String location;
   final String number;
+  final String review;
 
   StoreTile(
-      {this.storeTitle, this.rating, this.image, this.location, this.number});
+      {this.storeTitle,
+      this.rating,
+      this.image,
+      this.location,
+      this.number,
+      this.review});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +64,7 @@ class StoreTile extends StatelessWidget {
           onRatingUpdate: (rating) {
             print(rating);
           },
-        )
-          
-            ),
+        )),
       ),
       new Container(
           child: Text(location,

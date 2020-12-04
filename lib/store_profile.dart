@@ -19,7 +19,7 @@ class _StoreProfileState extends State<StoreProfile> {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GridView.count(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(4),
               crossAxisCount: 1,
               children: <Widget>[
                 StoreTile(
@@ -28,7 +28,15 @@ class _StoreProfileState extends State<StoreProfile> {
                   image: appLogic.getData(0)[2],
                   location: appLogic.getData(0)[3],
                   number: appLogic.getData(0)[4],
-                )
+                ),
+                new Container(
+                  child: ListView(
+                    children: <Widget>[
+                      Card(
+                          child: ListTile(title: Text(appLogic.getData(0)[5]))),
+                    ],
+                  ),
+                ),
               ]),
         ));
   }
