@@ -31,42 +31,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 color: Colors.green[100],
               ),
             ),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CuisinePage()),
-                    );
-                  },
-                  child: Text(
-                    'Cuisines',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CuisinePage()),
-                    );
-                  },
-                  child: Text(
-                    'My Orders',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
+            
+           
             Container(
                 width: 300,
                 height: 50,
@@ -75,11 +41,27 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () {
                     // Navigator.push(
                     //   context,
-                    //   MaterialPageRoute(builder: (context) => Tank()),
+                    //   MaterialPageRoute(builder: (context) => CuisinePage()),
                     // );
                   },
                   child: Text(
-                    'About Us',
+                    'My Orders',
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                )),
+          
+                Container(
+                width: 300,
+                height: 50,
+                child: RaisedButton(
+                  color: Colors.green[100],
+                  onPressed: () {
+                   
+                  },
+                  child: Text(
+                    'Edit My data',
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -103,6 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 )),
+                  
           ],
         ),
       ),
