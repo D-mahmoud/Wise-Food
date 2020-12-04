@@ -23,11 +23,6 @@ class _HomePageeState extends State<HomePage>
       });
     controller.forward();
   }
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
