@@ -4,10 +4,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class StoreTile extends StatelessWidget {
   final String storeTitle;
-  final String rating;
+  // final String rating;
   final String image;
   final String location;
   final String number;
+  final String rating;
   final String review;
 
   StoreTile(
@@ -47,7 +48,7 @@ class StoreTile extends StatelessWidget {
         ]),
       ),
       Padding(
-        ///Rating Bar using Flutter extension
+        ///Rating Bar using Flutter
         padding: const EdgeInsets.all(10.0),
         child: new Container(
             child: RatingBar.builder(

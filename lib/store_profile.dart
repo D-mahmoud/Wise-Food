@@ -24,7 +24,7 @@ class _StoreProfileState extends State<StoreProfile> {
               children: <Widget>[
                 StoreTile(
                   storeTitle: appLogic.getData(0)[0],
-                  rating: appLogic.getData(0)[1],
+                 // rating: appLogic.getData(0)[1],
                   image: appLogic.getData(0)[2],
                   location: appLogic.getData(0)[3],
                   number: appLogic.getData(0)[4],

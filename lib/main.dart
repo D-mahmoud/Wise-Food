@@ -5,7 +5,7 @@ import 'package:wisefood/help.dart';
 import 'package:wisefood/joinus.dart';
 import 'package:wisefood/user_profile.dart';
 import 'package:wisefood/recommend.dart';
-//import 'package:wisefood/recommend.dart';
+import 'package:wisefood/admin.dart';
 import 'package:wisefood/settings.dart';
 import 'package:wisefood/signup.dart';
 import 'package:wisefood/signin.dart';
@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
         'settings': (context) => SettingsPage(),
         'faqs': (context) => FAQPage(),
         'help': (context) => HelpPage(),
-        'join us': (context) => JoinUsPage()
+        'join us': (context) => JoinUsPage(),
+        'admin': (context) => AdminPage(),
       },
     );
   }
