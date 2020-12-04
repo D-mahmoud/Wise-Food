@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/cusines.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -31,8 +30,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 color: Colors.green[100],
               ),
             ),
-            
-           
             Container(
                 width: 300,
                 height: 50,
@@ -51,15 +48,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 )),
-          
-                Container(
+            Container(
                 width: 300,
                 height: 50,
                 child: RaisedButton(
                   color: Colors.green[100],
-                  onPressed: () {
-                   
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Edit My data',
                     textAlign: TextAlign.center,
@@ -85,7 +79,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 )),
-                  
           ],
         ),
       ),

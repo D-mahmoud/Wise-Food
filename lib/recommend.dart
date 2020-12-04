@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/menu_tile.dart';
 import 'menu_data.dart';
-import 'store_profile.dart';
 
 class RecommendPage extends StatefulWidget {
   @override
@@ -15,31 +14,32 @@ class _RecommendPageState extends State<RecommendPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          ///search bar by using textfields
-            title:
-                !isSearch ? Text('Recommendations') : TextField(decoration: InputDecoration(hintText: 'Search For Restaurants Here'),),
+
+            ///search bar by using textfields
+            title: !isSearch
+                ? Text('Recommendations')
+                : TextField(
+                    decoration: InputDecoration(
+                        hintText: 'Search For Restaurants Here'),
+                  ),
             actions: <Widget>[
-              isSearch?
-              IconButton(
-                  icon: Icon(Icons.cancel),
-                  color: Colors.black,
-                  onPressed: () {
-                    setState(() {
-                      this.isSearch=false;
-
-                    });
-                  })
-                  :
-                   IconButton(
-                  icon: Icon(Icons.search),
-                  color: Colors.black,
-                  onPressed: () {
-                    setState(() {
-                      this.isSearch=true;
-
-                    });
-                  })
-                  
+              isSearch
+                  ? IconButton(
+                      icon: Icon(Icons.cancel),
+                      color: Colors.black,
+                      onPressed: () {
+                        setState(() {
+                          this.isSearch = false;
+                        });
+                      })
+                  : IconButton(
+                      icon: Icon(Icons.search),
+                      color: Colors.black,
+                      onPressed: () {
+                        setState(() {
+                          this.isSearch = true;
+                        });
+                      })
             ]),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -50,7 +50,6 @@ class _RecommendPageState extends State<RecommendPage> {
                 MenuTile(
                     image: appLogic.getData(0)[2],
                     text: appLogic.getData(0)[0]),
-                    
                 MenuTile(
                     image: appLogic.getData(1)[2],
                     text: appLogic.getData(1)[0]),

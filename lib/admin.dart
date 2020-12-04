@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/menu_tile.dart';
 import 'menu_data.dart';
-import 'store_profile.dart';
 
 class AdminPage extends StatefulWidget {
   @override
