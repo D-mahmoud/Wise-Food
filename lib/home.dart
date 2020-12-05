@@ -14,8 +14,9 @@ class _HomePageeState extends State<HomePage>
   void initState() {
     super.initState();
     controller =
-        AnimationController(duration: const Duration(seconds: 2), vsync: this);
-    animation = Tween<double>(begin: 0, end: 300).animate(controller)
+        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+
+    animation = Tween<double>(begin: 0, end: 100).animate(controller)
       ..addListener(() {
         setState(() {
           // The state that has changed here is the animation object’s value.
@@ -23,6 +24,7 @@ class _HomePageeState extends State<HomePage>
       });
     controller.forward();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +44,7 @@ class _HomePageeState extends State<HomePage>
               onTap: () => Navigator.pushNamed(context, 'Sign Up'),
             ),
             ListTile(
-              title: Text('Sign IN'),
+              title: Text('Sign In'),
               onTap: () => Navigator.pushNamed(context, 'Sign IN'),
             ),
             ListTile(
@@ -69,7 +71,7 @@ class _HomePageeState extends State<HomePage>
               title: Text('Help'),
               onTap: () => Navigator.pushNamed(context, 'help'),
             ),
-              ListTile(
+            ListTile(
               title: Text('Admin'),
               onTap: () => Navigator.pushNamed(context, 'admin'),
             ),
@@ -87,7 +89,8 @@ class _HomePageeState extends State<HomePage>
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.6), BlendMode.dstATop),
-                ///dealing with image opacity to write on top of it or add containers
+
+            ///dealing with image opacity to write on top of it or add containers
           ),
         ),
         child: Center(
@@ -98,61 +101,56 @@ class _HomePageeState extends State<HomePage>
                   padding: const EdgeInsets.only(top: 25, right: 25),
                   child: Container(
                     child: Text(
-                      'WISE-FOOD      ',
-                     
+                      'WISE    FOOD      ',
+
                       textAlign: TextAlign.center,
-                     ///diffrent fonts to use when needed
+
+                      ///diffrent fonts to use when needed
                       style: TextStyle(
                         // fontFamily: 'MajorMono',
                         fontFamily: 'Pacifico',
                         //fontFamily: 'Texturina',
                         fontWeight: FontWeight.bold,
-                        fontSize: 25,
+                        fontSize: 40,
                         color: Colors.black,
-                        shadows: [
-                          Shadow(
-                            color: Colors.lightGreen,
-                            blurRadius: 10.0,
-                            offset: Offset(5.0, 5.0),
-                          ),
-                        ],
                       ),
                     ),
                   ),
                 ),
-                // Container(
-                //     height: animation.value,
-                //     width: animation.value,
-                //     child: Image(image: AssetImage('images/logo.png'))
+                SizedBox(
+                  height: 40,
+                ),
+                Container(
+                  height: animation.value,
+                  width: animation.value,
+                  child: MaterialButton(
+                    shape: CircleBorder(
+                        side: BorderSide(
+                            width: 1,
+                            color: Colors.black,
+                            style: BorderStyle.solid)),
 
-                //     ),
+                    ///Make the button circular
+                    // RaisedButton(
+                    color: Colors.green,
+                    onPressed: () => Navigator.pushNamed(context, 'recommend'),
+                    child: Text(
+                      'Explore',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontFamily: 'Pacifico'),
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 170),
                   child: Container(
                     width: 100,
                     height: 100,
-                    child: MaterialButton(
-                      shape: CircleBorder(
-                          side: BorderSide(
-                              width: 2,
-                              color: Colors.black,
-                              style: BorderStyle.solid)),
-///Make the button circular
-                      // RaisedButton(
-                      color: Colors.green,
-                      onPressed: () =>
-                          Navigator.pushNamed(context, 'recommend'),
-                      child: Text(
-                        'Explore',
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.black,
-                            fontFamily: 'Pacifico'),
-                      ),
-                    ),
                   ),
                 ),
               ]),
