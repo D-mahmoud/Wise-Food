@@ -25,7 +25,8 @@ dependencies:
     sdk: flutter
   adobe_xd: ^1.0.0
   flutter_rating_bar: ^3.2.0+1
-
+  rating_bar: ^0.2.0
+  smooth_star_rating: ^1.0.4+2   
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

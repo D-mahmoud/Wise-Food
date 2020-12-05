@@ -1,6 +1,6 @@
 class Store {
   String storeTitle;
-  String rating;
+  double  rating;
   String image;
   String location;
   String number;
@@ -21,7 +21,7 @@ class StoreData {
     Store(
       //0
       storeTitle: 'Gringos Burrito Grill',
-      rating: '3',
+      rating: 1.0,
       image: 'images/Gringos.jpg',
       location: 'Zamalek',
       number: '19734',
@@ -30,7 +30,7 @@ class StoreData {
     Store(
         //1
         storeTitle: 'Mezcal',
-        rating: '5',
+        rating: 5,
         image: 'images/mezcal.png',
         location: 'Zamalek',
         number: '19742',
@@ -38,7 +38,7 @@ class StoreData {
     Store(
         //2
         storeTitle: 'Tacos Mexican Food',
-        rating: '4',
+        rating: 4,
         image: 'images/tacos.jpg',
         location: 'Maadi',
         number: '19792',
@@ -46,7 +46,7 @@ class StoreData {
     Store(
         //3
         storeTitle: 'El Chico',
-        rating: "5",
+        rating: 5,
         image: 'images/elchico.jpeg',
         location: 'Nasr City',
         number: '19233',
@@ -54,7 +54,7 @@ class StoreData {
     Store(
         //4
         storeTitle: 'CaiRoma',
-        rating: "4",
+        rating:1,
         image: 'images/cairoma.jpg',
         location: 'Nasr City',
         number: '19242',
@@ -62,7 +62,7 @@ class StoreData {
     Store(
         //5
         storeTitle: 'Osmanly Restaurant',
-        rating: "4",
+        rating: 2,
         image: 'images/osmanly.jpeg',
         location: 'Abdeen',
         number: '19432',
