@@ -1,23 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+// import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:rating_bar/rating_bar.dart';
 
 class StoreTile extends StatelessWidget {
   final String storeTitle;
-  // final String rating;
   final String image;
   final String location;
   final String number;
-  final String rating;
+  final double rating;
   final String review;
-
-  StoreTile(
-      {this.storeTitle,
-      this.rating,
-      this.image,
-      this.location,
-      this.number,
-      this.review});
+    
+  StoreTile({
+    this.storeTitle,
+    this.rating,
+    this.image,
+    this.location,
+    this.number,
+    this.review,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,26 +48,36 @@ class StoreTile extends StatelessWidget {
                       fontSize: 22))),
         ]),
       ),
-      Padding(
-        ///Rating Bar using Flutter
-        padding: const EdgeInsets.all(10.0),
-        child: new Container(
-            child: RatingBar.builder(
-          initialRating: 3,
-          minRating: 1,
-          direction: Axis.horizontal,
-          allowHalfRating: true,
-          itemCount: 5,
-          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-          itemBuilder: (context, _) => Icon(
-            Icons.star,
-            color: Colors.amber,
-          ),
-          onRatingUpdate: (rating) {
-            print(rating);
-          },
-        )),
-      ),
+      // Padding(
+      //   ///Rating Bar using Flutter
+      //   padding: const EdgeInsets.all(10.0),
+      //   child: new Container(
+      //       child: RatingBar.builder(
+      //     initialRating: rating,
+      //     minRating: rating,
+      //     direction: Axis.horizontal,
+      //     allowHalfRating: true,
+      //     itemCount: 5,
+      //     itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+      //     itemBuilder: (context, _) => Icon(
+      //       Icons.star,
+      //       color: Colors.amber,
+      //     ),
+      //     onRatingUpdate: (rating) {
+      //       print(rating);
+      //     },
+      //   )),
+      // ),
+
+     new Container(
+          child: RatingBar.readOnly(
+        initialRating: rating,
+        isHalfAllowed: true,
+        halfFilledIcon: Icons.star_half,
+        filledIcon: Icons.star,
+        emptyIcon: Icons.star_border,
+      )),
+
       new Container(
           child: Text(location,
               textAlign: TextAlign.center,
