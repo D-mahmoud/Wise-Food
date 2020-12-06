@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/menu_tile.dart';
+import 'package:wisefood/Add_Res.dart';
 import 'menu_data.dart';
 
 class AdminPage extends StatefulWidget {
@@ -33,9 +34,15 @@ class _AdminPageState extends State<AdminPage> {
                         });
                       })
                   : Row(children: [
-                      Icon(
-                        Icons.add,
-                        color: Colors.black,
+                      IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.black,
+                        ),
+                              onPressed:(){ Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AddPage()),
+                        );},
                       ),
                       IconButton(
                           icon: Icon(
