@@ -98,7 +98,7 @@ class _HomePageeState extends State<HomePage>
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(top: 25, right: 25),
+                  padding: const EdgeInsets.only(top:50,right:18),
                   child: Container(
                     child: Text(
                       'WISE    FOOD      ',
@@ -147,7 +147,7 @@ class _HomePageeState extends State<HomePage>
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 170),
+                  padding: const EdgeInsets.only(bottom: 5),
                   child: Container(
                     width: 100,
                     height: 100,
