@@ -1,6 +1,10 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
 class Store {
   String storeTitle;
-  double  rating;
+  double rating;
   String image;
   String location;
   String number;
@@ -17,7 +21,7 @@ class Store {
 
 class StoreData {
   int storyLevel = 0;
-  List<Store> storeDB = [
+  List<Store> _storeDB = [
     Store(
       //0
       storeTitle: 'Gringos Burrito Grill',
@@ -54,7 +58,7 @@ class StoreData {
     Store(
         //4
         storeTitle: 'CaiRoma',
-        rating:1,
+        rating: 1,
         image: 'images/cairoma.jpg',
         location: 'Nasr City',
         number: '19242',
@@ -71,12 +75,34 @@ class StoreData {
 
   List getData(int level) {
     return [
-      storeDB[level].storeTitle,
-      storeDB[level].rating,
-      storeDB[level].image,
-      storeDB[level].location,
-      storeDB[level].number,
-      storeDB[level].review
+      _storeDB[level].storeTitle,
+      _storeDB[level].rating,
+      _storeDB[level].image,
+      _storeDB[level].location,
+      _storeDB[level].number,
+      _storeDB[level].review
     ];
+  }
+
+  void addStore(Store store) {
+    const url =
+        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+    http.post(url,
+        body: json.encode({
+          'location': store.location,
+          'number': store.number,
+          'rating': store.rating,
+          'review': store.review,
+          'storeTitle': store.storeTitle,
+        }));
+
+    final newStore = Store(
+        image: store.image,
+        location: store.location,
+        number: store.number,
+        rating: store.rating,
+        review: store.review,
+        storeTitle: store.storeTitle);
+    _storeDB.add(newStore);
   }
 }
