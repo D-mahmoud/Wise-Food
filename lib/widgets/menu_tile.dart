@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'store_profile.dart';
+import 'package:wisefood/models/store_profile.dart';
 
 class MenuTile extends StatelessWidget {
   final String image;
   final String text;
-  
 
   MenuTile({this.image, this.text});
   @override

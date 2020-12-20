@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:wisefood/models/menu_data.dart';
 
 const pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
 final validatePhone = RegExp(pattern);
@@ -11,6 +12,7 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<AddPage> {
+  final StoreData appLogic = StoreData();
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   static final validCharacters = RegExp(r'^[a-zA-Z0-9]+$');
 
@@ -44,16 +46,16 @@ class _AddPageState extends State<AddPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-               // Center(
+                // Center(
                 //   child: _image == null
                 //       ? Text('No image selected.')
                 //       : Image.file(_image),
                 // ),
                 FloatingActionButton(
-        onPressed: getImage,
-        tooltip: 'Pick Image',
-        child: Icon(Icons.add_a_photo),
-      ),
+                  onPressed: getImage,
+                  tooltip: 'Pick Image',
+                  child: Icon(Icons.add_a_photo),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: TextFormField(
@@ -182,6 +184,9 @@ class _AddPageState extends State<AddPage> {
                           _formKey.currentState.save();
 
                           _formKey.currentState.reset();
+                          //                        Navigator.push(
+                          // context,
+                          // MaterialPageRoute(builder: (context) =>  appLogic.addStore(Store store)));
                         } else {
                           Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text('Please Fill all Fields')));

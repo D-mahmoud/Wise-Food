@@ -104,5 +104,6 @@ class StoreData {
         review: store.review,
         storeTitle: store.storeTitle);
     _storeDB.add(newStore);
+    
   }
 }

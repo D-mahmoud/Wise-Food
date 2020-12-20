@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/cusines.dart';
-import 'package:wisefood/faq.dart';
-import 'package:wisefood/help.dart';
-import 'package:wisefood/joinus.dart';
-import 'package:wisefood/user_profile.dart';
-import 'package:wisefood/recommend.dart';
-import 'package:wisefood/admin.dart';
-import 'package:wisefood/settings.dart';
-import 'package:wisefood/signup.dart';
-import 'package:wisefood/signin.dart';
-import 'package:wisefood/home.dart';
+import 'package:wisefood/widgets/cusines.dart';
+import 'package:wisefood/widgets/faq.dart';
+import 'package:wisefood/widgets/help.dart';
+import 'package:wisefood/widgets/joinus.dart';
+import 'package:wisefood/widgets/user_profile.dart';
+import 'package:wisefood/screens/recommend.dart';
+import 'package:wisefood/screens/admin.dart';
+import 'package:wisefood/widgets/settings.dart';
+import 'package:wisefood/screens/signup.dart';
+import 'package:wisefood/screens/signin.dart';
+import 'package:wisefood/widgets/home.dart';
 
 /// SHAHD AHO
 void main() {

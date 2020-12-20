@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/menu_tile.dart';
-import 'menu_data.dart';
+import 'package:wisefood/widgets/menu_tile.dart';
+import 'package:wisefood/models/menu_data.dart';
 
 class RecommendPage extends StatefulWidget {
   @override
