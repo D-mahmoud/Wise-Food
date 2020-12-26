@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wisefood/models/users.dart';
+import 'package:wisefood/models/user.dart';
+import 'package:wisefood/widgets/home.dart';
 
 const pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
 final validatePhone = RegExp(pattern);
@@ -9,12 +12,43 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  var _passwordVisible;
+  @override
+  void initState() {
+    _passwordVisible = false;
+    super.initState();
+  }
+
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   static final validCharacters = RegExp(r'^[a-zA-Z0-9]+$');
   final _formKey = GlobalKey<FormState>();
 
+  final namecontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  final mobilecontroller = TextEditingController();
+  final usernamecontroller = TextEditingController();
+  final imagecontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    Users u = new Users();
+    User user = new User();
+    Widget submit = FlatButton(
+      child: Text(
+        "Submit",
+      ),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+        // user(
+        //   namecontroller.text,
+        //   passwordcontroller.text,
+        //   mobilecontroller.text,
+        //   usernamecontroller.text,
+        //   imagecontroller.text,
+        // );
+        u.addUser(user);
+      },
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text('Sign Up'),
@@ -186,9 +220,29 @@ class _SignUpPageState extends State<SignUpPage> {
                         }
                         // _formKey.currentState.save();
                       },
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: FlatButton(
+                          onPressed: () {
+                            // Validate returns true if the form is valid, or false
+                            // otherwise.
 
-                      child: Text('Submit'),
-                      //push hena
+                            if (_formKey.currentState.validate()) {
+                              return showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    content:
+                                        Text("Account created successfully"),
+                                    actions: [submit],
+                                  );
+                                },
+                              );
+                            }
+                          },
+                          child: Text('Sign Up'),
+                        ),
+                      ),
                     ),
                   ),
                 ),

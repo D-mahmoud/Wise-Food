@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
+import 'package:wisefood/models/users.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -98,7 +99,7 @@ class _HomePageeState extends State<HomePage>
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(top:50,right:18),
+                  padding: const EdgeInsets.only(top: 50, right: 18),
                   child: Container(
                     child: Text(
                       'WISE    FOOD      ',

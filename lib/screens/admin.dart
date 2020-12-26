@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/menu_tile.dart';
 import 'package:wisefood/Add_Res.dart';
-import 'package:wisefood/models/menu_data.dart';
+import 'package:wisefood/models/store.dart';
 
 class AdminPage extends StatefulWidget {
   @override
@@ -64,21 +64,21 @@ class _AdminPageState extends State<AdminPage> {
               padding: const EdgeInsets.all(5),
               crossAxisCount: 1,
               children: <Widget>[
-                MenuTile(
-                    image: appLogic.getData(0)[2],
-                    text: appLogic.getData(0)[0]),
-                MenuTile(
-                    image: appLogic.getData(1)[2],
-                    text: appLogic.getData(1)[0]),
-                MenuTile(
-                    image: appLogic.getData(2)[2],
-                    text: appLogic.getData(2)[0]),
-                MenuTile(
-                    image: appLogic.getData(3)[2],
-                    text: appLogic.getData(3)[0]),
-                MenuTile(
-                    image: appLogic.getData(4)[2],
-                    text: appLogic.getData(4)[0]),
+                // MenuTile(
+                //     image: appLogic.getData(0)[2],
+                //     text: appLogic.getData(0)[0]),
+                // MenuTile(
+                //     image: appLogic.getData(1)[2],
+                //     text: appLogic.getData(1)[0]),
+                // MenuTile(
+                //     image: appLogic.getData(2)[2],
+                //     text: appLogic.getData(2)[0]),
+                // MenuTile(
+                //     image: appLogic.getData(3)[2],
+                //     text: appLogic.getData(3)[0]),
+                // MenuTile(
+                //     image: appLogic.getData(4)[2],
+                //     text: appLogic.getData(4)[0]),
               ]),
         ));
   }
