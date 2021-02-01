@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:wisefood/widgets/store_item.dart';
 
-import '../models/stores.dart';
+import 'package:wisefood/providers/stores.dart';
 import './store_item.dart';
 
 class StoresGrid extends StatelessWidget {

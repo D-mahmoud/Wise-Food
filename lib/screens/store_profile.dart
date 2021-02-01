@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/models/stores.dart';
+import 'package:wisefood/providers/stores.dart';
 import 'package:provider/provider.dart' as provider;
 
 class StoreProfile extends StatefulWidget {
@@ -10,7 +10,7 @@ class StoreProfile extends StatefulWidget {
 class _StoreProfileState extends State<StoreProfile> {
   @override
   Widget build(BuildContext context) {
-    final storeID = ModalRoute.of(context).settings.arguments as String;
+    final storeID = ModalRoute.of(context).settings.arguments;
     final loadedStore = provider.Provider.of<Stores>(
       context,
       listen: false,

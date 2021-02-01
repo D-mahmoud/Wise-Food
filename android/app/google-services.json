@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "552526626285",
+    "firebase_url": "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "wise-food",
+    "storage_bucket": "wise-food.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552526626285:android:c3ce4287fef8aad0587be4",
+        "android_client_info": {
+          "package_name": "com.example.wisefood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552526626285-9m7d7d7d1e86up54e4e5k9o7pr2fcgei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrUWIN02fhkxQUoRiSM_UJNc8vnhAJU1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "552526626285-9m7d7d7d1e86up54e4e5k9o7pr2fcgei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/models/users.dart';
+import 'package:wisefood/providers/users.dart';
 import 'package:wisefood/models/user.dart';
 
 
