@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'store.dart';
-import '../models/HTTPException.dart';
+
 
 class Stores with ChangeNotifier {
   List<Store> _storeDB = [];

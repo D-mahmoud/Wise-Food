@@ -9,7 +9,6 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
-  final StoreData appLogic = StoreData();
   bool isSearch = false;
   @override
   Widget build(BuildContext context) {
