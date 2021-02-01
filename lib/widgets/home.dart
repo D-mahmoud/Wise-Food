@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageeState createState() => _HomePageeState();
@@ -16,7 +15,7 @@ class _HomePageeState extends State<HomePage>
     super.initState();
     controller =
         AnimationController(duration: const Duration(seconds: 1), vsync: this);
-
+//rawan2
     animation = Tween<double>(begin: 0, end: 100).animate(controller)
       ..addListener(() {
         setState(() {
