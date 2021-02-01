@@ -16,8 +16,8 @@ class FAQPage extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold)))),
             Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text(
-                  "Wise Foods is a leading online food recommendations service."),
+              child:
+                  Text("Wise Foods is an online food recommendations service."),
             ),
             Card(
                 child: ListTile(
@@ -48,7 +48,7 @@ class FAQPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                  "You can simply click on the icon ‘add as a favorite’ available on all menu items on restaurants. You can also easily go to my favorites section on My Account page re order these items."),
+                  "You can simply click on the icon ‘add to favorite’ available on all menu items on restaurants. You can also easily go to my favorites section on My Account page re order these items."),
             ),
           ],
         ),

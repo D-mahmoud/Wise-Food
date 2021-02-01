@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:rating_bar/rating_bar.dart';
+// import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class StoreTile extends StatelessWidget {
   final String storeTitle;
@@ -10,7 +10,7 @@ class StoreTile extends StatelessWidget {
   final String number;
   final double rating;
   final String review;
-    
+
   StoreTile({
     this.storeTitle,
     this.rating,
@@ -69,7 +69,7 @@ class StoreTile extends StatelessWidget {
       //   )),
       // ),
 
-     new Container(
+      new Container(
           child: RatingBar.readOnly(
         initialRating: rating,
         isHalfAllowed: true,

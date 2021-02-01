@@ -12,7 +12,8 @@ class __CuisinePageState extends State<CuisinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        ///adding search bar here 
+
+          ///adding search bar here
           title: !isSearch
               ? Text('Cuisines')
               : TextField(
