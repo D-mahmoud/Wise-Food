@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'user.dart';
+import 'package:wisefood/models/user.dart';
 import '../models/HTTPException.dart';
 
 class Users with ChangeNotifier {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/stores_grid.dart';
-import 'package:wisefood/models/stores.dart';
+import 'package:wisefood/providers/stores.dart';
 import 'package:provider/provider.dart';
 
 enum FilterOptions {

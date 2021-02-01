@@ -10,13 +10,19 @@ import 'package:wisefood/widgets/settings.dart';
 import 'package:wisefood/screens/signup.dart';
 import 'package:wisefood/screens/signin.dart';
 import 'package:wisefood/widgets/home.dart';
-import 'package:wisefood/models/stores.dart';
-import 'package:wisefood/models/users.dart';
+import 'package:wisefood/providers/stores.dart';
+import 'package:wisefood/providers/users.dart';
+import 'package:wisefood/providers/auth.dart';
 import 'package:provider/provider.dart';
 
-/// SHAHD AHO
+
 void main() {
-  runApp(MyApp());
+   runApp(
+    ChangeNotifierProvider(
+      create: (context) => Auth(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +32,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider.value(
-            value: Stores(),
+           // value: Stores(),
           ),
           ChangeNotifierProvider.value(
             value: Users(),

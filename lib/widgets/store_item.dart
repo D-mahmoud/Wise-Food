@@ -19,10 +19,10 @@ class StoreItem extends StatelessWidget {
             //   arguments: product.id,
             // );
           },
-          // child: Image.network(
-          //   product.imageUrl,
-          //   fit: BoxFit.cover,
-          // ),
+          child: Image.network(
+            store.image,
+            fit: BoxFit.cover,
+          ),
         ),
         footer: GridTileBar(
           backgroundColor: Colors.black87,

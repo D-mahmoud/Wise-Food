@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^4.0.0
+  shared_preferences: ^0.5.12+4
   intl: ^0.15.8
   adobe_xd: ^1.0.0
   flutter_rating_bar: ^3.2.0+1

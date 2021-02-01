@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/menu_tile.dart';
-import 'package:wisefood/Add_Res.dart';
-import 'package:wisefood/models/store.dart';
+import 'package:wisefood/screens/Add_Res.dart';
+
 
 class AdminPage extends StatefulWidget {
   @override
@@ -9,7 +9,6 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
-  final StoreData appLogic = StoreData();
   bool isSearch = false;
   @override
   Widget build(BuildContext context) {

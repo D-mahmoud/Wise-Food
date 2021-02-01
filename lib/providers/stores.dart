@@ -2,12 +2,17 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'store.dart';
-import '../models/HTTPException.dart';
+import 'package:wisefood/models/store.dart';
+import 'auth.dart';
 
 class Stores with ChangeNotifier {
+  static const baseUrl =
+      "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/";
   List<Store> _storeDB = [];
+  String authToken;
+  String userId;
 
+  Stores(this.authToken, this.userId, this._storeDB);
   List<Store> get items {
     return [..._storeDB];
   }
@@ -16,7 +21,7 @@ class Stores with ChangeNotifier {
     return _storeDB.where((storeTitle) => storeTitle.isFavorite).toList();
   }
 
-  Store findById(String id) {
+  Store findById(int id) {
     return _storeDB.firstWhere((storeTitle) => storeTitle.id == id);
   }
 
