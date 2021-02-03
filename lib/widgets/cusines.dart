@@ -1,25 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'dart:async';
-//import 'dart:convert';
-//import 'dart:io';
-
-//import 'package:flutter/widgets.dart';
-//import 'package:http/http.dart' as http;
-//import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:flutter/widgets.dart';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:flutter/widgets.dart';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class CuisinePage extends StatefulWidget {
   @override
