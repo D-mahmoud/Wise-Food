@@ -77,4 +77,11 @@ class Stores with ChangeNotifier {
       print(error);
     });
   }
+
+  void receiveToken(Auth auth, List<Store> items) {
+    authToken = auth.token;
+    userId = auth.userId;
+    print('Products receiveToken, userId: $userId');
+    _storeDB = items;
+  }
 }

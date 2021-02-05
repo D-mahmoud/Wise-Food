@@ -15,9 +15,8 @@ import 'package:wisefood/providers/users.dart';
 import 'package:wisefood/providers/auth.dart';
 import 'package:provider/provider.dart';
 
-
 void main() {
-   runApp(
+  runApp(
     ChangeNotifierProvider(
       create: (context) => Auth(),
       child: MyApp(),
@@ -26,14 +25,18 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider.value(
-           // value: Stores(),
-          ),
+          ChangeNotifierProxyProvider<Auth, Stores>(
+          create: (_) => Stores(
+              Provider.of<Auth>(context, listen: true).token,
+              Provider.of<Auth>(context, listen: true).userId, []),
+          update: (ctx, auth, products) =>
+              products..receiveToken(auth, products.items),
+        ),
           ChangeNotifierProvider.value(
             value: Users(),
           ),
