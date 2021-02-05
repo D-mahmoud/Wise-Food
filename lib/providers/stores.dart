@@ -6,6 +6,8 @@ import 'package:wisefood/models/store.dart';
 import 'auth.dart';
 
 class Stores with ChangeNotifier {
+
+  
   static const baseUrl =
       "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/";
   List<Store> _storeDB = [];
