@@ -8,7 +8,7 @@ import 'auth.dart';
 class Stores with ChangeNotifier {
   static const baseUrl =
       "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/";
-      
+
   List<Store> _storeDB = [];
   String authToken;
   String userId;
@@ -26,33 +26,27 @@ class Stores with ChangeNotifier {
     return _storeDB.firstWhere((storeTitle) => storeTitle.id == id);
   }
 
-  Future<void> fetchAndSetStores({bool filterByUser = false}) async {
-    final filterString =
-        filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
-
-    var url = '$baseUrl/stores.json?auth=$authToken&$filterString';
+  Future<void> fetchAndSetStores() async {
+    // final filterString =
+    //     filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
+    const url =
+        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+    // var url = '$baseUrl/stores.json?auth=$authToken&$filterString';
     try {
       final response = await http.get(url);
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
-      if (extractedData == null) {
-        return;
-      }
-      url = '$baseUrl/userFav/$userId.json?auth=$authToken';
-      final favoriteResponse = await http.get(url);
-      final favoriteData = json.decode(favoriteResponse.body);
-      final List<Store> loadedProducts = [];
-      extractedData.forEach((storeId, data) {
-        loadedProducts.add(Store(
+      final dbData = json.decode(response.body) as Map<String, dynamic>;
+
+      final List<Store> loadedStores = [];
+      dbData.forEach((storeId, data) {
+        loadedStores.add(Store(
           storeTitle: data['storeTitle'],
           rating: data['rating'],
           location: data['location'],
           number: data['number'],
           image: data['image'],
-          isFavorite:
-              favoriteData == null ? false : favoriteData[storeId] ?? false,
         ));
       });
-      _storeDB = loadedProducts;
+      _storeDB = loadedStores;
       notifyListeners();
     } catch (error) {
       throw (error);
@@ -84,27 +78,28 @@ class Stores with ChangeNotifier {
   // }
 
   Future<void> addStore(Store store) async {
-   // final url = '$baseUrl/stores.json?auth=$authToken';
-      //  final url=' https://test-22160-default-rtdb.firebaseio.com/users.json';
-      const url='https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/users.json';
+    // final url = '$baseUrl/stores.json?auth=$authToken';
+  
+    const url =
+        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
 
     return http
         .post(url,
             body: json.encode({
               'storeTitle': store.storeTitle,
-             // 'rating': store.rating,
+              // 'rating': store.rating,
               'location': store.location,
               'number': store.number,
               //'image': store.image,
             }))
         .then((res) {
       final newStore = Store(
-        storeTitle: store.storeTitle,
-       // rating: store.rating,
-        location: store.image,
-        number: store.number,
-       // image: store.image,
-         id: jsonDecode(res.body)['name']);
+          storeTitle: store.storeTitle,
+          // rating: store.rating,
+          location: store.image,
+          number: store.number,
+          // image: store.image,
+          id: jsonDecode(res.body)['name']);
 
       _storeDB.add(newStore);
       notifyListeners();
@@ -115,7 +110,7 @@ class Stores with ChangeNotifier {
 
   Future<void> updateStore(int id, Store newStore) async {
     final url =
-        'https://csc422-rldb-default-rtdb.firebaseio.com/products/$id.json';
+        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores/$id.json';
 
     final storeIndex = _storeDB.indexWhere((store) => store.id == id);
     if (storeIndex >= 0) {
