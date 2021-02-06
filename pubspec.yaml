@@ -23,14 +23,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^4.0.0
+  # provider: ^4.0.0
+  provider: ^4.3.2+3
   shared_preferences: ^0.5.12+4
   intl: ^0.15.8
   adobe_xd: ^1.0.0
   flutter_rating_bar: ^3.2.0+1
   rating_bar: ^0.2.0
   image_picker: ^0.6.7+14
-  
+  http: ^0.12.2
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -42,6 +44,7 @@ dev_dependencies:
   settings_ui: ^0.4.0
   firebase_core: ^0.7.0
   firebase_database: ^6.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
