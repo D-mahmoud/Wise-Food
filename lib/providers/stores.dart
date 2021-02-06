@@ -8,11 +8,12 @@ import 'auth.dart';
 class Stores with ChangeNotifier {
   static const baseUrl =
       "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/";
+      
   List<Store> _storeDB = [];
   String authToken;
   String userId;
 
-  Stores(this.authToken, this.userId, this._storeDB);
+  // Stores(this.authToken, this.userId, this._storeDB);
   List<Store> get items {
     return [..._storeDB];
   }
@@ -83,25 +84,27 @@ class Stores with ChangeNotifier {
   // }
 
   Future<void> addStore(Store store) async {
-    final url = '$baseUrl/stores.json?auth=$authToken';
+   // final url = '$baseUrl/stores.json?auth=$authToken';
+      //  final url=' https://test-22160-default-rtdb.firebaseio.com/users.json';
+      const url='https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/users.json';
 
     return http
         .post(url,
             body: json.encode({
               'storeTitle': store.storeTitle,
-              'rating': store.rating,
+             // 'rating': store.rating,
               'location': store.location,
               'number': store.number,
-              'image': store.image,
+              //'image': store.image,
             }))
         .then((res) {
       final newStore = Store(
         storeTitle: store.storeTitle,
-        rating: store.rating,
+       // rating: store.rating,
         location: store.image,
         number: store.number,
-        image: store.image,
-      );
+       // image: store.image,
+         id: jsonDecode(res.body)['name']);
 
       _storeDB.add(newStore);
       notifyListeners();

@@ -41,6 +41,7 @@ class _AddPageState extends State<AddPage> {
   var _isLoading = false;
   File _image;
   final picker = ImagePicker();
+
   Future getImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
 
@@ -91,10 +92,13 @@ class _AddPageState extends State<AddPage> {
         await Provider.of<Stores>(context, listen: false)
             .addStore(_editedStore);
       } catch (error) {
+        print("ERRRRRPR ");
+        print(error);
+        print("tab3anaaaah??????????");
         await showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text(error),
+            title: Text("error"),
             content: Text('Something went wrong.'),
             actions: <Widget>[
               FlatButton(
@@ -145,6 +149,7 @@ class _AddPageState extends State<AddPage> {
                         contentPadding:
                             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         labelText: "Name",
+                        //NAME
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(32.0))),
                     validator: (value) {
@@ -155,6 +160,14 @@ class _AddPageState extends State<AddPage> {
                       return null;
                     },
                     onSaved: (value) {
+                      _editedStore = Store(
+                        id: _editedStore.id,
+                        storeTitle: value,
+                        rating: _editedStore.rating,
+                        location: _editedStore.location,
+                        number: _editedStore.number,
+                        image: _editedStore.image,
+                      );
                       print('saved value is $value');
                     },
                   ),
@@ -176,29 +189,47 @@ class _AddPageState extends State<AddPage> {
                       return null;
                     },
                     onSaved: (value) {
+                       _editedStore = Store(
+                        id: _editedStore.id,
+                        storeTitle: _editedStore.storeTitle,
+                        rating: _editedStore.rating,
+                        location:value,
+                        number: _editedStore.number,
+                        image: _editedStore.image,
+                      );
                       print('saved value is $value');
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: TextFormField(
-                    style: TextStyle(color: Colors.green),
-                    decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        labelText: "Address",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(32.0))),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some text';
-                      }
+                // Padding(
+                //   padding: const EdgeInsets.all(20.0),
+                //   child: TextFormField(
+                //     style: TextStyle(color: Colors.green),
+                //     decoration: InputDecoration(
+                //         contentPadding:
+                //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                //         labelText: "Address",
+                //         border: OutlineInputBorder(
+                //             borderRadius: BorderRadius.circular(32.0))),
+                //     validator: (value) {
+                //       if (value.isEmpty) {
+                //         return 'Please enter some text';
+                //       }
 
-                      return null;
-                    },
-                  ),
-                ),
+                //       return null;
+                //     // },onSaved: (value) {
+                //     //    _editedStore = Store(
+                //     //     id: _editedStore.id,
+                //     //     storeTitle: _editedStore.storeTitle,
+                //     //     rating: _editedStore.rating,
+                //     //     location:value,
+                //     //     number: _editedStore.number,
+                //     //     image: _editedStore.image,
+                //     //   );
+                //      // print('saved value is $value');
+                //     },
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: TextFormField(
@@ -215,28 +246,48 @@ class _AddPageState extends State<AddPage> {
                       }
 
                       return null;
+                    },onSaved: (value) {
+                       _editedStore = Store(
+                        id: _editedStore.id,
+                        storeTitle: _editedStore.storeTitle,
+                        rating: _editedStore.rating,
+                        location:_editedStore.location,
+                        number:value,
+                        image: _editedStore.image,
+                      );
+                     print('saved value is $value');
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: TextFormField(
-                    style: TextStyle(color: Colors.green),
-                    decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        labelText: "Email",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(32.0))),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some text';
-                      }
+                // Padding(
+                //   padding: const EdgeInsets.all(20.0),
+                //   child: TextFormField(
+                //     style: TextStyle(color: Colors.green),
+                //     decoration: InputDecoration(
+                //         contentPadding:
+                //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                //         labelText: "Email",
+                //         border: OutlineInputBorder(
+                //             borderRadius: BorderRadius.circular(32.0))),
+                //     validator: (value) {
+                //       if (value.isEmpty) {
+                //         return 'Please enter some text';
+                //       }
 
-                      return null;
-                    },
-                  ),
-                ),
+                //       return null;
+                //     },onSaved: (value) {
+                //        _editedStore = Store(
+                //         id: _editedStore.id,
+                //         storeTitle: _editedStore.storeTitle,
+                //         rating: _editedStore.rating,
+                //         location:_editedStore.location,
+                //         number: _editedStore.number,
+                //         image: _editedStore.image,
+                //       );
+                //      print('saved value is $value');
+                //     },
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Material(

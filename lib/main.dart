@@ -15,30 +15,42 @@ import 'package:wisefood/providers/users.dart';
 import 'package:wisefood/providers/auth.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => Auth(),
-      child: MyApp(),
-    ),
-  );
-}
+// void main() {
+//   runApp(
+//     ChangeNotifierProvider(
+//       create: (context) => Auth(),
+//       child: MyApp(),
+//     ),
+//   );
+// }
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProxyProvider<Auth, Stores>(
-            create: (_) => Stores(
-                Provider.of<Auth>(context, listen: true).token,
-                Provider.of<Auth>(context, listen: true).userId, []),
-            update: (ctx, auth, products) =>
-                products..receiveToken(auth, products.items),
-          ),
-          ChangeNotifierProvider.value(
-            value: Users(),
-          ),
+          // ChangeNotifierProxyProvider<Auth, Stores>(
+          //   create: (_) => Stores(
+          //     //satreen dool 3amleen mashakl
+          //     //  Provider.of<Auth>(context, listen: false).token,
+          //     //   Provider.of<Auth>(context, listen: false).userId, []
+          //       ),
+          //   update: (ctx, auth, stores) =>
+          //       stores..receiveToken(auth, stores.items),
+          // ),
+          // ChangeNotifierProvider.value(
+          //   value: Users(),
+          // ),
+
+
+         ChangeNotifierProvider.value(
+          value: Stores(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Users(),
+        ),
+        
         ],
         child: MaterialApp(
           theme: ThemeData(
