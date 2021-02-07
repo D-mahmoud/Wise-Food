@@ -23,8 +23,6 @@ void main() {
     ),
   );
 }
-// void main() => runApp(MyApp());
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,8 +31,8 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProxyProvider<Auth, Stores>(
             create: (_) => Stores(
               //satreen dool 3amleen mashakl
-                Provider.of<Auth>(context, listen: true).token,
-                 Provider.of<Auth>(context, listen: true).userId, []
+                Provider.of<Auth>(context, listen: false).token,
+                 Provider.of<Auth>(context, listen: false).userId, []
                 ),
             update: (ctx, auth, stores) =>
                 stores..receiveToken(auth, stores.items),
@@ -42,30 +40,9 @@ class MyApp extends StatelessWidget {
         
 
 
-        //  ChangeNotifierProvider.value(
-        //   value: Stores(),
-        // ),
-      
         
         ],
-        // child: MaterialApp(
-        //   theme: ThemeData(
-        //     primarySwatch: Colors.green,
-        //     visualDensity: VisualDensity.adaptivePlatformDensity,
-        //   ),
-        //   home: HomePage(),
-        //   routes: {
-        //     'Home Page': (context) => HomePage(),
-        //     'profile': (context) => ProfilePage(),
-        //     'recommend': (context) => RecommendPage(),
-        //     'cuisines': (context) => CuisinePage(),
-        //     'settings': (context) => SettingsPage(),
-        //     'faqs': (context) => FAQPage(),
-        //     'help': (context) => HelpPage(),
-        //     'join us': (context) => JoinUsPage(),
-        //     'admin': (context) => AdminPage(),
-        //   },
-        // )
+        
         child: Consumer<Auth>(
             builder: (ctx, auth, _) => MaterialApp(
                   theme: ThemeData(

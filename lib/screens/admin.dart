@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/menu_tile.dart';
-import 'package:wisefood/screens/Add_Res.dart';
+import 'package:wisefood/screens/Edit_Store.dart';
 
 
 class AdminPage extends StatefulWidget {

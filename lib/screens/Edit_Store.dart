@@ -57,7 +57,7 @@ class _AddPageState extends State<AddPage> {
   @override
   void didChangeDependencies() {
     if (_isInit) {
-      final storeId = ModalRoute.of(context).settings.arguments;
+      final storeId = ModalRoute.of(context).settings.arguments as String;
       if (storeId != null) {
         _editedStore =
             Provider.of<Stores>(context, listen: false).findById(storeId);
@@ -201,35 +201,6 @@ class _AddPageState extends State<AddPage> {
                     },
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.all(20.0),
-                //   child: TextFormField(
-                //     style: TextStyle(color: Colors.green),
-                //     decoration: InputDecoration(
-                //         contentPadding:
-                //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                //         labelText: "Address",
-                //         border: OutlineInputBorder(
-                //             borderRadius: BorderRadius.circular(32.0))),
-                //     validator: (value) {
-                //       if (value.isEmpty) {
-                //         return 'Please enter some text';
-                //       }
-
-                //       return null;
-                //     // },onSaved: (value) {
-                //     //    _editedStore = Store(
-                //     //     id: _editedStore.id,
-                //     //     storeTitle: _editedStore.storeTitle,
-                //     //     rating: _editedStore.rating,
-                //     //     location:value,
-                //     //     number: _editedStore.number,
-                //     //     image: _editedStore.image,
-                //     //   );
-                //      // print('saved value is $value');
-                //     },
-                //   ),
-                // ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: TextFormField(
@@ -258,37 +229,7 @@ class _AddPageState extends State<AddPage> {
                      print('saved value is $value');
                     },
                   ),
-                ),
-                // Padding(
-                //   padding: const EdgeInsets.all(20.0),
-                //   child: TextFormField(
-                //     style: TextStyle(color: Colors.green),
-                //     decoration: InputDecoration(
-                //         contentPadding:
-                //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                //         labelText: "Email",
-                //         border: OutlineInputBorder(
-                //             borderRadius: BorderRadius.circular(32.0))),
-                //     validator: (value) {
-                //       if (value.isEmpty) {
-                //         return 'Please enter some text';
-                //       }
-
-                //       return null;
-                //     },onSaved: (value) {
-                //        _editedStore = Store(
-                //         id: _editedStore.id,
-                //         storeTitle: _editedStore.storeTitle,
-                //         rating: _editedStore.rating,
-                //         location:_editedStore.location,
-                //         number: _editedStore.number,
-                //         image: _editedStore.image,
-                //       );
-                //      print('saved value is $value');
-                //     },
-                //   ),
-                // ),
-                Padding(
+                ),Padding(
                   padding: const EdgeInsets.all(20),
                   child: Material(
                       elevation: 5.0,

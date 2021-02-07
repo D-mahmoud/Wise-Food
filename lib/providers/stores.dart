@@ -22,7 +22,7 @@ class Stores with ChangeNotifier {
     return _storeDB.where((storeTitle) => storeTitle.isFavorite).toList();
   }
 
-  Store findById(int id) {
+  Store findById(String id) {
     return _storeDB.firstWhere((storeTitle) => storeTitle.id == id);
   }
 
@@ -53,38 +53,11 @@ class Stores with ChangeNotifier {
     }
   }
 
-  // Future<void> fetchAndSetStores() async {
-  //   const url =
-  //       'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
-  //   try {
-  //     final response = await http.get(url);
-  //     final dbData = json.decode(response.body) as Map<String, dynamic>;
-  //     final List<Store> dbStores = [];
-  //     dbData.forEach((key, data) {
-  //       dbStores.add(Store(
-  //         storeTitle: data['storeTitle'],
-  //         rating: data['rating'],
-  //         location: data['location'],
-  //         number: data['number'],
-  //         image: data['image'],
-  //       ));
-  //     });
-  //     _storeDB = dbStores;
-  //     notifyListeners();
-  //   } on Exception catch (e) {
-  //     print(e.toString());
-  //     throw (e);
-  //   }
-  // }
-
   Future<void> addStore(Store store) async {
      final url = '$baseUrl/stores.json?auth=$authToken';
   
-   // const url =
-        //'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
       try{
-    //return http.post(url,
-    final response= await http.post(url,
+   final response= await http.post(url,
             body: json.encode({
               'storeTitle': store.storeTitle,
               // 'rating': store.rating,
@@ -93,7 +66,7 @@ class Stores with ChangeNotifier {
               //'image': store.image,
       }),
       );
-       // .then((res) {
+   
       final newStore = Store(
           storeTitle: store.storeTitle,
           // rating: store.rating,
