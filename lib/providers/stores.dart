@@ -13,7 +13,7 @@ class Stores with ChangeNotifier {
   String authToken;
   String userId;
 
-  // Stores(this.authToken, this.userId, this._storeDB);
+  Stores(this.authToken, this.userId, this._storeDB);
   List<Store> get items {
     return [..._storeDB];
   }
@@ -26,12 +26,12 @@ class Stores with ChangeNotifier {
     return _storeDB.firstWhere((storeTitle) => storeTitle.id == id);
   }
 
-  Future<void> fetchAndSetStores() async {
-    // final filterString =
-    //     filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
-    const url =
-        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
-    // var url = '$baseUrl/stores.json?auth=$authToken&$filterString';
+  Future<void> fetchAndSetStores({bool filterByUser =false}) async {
+     final filterString =
+         filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
+    //const url =
+        //'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+    var url = '$baseUrl/stores.json?auth=$authToken&$filterString';
     try {
       final response = await http.get(url);
       final dbData = json.decode(response.body) as Map<String, dynamic>;
@@ -78,55 +78,78 @@ class Stores with ChangeNotifier {
   // }
 
   Future<void> addStore(Store store) async {
-    // final url = '$baseUrl/stores.json?auth=$authToken';
+     final url = '$baseUrl/stores.json?auth=$authToken';
   
-    const url =
-        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
-
-    return http
-        .post(url,
+   // const url =
+        //'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+      try{
+    //return http.post(url,
+    final response= await http.post(url,
             body: json.encode({
               'storeTitle': store.storeTitle,
               // 'rating': store.rating,
               'location': store.location,
               'number': store.number,
               //'image': store.image,
-            }))
-        .then((res) {
+      }),
+      );
+       // .then((res) {
       final newStore = Store(
           storeTitle: store.storeTitle,
           // rating: store.rating,
           location: store.image,
           number: store.number,
           // image: store.image,
-          id: jsonDecode(res.body)['name']);
+          id: json.decode(response.body)['name']);
 
       _storeDB.add(newStore);
       notifyListeners();
-    }).catchError((error) {
+    }
+    //).catchError
+    catch(error) {
       print(error);
-    });
+      throw error;
+    }
+    //);
   }
 
   Future<void> updateStore(int id, Store newStore) async {
-    final url =
-        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores/$id.json';
+    // final url =
+    //     'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores/$id.json';
 
-    final storeIndex = _storeDB.indexWhere((store) => store.id == id);
-    if (storeIndex >= 0) {
+    // final storeIndex = _storeDB.indexWhere((store) => store.id == id);
+    // if (storeIndex >= 0) {
+    //   await http.patch(url,
+    //       body: json.encode({
+    //         'id': newStore.id,
+    //         'storeTitle': newStore.storeTitle,
+    //         'rating': newStore.rating,
+    //         'location': newStore.location,
+    //         'number': newStore.number,
+    //         'image': newStore.image,
+    //       }));
+    //   _storeDB[storeIndex] = newStore;
+    //   notifyListeners();
+    // }
+    final strIndex = _storeDB.indexWhere((str) => str.id == id);
+    if (strIndex >= 0) {
+      final url = '$baseUrl/stores/$id.json?auth=$authToken';
       await http.patch(url,
           body: json.encode({
-            'id': newStore.id,
+           'id': newStore.id,
             'storeTitle': newStore.storeTitle,
             'rating': newStore.rating,
             'location': newStore.location,
             'number': newStore.number,
             'image': newStore.image,
           }));
-      _storeDB[storeIndex] = newStore;
+      _storeDB[strIndex] = newStore;
       notifyListeners();
+    } else {
+      print('...');
     }
   }
+//delete na2sa
 
   void receiveToken(Auth auth, List<Store> items) {
     authToken = auth.token;
