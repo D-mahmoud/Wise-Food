@@ -12,8 +12,8 @@ enum FilterOptions {
 }
 
 class RecommendPage extends StatefulWidget {
-  // final _userName;
-  // RecommendPage(this._userName);
+  final _userName;
+  RecommendPage(this._userName);
   @override
   _RecommendPageState createState() => _RecommendPageState();
 }
