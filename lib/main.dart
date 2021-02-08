@@ -23,6 +23,7 @@ void main() {
     ),
   );
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,19 +31,14 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProxyProvider<Auth, Stores>(
             create: (_) => Stores(
-              //satreen dool 3amleen mashakl
+                //satreen dool 3amleen mashakl
                 Provider.of<Auth>(context, listen: false).token,
-                 Provider.of<Auth>(context, listen: false).userId, []
-                ),
+                Provider.of<Auth>(context, listen: false).userId,
+                []),
             update: (ctx, auth, stores) =>
                 stores..receiveToken(auth, stores.items),
           ),
-        
-
-
-        
         ],
-        
         child: Consumer<Auth>(
             builder: (ctx, auth, _) => MaterialApp(
                   theme: ThemeData(
@@ -62,7 +58,7 @@ class MyApp extends StatelessWidget {
                   routes: {
                     'Home Page': (context) => HomePage(),
                     'profile': (context) => ProfilePage(),
-                    // 'recommend': (context) => RecommendPage(),
+                    'recommend': (context) => RecommendPage(auth.userName),
                     'cuisines': (context) => CuisinePage(),
                     'settings': (context) => SettingsPage(),
                     'faqs': (context) => FAQPage(),
@@ -70,8 +66,6 @@ class MyApp extends StatelessWidget {
                     'join us': (context) => JoinUsPage(),
                     'admin': (context) => AdminPage(),
                   },
-                )
-                )
-        );
+                )));
   }
 }

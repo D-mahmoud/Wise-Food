@@ -1,46 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../models/store.dart';
+import 'package:wisefood/providers/stores.dart';
 
 class StoreItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final store = Provider.of<Store>(context, listen: false);
-
-    //print('ProductItem built again');
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: GridTile(
-        child: GestureDetector(
-          onTap: () {
-            // Navigator.of(context).pushNamed(
-            //   ProductDetailScreen.routeName,
-            //   arguments: product.id,
-            // );
-          },
-          child: Image.network(
-            store.image,
-            fit: BoxFit.cover,
-          ),
-        ),
-        footer: GridTileBar(
-          backgroundColor: Colors.black87,
-          leading: Consumer<Store>(
-            builder: (ctx, store, _) => IconButton(
-              icon: Icon(
-                store.isFavorite ? Icons.favorite : Icons.favorite_border,
+    final storeId = ModalRoute.of(context).settings.arguments as String;
+    final loadedStore = Provider.of<Stores>(
+      context,
+      listen: false,
+    ).findById(storeId);
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Text(loadedStore.storeTitle),
+            SizedBox(height: 10),
+            Text(
+              '${loadedStore.number}',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 20,
               ),
-              color: Theme.of(context).accentColor,
-              onPressed: () {
-                store.toggleFavoriteStatus();
-              },
             ),
-          ),
-          // title: Text(
-          //   store.storeTitle,
-          //   textAlign: TextAlign.center,
-          // ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              width: double.infinity,
+              child: Text(
+                loadedStore.location,
+                textAlign: TextAlign.center,
+              ),
+            )
+          ],
         ),
       ),
     );

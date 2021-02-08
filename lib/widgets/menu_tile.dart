@@ -5,7 +5,7 @@ import 'package:wisefood/screens/store_profile.dart';
 class MenuTile extends StatelessWidget {
   final String image;
   final String text;
-
+  static const routeName = '/product-detail';
   MenuTile({this.image, this.text});
   @override
   Widget build(BuildContext context) {

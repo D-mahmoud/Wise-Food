@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/menu_tile.dart';
 import 'package:wisefood/widgets/stores_grid.dart';
-
+import 'package:wisefood/widgets/drawer.dart';
 import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/models/store.dart';
 import 'package:provider/provider.dart';
@@ -100,6 +100,7 @@ class _RecommendPageState extends State<RecommendPage> {
                       });
                     })
           ]),
+      drawer: AppDrawer(),
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(),

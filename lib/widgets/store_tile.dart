@@ -1,26 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rating_bar/rating_bar.dart';
+import 'package:wisefood/providers/stores.dart';
 // import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class StoreTile extends StatelessWidget {
-  final String storeTitle;
-  final String image;
-  final String location;
-  final String number;
-  final double rating;
-  final String review;
+  static const routeName = '/store-detail';
 
-  StoreTile({
-    this.storeTitle,
-    this.rating,
-    this.image,
-    this.location,
-    this.number,
-    this.review,
-  });
   @override
   Widget build(BuildContext context) {
+    final storeId = ModalRoute.of(context).settings.arguments as String;
+    final loadedStore = Provider.of<Stores>(
+      context,
+      listen: false,
+    ).findById(storeId);
     return Scaffold(
         body: Column(children: [
       new Container(
@@ -33,14 +27,14 @@ class StoreTile extends StatelessWidget {
               color: Colors.green[100],
             ),
             child: Image.asset(
-              image,
+              loadedStore.image,
               width: 100,
               height: 100,
               alignment: Alignment.topLeft,
             ),
           ),
           Container(
-              child: Text(storeTitle,
+              child: Text(loadedStore.storeTitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'MajorMono',
@@ -69,24 +63,24 @@ class StoreTile extends StatelessWidget {
       //   )),
       // ),
 
-      new Container(
-          child: RatingBar.readOnly(
-        initialRating: rating,
-        isHalfAllowed: true,
-        halfFilledIcon: Icons.star_half,
-        filledIcon: Icons.star,
-        emptyIcon: Icons.star_border,
-      )),
+      // new Container(
+      //     child: RatingBar.readOnly(
+      //   initialRating: rating,
+      //   isHalfAllowed: true,
+      //   halfFilledIcon: Icons.star_half,
+      //   filledIcon: Icons.star,
+      //   emptyIcon: Icons.star_border,
+      // )),
 
       new Container(
-          child: Text(location,
+          child: Text(loadedStore.location,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: 'MajorMono',
                   fontWeight: FontWeight.bold,
                   fontSize: 22))),
       new Container(
-          child: Text(number,
+          child: Text(loadedStore.number,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: 'MajorMono',
