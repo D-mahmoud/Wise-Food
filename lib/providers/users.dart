@@ -35,7 +35,8 @@ class Users with ChangeNotifier {
 
   Future<User> addUser(User user) async {
     const url =
-        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/users.json';
+        // 'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/users.json';
+       ' https://test-22160-default-rtdb.firebaseio.com/users.json';
 
     return http
         .post(url,
@@ -102,7 +103,8 @@ class Users with ChangeNotifier {
   signup(String name, String number, String image, String username,
       String password) {
     const url =
-        'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+        // 'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+       ' https://test-22160-default-rtdb.firebaseio.com/users.json';
     http.post(url,
         body: json.encode({
           'name': name,

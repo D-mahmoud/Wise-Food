@@ -1,10 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:wisefood/providers/auth.dart';
-
 import 'package:wisefood/models/HTTPexception.dart';
 
 enum AuthMode { Signup, Login }
@@ -15,23 +11,10 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    // final transformConfig = Matrix4.rotationZ(-8 * pi / 180);
-    // transformConfig.translate(-10.0);
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                //colors: [
-                //Color.fromRGBO(220, 230, 200, 1).withOpacity(0.4),
-                //Color.fromRGBO(100, 80, 255, 1).withOpacity(0.9),
-                //],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-          ),
           SingleChildScrollView(
             child: Container(
               height: deviceSize.height,
@@ -42,31 +25,12 @@ class AuthScreen extends StatelessWidget {
                 children: <Widget>[
                   Flexible(
                     child: Container(
-                      margin: EdgeInsets.only(bottom: 20.0),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 94.0),
-                      transform: Matrix4.rotationZ(-9 * pi / 180)
-                        ..translate(-10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.purple.shade900,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 8,
-                            color: Colors.black26,
-                            offset: Offset(0, 2),
-                          )
-                        ],
-                      ),
-                      child: Text(
-                        'MIU-Shop',
-                        style: TextStyle(
-                          color:
-                              Theme.of(context).accentTextTheme.headline6.color,
-                          fontSize: 50,
-                          fontFamily: 'Anton',
-                          fontWeight: FontWeight.normal,
-                        ),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 94.0),
+                      child: Image.asset(
+                        "images/logo.png",
+                        alignment: Alignment.topCenter,
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ),
@@ -201,7 +165,7 @@ class _AuthCardState extends State<AuthCard> {
             child: Column(
               children: <Widget>[
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'E-Mail'),
+                  decoration: InputDecoration(labelText: 'Email'),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value.isEmpty || !value.contains('@')) {

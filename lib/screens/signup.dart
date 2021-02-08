@@ -11,13 +11,16 @@ class SignUpPage extends StatefulWidget {
   _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  var _passwordVisible;
-  @override
-  void initState() {
-    _passwordVisible = false;
-    super.initState();
-  }
+class _SignUpPageState extends State<SignUpPage> {  // var _passwordVisible;
+  // @override
+  // void initState() {
+  //   _passwordVisible = false;
+  //   super.initState();
+  // }
+void  _submit() 
+{
+
+}
 
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   static final validCharacters = RegExp(r'^[a-zA-Z0-9]+$');
@@ -31,24 +34,24 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    Users u = new Users();
-    User user = new User();
-    Widget submit = FlatButton(
-      child: Text(
-        "Submit",
-      ),
-      onPressed: () {
-        Navigator.of(context, rootNavigator: true).pop();
-        // user(
-        //   namecontroller.text,
-        //   passwordcontroller.text,
-        //   mobilecontroller.text,
-        //   usernamecontroller.text,
-        //   imagecontroller.text,
-        // );
-        u.addUser(user);
-      },
-    );
+    // Users u = new Users();
+    // User user = new User();
+    // Widget submit = FlatButton(
+    //   child: Text(
+    //     "Submit",
+    //   ),
+    //   onPressed: () {
+    //     Navigator.of(context, rootNavigator: true).pop();
+    //     // user(
+    //     //   namecontroller.text,
+    //     //   passwordcontroller.text,
+    //     //   mobilecontroller.text,
+    //     //   usernamecontroller.text,
+    //     //   imagecontroller.text,
+    //     // );
+    //     u.addUser(user);
+    //   },
+    // );
     return Scaffold(
       appBar: AppBar(
         title: Text('Sign Up'),
@@ -80,6 +83,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       return null;
                     },
                     onSaved: (value) {
+                      // name=value;
+                      //User(name: value);
                       print('saved value is $value');
                     },
                   ),
@@ -108,10 +113,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: TextFormField(
+                    obscureText: true,
                     decoration: InputDecoration(
                         contentPadding:
                             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         labelText: "Password",
+                        
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(32.0))),
                     validator: (value) {
@@ -131,6 +138,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: TextFormField(
+                     obscureText: true,
                     decoration: InputDecoration(
                         contentPadding:
                             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -194,6 +202,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 Padding(
+                  // button
                   padding: const EdgeInsets.all(20),
                   child: Material(
                     elevation: 5.0,
@@ -208,7 +217,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         // otherwise.
                         if (_formKey.currentState.validate()) {
                           // If the form is valid, display a Snackbar.
-
+                          _submit();
                           Scaffold.of(context).showSnackBar(
                               SnackBar(content: Text('Processing Data')));
                           _formKey.currentState.save();
@@ -220,29 +229,29 @@ class _SignUpPageState extends State<SignUpPage> {
                         }
                         // _formKey.currentState.save();
                       },
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: FlatButton(
-                          onPressed: () {
-                            // Validate returns true if the form is valid, or false
-                            // otherwise.
+                      // child: Align(
+                      //   alignment: Alignment.topCenter,
+                      //   child: FlatButton(
+                      //     onPressed: () {
+                      //       // Validate returns true if the form is valid, or false
+                      //       // otherwise.
 
-                            if (_formKey.currentState.validate()) {
-                              return showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    content:
-                                        Text("Account created successfully"),
-                                    actions: [submit],
-                                  );
-                                },
-                              );
-                            }
-                          },
-                          child: Text('Sign Up'),
-                        ),
-                      ),
+                      //       if (_formKey.currentState.validate()) {
+                      //         return showDialog(
+                      //           context: context,
+                      //           builder: (context) {
+                      //             return AlertDialog(
+                      //               content:
+                      //                   Text("Account created successfully"),
+                      //               // actions: [submit],
+                      //             );
+                      //           },
+                      //         );
+                      //       }
+                      //     },
+                      //     child: Text('Sign Up'),
+                      //   ),
+                      // ),
                     ),
                   ),
                 ),
