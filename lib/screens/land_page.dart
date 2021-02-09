@@ -6,32 +6,7 @@ class SignInPage extends StatefulWidget {
   _SignInPageState createState() => _SignInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
-  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Image.asset(
-                  "images/logo.png",
-                  alignment: Alignment.topCenter,
-                  fit: BoxFit.contain,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        labelText: "Email",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(32.0))),
+clasr(32.0))),
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Please enter data';
