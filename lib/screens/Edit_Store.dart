@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+
 import 'package:provider/provider.dart';
 import 'package:wisefood/models/store.dart';
 import 'package:wisefood/providers/stores.dart';
@@ -15,7 +14,11 @@ class AddPage extends StatefulWidget {
 
 class _AddPageState extends State<AddPage> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-  static final validCharacters = RegExp(r'^[a-zA-Z0-9]+$');
+
+  final _priceFocusNode = FocusNode();
+  final _descriptionFocusNode = FocusNode();
+  final _imageUrlController = TextEditingController();
+  final _imageUrlFocusNode = FocusNode();
 
   ///image Picker
   final _formKey = GlobalKey<FormState>();
@@ -25,7 +28,7 @@ class _AddPageState extends State<AddPage> {
     rating: 0,
     number: '',
     location: '',
-    image: '',
+    imageUrl: '',
     review: '',
   );
   var _initValues = {
@@ -39,19 +42,11 @@ class _AddPageState extends State<AddPage> {
   };
   var _isInit = true;
   var _isLoading = false;
-  File _image;
-  final picker = ImagePicker();
 
-  Future getImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
-
-    setState(() {
-      if (pickedFile != null) {
-        _image = File(pickedFile.path);
-      } else {
-        print('No image selected.');
-      }
-    });
+  @override
+  void initState() {
+    _imageUrlFocusNode.addListener(_updateImageUrl);
+    super.initState();
   }
 
   @override
@@ -67,12 +62,36 @@ class _AddPageState extends State<AddPage> {
           'rating': _editedStore.rating,
           'location': _editedStore.location,
           'number': _editedStore.number,
-          'image': _editedStore.image,
+          'image': _editedStore.imageUrl,
         };
+        _imageUrlController.text = _editedStore.imageUrl;
       }
     }
     _isInit = false;
     super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    _imageUrlFocusNode.removeListener(_updateImageUrl);
+    _priceFocusNode.dispose();
+    _descriptionFocusNode.dispose();
+    _imageUrlController.dispose();
+    _imageUrlFocusNode.dispose();
+    super.dispose();
+  }
+
+  void _updateImageUrl() {
+    if (!_imageUrlFocusNode.hasFocus) {
+      if ((!_imageUrlController.text.startsWith('http') &&
+              !_imageUrlController.text.startsWith('https')) ||
+          (!_imageUrlController.text.endsWith('.png') &&
+              !_imageUrlController.text.endsWith('.jpg') &&
+              !_imageUrlController.text.endsWith('.jpeg'))) {
+        return;
+      }
+      setState(() {});
+    }
   }
 
   Future<void> _saveForm() async {
@@ -117,6 +136,7 @@ class _AddPageState extends State<AddPage> {
     });
     Navigator.of(context).pop();
   }
+
 // zawdy type 3ashan cuisine page tzbot
   @override
   Widget build(BuildContext context) {
@@ -132,16 +152,6 @@ class _AddPageState extends State<AddPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                // Center(
-                //   child: _image == null
-                //       ? Text('No image selected.')
-                //       : Image.file(_image),
-                // ),
-                FloatingActionButton(
-                  onPressed: getImage,
-                  tooltip: 'Pick Image',
-                  child: Icon(Icons.add_a_photo),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: TextFormField(
@@ -166,7 +176,7 @@ class _AddPageState extends State<AddPage> {
                         rating: _editedStore.rating,
                         location: _editedStore.location,
                         number: _editedStore.number,
-                        image: _editedStore.image,
+                        imageUrl: _editedStore.imageUrl,
                       );
                       print('saved value is $value');
                     },
@@ -189,13 +199,13 @@ class _AddPageState extends State<AddPage> {
                       return null;
                     },
                     onSaved: (value) {
-                       _editedStore = Store(
+                      _editedStore = Store(
                         id: _editedStore.id,
                         storeTitle: _editedStore.storeTitle,
                         rating: _editedStore.rating,
-                        location:value,
+                        location: value,
                         number: _editedStore.number,
-                        image: _editedStore.image,
+                        imageUrl: _editedStore.imageUrl,
                       );
                       print('saved value is $value');
                     },
@@ -217,19 +227,51 @@ class _AddPageState extends State<AddPage> {
                       }
 
                       return null;
-                    },onSaved: (value) {
-                       _editedStore = Store(
+                    },
+                    onSaved: (value) {
+                      _editedStore = Store(
                         id: _editedStore.id,
                         storeTitle: _editedStore.storeTitle,
                         rating: _editedStore.rating,
-                        location:_editedStore.location,
-                        number:value,
-                        image: _editedStore.image,
+                        location: _editedStore.location,
+                        number: value,
+                        imageUrl: _editedStore.imageUrl,
                       );
-                     print('saved value is $value');
+                      print('saved value is $value');
                     },
                   ),
-                ),Padding(
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: TextFormField(
+                    style: TextStyle(color: Colors.green),
+                    decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                        labelText: "Image",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(32.0))),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+
+                      return null;
+                    },
+                    onSaved: (value) {
+                      _editedStore = Store(
+                        id: _editedStore.id,
+                        storeTitle: _editedStore.storeTitle,
+                        rating: _editedStore.rating,
+                        location: _editedStore.location,
+                        number: _editedStore.number,
+                        imageUrl: value,
+                      );
+                      print('saved value is $value');
+                    },
+                  ),
+                ),
+                Padding(
                   padding: const EdgeInsets.all(20),
                   child: Material(
                       elevation: 5.0,

@@ -27,7 +27,7 @@ class _StoreProfileState extends State<StoreProfile> {
               height: 300,
               width: double.infinity,
               child: Image.network(
-                loadedStore.image,
+                loadedStore.imageUrl,
                 fit: BoxFit.cover,
               ),
             ),

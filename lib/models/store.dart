@@ -4,7 +4,7 @@ class Store with ChangeNotifier {
   final int id;
   final String storeTitle;
   final double rating;
-  final String image;
+  final String imageUrl;
   final String location;
   final String number;
   final String review;
@@ -14,7 +14,7 @@ class Store with ChangeNotifier {
       {this.id,
       this.storeTitle,
       this.rating,
-      this.image,
+      this.imageUrl,
       this.location,
       this.number,
       this.review,
@@ -33,7 +33,7 @@ class StoreData {
       //0
       storeTitle: 'Gringos Burrito Grill',
       rating: 1.0,
-      image: 'images/Gringos.jpg',
+      imageUrl: 'images/Gringos.jpg',
       location: 'Zamalek',
       number: '19734',
       review: 'Good restaurant',
@@ -42,7 +42,7 @@ class StoreData {
         //1
         storeTitle: 'Mezcal',
         rating: 5,
-        image: 'images/mezcal.png',
+        imageUrl: 'images/mezcal.png',
         location: 'Zamalek',
         number: '19742',
         review: 'Good restaurant'),
@@ -50,7 +50,7 @@ class StoreData {
         //2
         storeTitle: 'Tacos Mexican Food',
         rating: 4,
-        image: 'images/tacos.jpg',
+        imageUrl: 'images/tacos.jpg',
         location: 'Maadi',
         number: '19792',
         review: 'Good restaurant'),
@@ -58,7 +58,7 @@ class StoreData {
         //3
         storeTitle: 'El Chico',
         rating: 5,
-        image: 'images/elchico.jpeg',
+        imageUrl: 'images/elchico.jpeg',
         location: 'Nasr City',
         number: '19233',
         review: 'Good restaurant'),
@@ -66,7 +66,7 @@ class StoreData {
         //4
         storeTitle: 'CaiRoma',
         rating: 1,
-        image: 'images/cairoma.jpg',
+        imageUrl: 'images/cairoma.jpg',
         location: 'Nasr City',
         number: '19242',
         review: 'Good restaurant'),
@@ -74,7 +74,7 @@ class StoreData {
         //5
         storeTitle: 'Osmanly Restaurant',
         rating: 2,
-        image: 'images/osmanly.jpeg',
+        imageUrl: 'images/osmanly.jpeg',
         location: 'Abdeen',
         number: '19432',
         review: 'Good restaurant'),
@@ -84,7 +84,7 @@ class StoreData {
     return [
       _storeDB[level].storeTitle,
       _storeDB[level].rating,
-      _storeDB[level].image,
+      _storeDB[level].imageUrl,
       _storeDB[level].location,
       _storeDB[level].number,
       _storeDB[level].review

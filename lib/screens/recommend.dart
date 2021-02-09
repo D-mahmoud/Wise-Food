@@ -100,7 +100,7 @@ class _RecommendPageState extends State<RecommendPage> {
                       });
                     })
           ]),
-      drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(),

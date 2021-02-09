@@ -43,7 +43,7 @@ class Stores with ChangeNotifier {
           rating: data['rating'],
           location: data['location'],
           number: data['number'],
-          image: data['image'],
+          imageUrl: data['image'],
         ));
       });
       _storeDB = loadedStores;
@@ -70,7 +70,7 @@ class Stores with ChangeNotifier {
       final newStore = Store(
           storeTitle: store.storeTitle,
           // rating: store.rating,
-          location: store.image,
+          location: store.imageUrl,
           number: store.number,
           // image: store.image,
           id: json.decode(response.body)['name']);
@@ -114,7 +114,7 @@ class Stores with ChangeNotifier {
             'rating': newStore.rating,
             'location': newStore.location,
             'number': newStore.number,
-            'image': newStore.image,
+            'image': newStore.imageUrl,
           }));
       _storeDB[strIndex] = newStore;
       notifyListeners();

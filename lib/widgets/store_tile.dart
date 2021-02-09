@@ -27,7 +27,7 @@ class StoreTile extends StatelessWidget {
               color: Colors.green[100],
             ),
             child: Image.asset(
-              loadedStore.image,
+              loadedStore.imageUrl,
               width: 100,
               height: 100,
               alignment: Alignment.topLeft,
