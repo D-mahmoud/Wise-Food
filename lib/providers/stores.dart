@@ -26,11 +26,11 @@ class Stores with ChangeNotifier {
     return _storeDB.firstWhere((storeTitle) => storeTitle.id == id);
   }
 
-  Future<void> fetchAndSetStores({bool filterByUser =false}) async {
-     final filterString =
-         filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
+  Future<void> fetchAndSetStores({bool filterByUser = false}) async {
+    final filterString =
+        filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
     //const url =
-        //'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+    //'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
     var url = '$baseUrl/stores.json?auth=$authToken&$filterString';
     try {
       final response = await http.get(url);
@@ -54,19 +54,20 @@ class Stores with ChangeNotifier {
   }
 
   Future<void> addStore(Store store) async {
-     final url = '$baseUrl/stores.json?auth=$authToken';
-  
-      try{
-   final response= await http.post(url,
-            body: json.encode({
-              'storeTitle': store.storeTitle,
-              // 'rating': store.rating,
-              'location': store.location,
-              'number': store.number,
-              //'image': store.image,
-      }),
+    final url = '$baseUrl/stores.json?auth=$authToken';
+
+    try {
+      final response = await http.post(
+        url,
+        body: json.encode({
+          'storeTitle': store.storeTitle,
+          // 'rating': store.rating,
+          'location': store.location,
+          'number': store.number,
+          //'image': store.image,
+        }),
       );
-   
+
       final newStore = Store(
           storeTitle: store.storeTitle,
           // rating: store.rating,
@@ -79,7 +80,7 @@ class Stores with ChangeNotifier {
       notifyListeners();
     }
     //).catchError
-    catch(error) {
+    catch (error) {
       print(error);
       throw error;
     }
@@ -109,7 +110,7 @@ class Stores with ChangeNotifier {
       final url = '$baseUrl/stores/$id.json?auth=$authToken';
       await http.patch(url,
           body: json.encode({
-           'id': newStore.id,
+            'id': newStore.id,
             'storeTitle': newStore.storeTitle,
             'rating': newStore.rating,
             'location': newStore.location,
