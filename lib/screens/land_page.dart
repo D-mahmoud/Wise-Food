@@ -11,13 +11,7 @@ class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Builder(
-        builder: (context) => Form(
+
           key: _formKey,
           child: SingleChildScrollView(
             child: Column(
