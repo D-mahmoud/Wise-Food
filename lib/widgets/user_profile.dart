@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wisefood/widgets/drawer.dart';
 
 class newuserprofileprofile extends StatefulWidget {
    final _userName;
@@ -18,7 +19,10 @@ class _newuserprofileprofileState extends State<newuserprofileprofile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+       appBar: AppBar(
+         title: Text("My Profile"),
+       ),
+        drawer: AppDrawer(),
       body: Stack(
         children: <Widget>[
           Transform.translate(
@@ -51,20 +55,20 @@ class _newuserprofileprofileState extends State<newuserprofileprofile> {
                         ),
                       ),
                     ),
-                    Transform.translate(
-                      offset: Offset(154.0, 53.8),
-                      child: Text(
-                        'MY PROFILE',
-                        style: TextStyle(
-                          fontFamily: 'SF Pro Text',
-                          fontSize: 13,
-                          color: const Color(0xff242134),
-                          letterSpacing: 1.3,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
+                    // Transform.translate(
+                    //   offset: Offset(154.0, 53.8),
+                    //   child: Text(
+                    //     'MY PROFILE',
+                    //     style: TextStyle(
+                    //       fontFamily: 'SF Pro Text',
+                    //       fontSize: 13,
+                    //       color: const Color(0xff242134),
+                    //       letterSpacing: 1.3,
+                    //       fontWeight: FontWeight.w700,
+                    //     ),
+                    //     textAlign: TextAlign.left,
+                    //   ),
+                    // ),
                     Transform.translate(
                       offset: Offset(347.4, 38.5),
                       child: SizedBox(
@@ -176,7 +180,9 @@ class _newuserprofileprofileState extends State<newuserprofileprofile> {
           ),
         ],
       ),
+       
     );
+    
   }
 }
 
