@@ -4,7 +4,7 @@ import 'package:wisefood/widgets/faq.dart';
 import 'package:wisefood/widgets/help.dart';
 import 'package:wisefood/widgets/joinus.dart';
 import 'package:wisefood/widgets/user_profile.dart';
-import 'package:wisefood/newuserprofileprofile.dart';
+import 'package:wisefood/widgets/newuserprofileprofile.dart';
 import 'package:wisefood/screens/recommend.dart';
 import 'package:wisefood/screens/admin.dart';
 import 'package:wisefood/widgets/settings.dart';
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
                         ),
                   routes: {
                     'Home Page': (context) => HomePage(),
-                    'profile': (context) => newuserprofileprofile(),
+                    'profile': (context) => newuserprofileprofile(auth.userName,auth.email),
                     'recommend': (context) => RecommendPage(auth.userName),
                     'cuisines': (context) => CuisinePage(),
                     'settings': (context) => SettingsPage(),

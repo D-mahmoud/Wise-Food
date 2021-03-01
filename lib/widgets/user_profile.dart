@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
+   final _userName;
+  ProfilePage(this._userName);
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }

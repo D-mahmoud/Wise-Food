@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:adobe_xd/pinned.dart';
+// import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class newuserprofileprofile extends StatelessWidget {
-  newuserprofileprofile({
-    Key key,
-  }) : super(key: key);
+class newuserprofileprofile extends StatefulWidget {
+   final _userName;
+   final _email;
+  newuserprofileprofile(this._userName,this._email);
+  // newuserprofileprofile({
+  //   Key key,
+  // }) : super(key: key);
+
+  @override
+  _newuserprofileprofileState createState() => _newuserprofileprofileState();
+}
+
+class _newuserprofileprofileState extends State<newuserprofileprofile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,8 +115,8 @@ class newuserprofileprofile extends StatelessWidget {
                       offset: Offset(33.2, 523.1),
                       child:
                           // Adobe XD layer: 'text' (text)
-                          Text(
-                        'niculici.victor',
+                          Text(' ${widget._userName} ',
+                        // 'niculici.victor',
                         style: TextStyle(
                           fontFamily: 'SF Pro Text',
                           fontSize: 17,
@@ -122,7 +131,7 @@ class newuserprofileprofile extends StatelessWidget {
                       child:
                           // Adobe XD layer: 'text' (text)
                           Text(
-                        'niculici.victor@gmail.com',
+                       ' ${widget._email} ',
                         style: TextStyle(
                           fontFamily: 'SF Pro Text',
                           fontSize: 17,
@@ -148,7 +157,7 @@ class newuserprofileprofile extends StatelessWidget {
                       child: SizedBox(
                         width: 271.0,
                         child: Text(
-                          'Victor Niculici',
+                         ' ${widget._userName} ',
                           style: TextStyle(
                             fontFamily: 'SF Pro Text',
                             fontSize: 35,
