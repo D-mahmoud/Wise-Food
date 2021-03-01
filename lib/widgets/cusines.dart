@@ -1,3 +1,4 @@
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 class CuisinePage extends StatefulWidget {
@@ -39,101 +40,147 @@ class __CuisinePageState extends State<CuisinePage> {
                       });
                     })
           ]),
-      body: Center(
+      body: Container(
+        height: 550,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
           children: [
-            Container(
-              child: Text(
-                'Choose from our wide range of cusines',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            Expanded(
+              child: ListView(
+                children: [
+                  SizedBox(
+                    height: 250,
+                    width: double.infinity,
+                    child: Carousel(
+                      images: [
+                        InkWell(
+                            onTap: () {
+                              print("chinese");
+                            },
+                            child: Image.asset('images/chinese.png',
+                                fit: BoxFit.fill)),
+                        InkWell(
+                            onTap: () {},
+                            child: Image.asset('images/mexican.jpg',
+                                fit: BoxFit.fill)),
+                        InkWell(
+                            onTap: () {},
+                            child: Image.asset('images/oriental.jpg',
+                                fit: BoxFit.fill)),
+                        InkWell(
+                            onTap: () {},
+                            child: Image.asset('images/indian.jpg',
+                                fit: BoxFit.fill)),
+                        InkWell(
+                            onTap: () {},
+                            child: Image.asset('images/italian.jpg',
+                                fit: BoxFit.fill)),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
+           
             Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {},
-                  child: Text(
-                    'Indian',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              height: 100,
+              child: Padding(
+                padding:EdgeInsets.only(top: 0,bottom:0),
+                // const EdgeInsets.all(8.0),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      RaisedButton(
+                       padding:
+                         //   EdgeInsets.symmetric(horizontal: 50.0, vertical: 50.0),
+                           const EdgeInsets.all(40.0),
+                        color: Colors.green[100],
+                        onPressed: () {},
+                        child: Text(
+                          'Indian',
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                      ),
+                      RaisedButton(
+                         padding:
+                        //     // EdgeInsets.symmetric(horizontal: 50.0, vertical: 50.0),
+                             const EdgeInsets.all(40.0),
+                        color: Colors.green[100],
+                        onPressed: () {},
+                        child: Text(
+                          'Chinese',
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                      ),
+                    ]),
+              ),
+            ),
+            Padding(
+                padding:EdgeInsets.only(top: 8,bottom:1,right: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  RaisedButton(
+                     padding:
+                     const EdgeInsets.all(40.0),
+
+                    color: Colors.green[100],
+                    onPressed: () {},
+                    child: Text(
+                      'Italian',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
                   ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Tank()),
-                    // );
-                  },
-                  child: Text(
-                    'Chinese',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  RaisedButton(
+                   padding:
+                        //  EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                         const EdgeInsets.all(40.0),
+                      //  EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+                    color: Colors.green[100],
+                    onPressed: () {},
+                    child: Text(
+                      'Oriental',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
                   ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Tank()),
-                    // );
-                  },
-                  child: Text(
-                    'Italian',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  RaisedButton(
+                    // padding:
+                    //     //EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                    //     const EdgeInsets.all(40.0),
+                    color: Colors.green[100],
+                    onPressed: () {},
+                    child: Text(
+                      'Mexican',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
                   ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Tank()),
-                    // );
-                  },
-                  child: Text(
-                    'Oriental',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
-            Container(
-                width: 300,
-                height: 50,
-                child: RaisedButton(
-                  color: Colors.green[100],
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Tank()),
-                    // );
-                  },
-                  child: Text(
-                    'Mexican',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                )),
+                ],
+              ),
+            ),
           ],
         ),
       ),

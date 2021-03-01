@@ -32,6 +32,8 @@ dependencies:
   rating_bar: ^0.2.0
   image_picker: ^0.6.7+14
   http: ^0.12.2
+  carousel_pro: ^1.0.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
