@@ -17,51 +17,42 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.shop),
-            title: Text('Shop'),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/');
-            },
+            title: Text('Home'),
+            onTap: () => Navigator.pushNamed(context, 'home'),
           ),
           ListTile(
-              title: Text('Home'),
-              onTap: () => Navigator.pushNamed(context, 'home'),
-            ),
-            ListTile(
-              title: Text('Profile'),
-              onTap: () => Navigator.pushNamed(context, 'profile'),
-            ),
-          
-           
-            ListTile(
-              title: Text('Recommendations'),
-              onTap: () => Navigator.pushNamed(context, 'recommend'),
-            ),
-            ListTile(
-              title: Text('Cuisines'),
-              onTap: () => Navigator.pushNamed(context, 'cuisines'),
-            ),
-            ListTile(
-              title: Text('Join Us'),
-              onTap: () => Navigator.pushNamed(context, 'join us'),
-            ),
-            ListTile(
-              title: Text('Settings'),
-              onTap: () => Navigator.pushNamed(context, 'settings'),
-            ),
-            ListTile(
-              title: Text('FAQs'),
-              onTap: () => Navigator.pushNamed(context, 'faqs'),
-            ),
-            ListTile(
-              title: Text('Help'),
-              onTap: () => Navigator.pushNamed(context, 'help'),
-            ),
-            ListTile(
-              title: Text('Admin'),
-              onTap: () => Navigator.pushNamed(context, 'admin'),
-            ),
-        
+            title: Text('Profile'),
+            onTap: () => Navigator.pushNamed(context, 'profile'),
+          ),
+          ListTile(
+            leading: Icon(Icons.shop),
+            title: Text('Recommendations'),
+            onTap: () => Navigator.pushNamed(context, 'recommend'),
+          ),
+          ListTile(
+            title: Text('Cuisines'),
+            onTap: () => Navigator.pushNamed(context, 'cuisines'),
+          ),
+          ListTile(
+            title: Text('Join Us'),
+            onTap: () => Navigator.pushNamed(context, 'join us'),
+          ),
+          ListTile(
+            title: Text('Settings'),
+            onTap: () => Navigator.pushNamed(context, 'settings'),
+          ),
+          ListTile(
+            title: Text('FAQs'),
+            onTap: () => Navigator.pushNamed(context, 'faqs'),
+          ),
+          ListTile(
+            title: Text('Help'),
+            onTap: () => Navigator.pushNamed(context, 'help'),
+          ),
+          ListTile(
+            title: Text('Admin'),
+            onTap: () => Navigator.pushNamed(context, 'admin'),
+          ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Log Out'),
