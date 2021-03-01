@@ -40,7 +40,7 @@ class Stores with ChangeNotifier {
       dbData.forEach((storeId, data) {
         loadedStores.add(Store(
           storeTitle: data['storeTitle'],
-          rating: data['rating'],
+         // rating: data['rating'],
           location: data['location'],
           number: data['number'],
           image: data['image'],
