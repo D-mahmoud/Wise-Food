@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
-
+import 'package:wisefood/widgets/drawer.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageeState createState() => _HomePageeState();
@@ -29,56 +29,7 @@ class _HomePageeState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text('Home'),
-              onTap: () => Navigator.pushNamed(context, 'home'),
-            ),
-            ListTile(
-              title: Text('Profile'),
-              onTap: () => Navigator.pushNamed(context, 'profile'),
-            ),
-            ListTile(
-              title: Text('Sign Up'),
-              onTap: () => Navigator.pushNamed(context, 'Sign Up'),
-            ),
-            ListTile(
-              title: Text('Sign In'),
-              onTap: () => Navigator.pushNamed(context, 'Sign IN'),
-            ),
-            ListTile(
-              title: Text('Recommendations'),
-              onTap: () => Navigator.pushNamed(context, 'recommend'),
-            ),
-            ListTile(
-              title: Text('Cuisines'),
-              onTap: () => Navigator.pushNamed(context, 'cuisines'),
-            ),
-            ListTile(
-              title: Text('Join Us'),
-              onTap: () => Navigator.pushNamed(context, 'join us'),
-            ),
-            ListTile(
-              title: Text('Settings'),
-              onTap: () => Navigator.pushNamed(context, 'settings'),
-            ),
-            ListTile(
-              title: Text('FAQs'),
-              onTap: () => Navigator.pushNamed(context, 'faqs'),
-            ),
-            ListTile(
-              title: Text('Help'),
-              onTap: () => Navigator.pushNamed(context, 'help'),
-            ),
-            ListTile(
-              title: Text('Admin'),
-              onTap: () => Navigator.pushNamed(context, 'admin'),
-            ),
-          ],
-        ),
-      ),
+      drawer:AppDrawer(),
       appBar: AppBar(
         title: Text('Home'),
       ),
