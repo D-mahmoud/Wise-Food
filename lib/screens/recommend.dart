@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/widgets/menu_tile.dart';
+
 import 'package:wisefood/widgets/stores_grid.dart';
-import 'package:wisefood/widgets/drawer.dart';
+
 import 'package:wisefood/providers/stores.dart';
-import 'package:wisefood/models/store.dart';
 import 'package:provider/provider.dart';
 
 enum FilterOptions {
@@ -22,8 +21,6 @@ class _RecommendPageState extends State<RecommendPage> {
   var _showOnlyFavorites = false;
   var _isInit = true;
   var _isLoading = true;
-
-  final StoreData appLogic = StoreData();
   bool isSearch = false;
 
   void initState() {
@@ -52,7 +49,7 @@ class _RecommendPageState extends State<RecommendPage> {
 
           ///search bar by using textfields
           title: !isSearch
-              ? Text('Recommendations')
+              ? Text('Hello ${widget._userName}! ')
               : TextField(
                   decoration:
                       InputDecoration(hintText: 'Search For Restaurants Here'),
@@ -100,36 +97,12 @@ class _RecommendPageState extends State<RecommendPage> {
                       });
                     })
           ]),
-      drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(),
             )
           : StoresGrid(_showOnlyFavorites),
-
-      // body: Padding(
-      //   padding: const EdgeInsets.all(8.0),
-      //   child: GridView.count(
-      //       padding: const EdgeInsets.all(5),
-      //       crossAxisCount: 1,
-      //       children: <Widget>[
-      //         MenuTile(
-      //             image: appLogic.getData(0)[2],
-      //             text: appLogic.getData(0)[0]),
-      //         MenuTile(
-      //             image: appLogic.getData(1)[2],
-      //             text: appLogic.getData(1)[0]),
-      //         MenuTile(
-      //             image: appLogic.getData(2)[2],
-      //             text: appLogic.getData(2)[0]),
-      //         MenuTile(
-      //             image: appLogic.getData(3)[2],
-      //             text: appLogic.getData(3)[0]),
-      //         MenuTile(
-      //             image: appLogic.getData(4)[2],
-      //             text: appLogic.getData(4)[0]),
-      //       ]),
-      // )
     );
   }
 }

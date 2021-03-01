@@ -33,7 +33,18 @@ class StoreItem extends StatelessWidget {
                 loadedStore.location,
                 textAlign: TextAlign.center,
               ),
-            )
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            // Container(
+            //   padding: EdgeInsets.symmetric(horizontal: 10),
+            //   width: double.infinity,
+            //   child: Text(
+            //     loadedStore.imageUrl,
+            //     textAlign: TextAlign.center,
+            //   ),
+            // )
           ],
         ),
       ),
