@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
                                   : AuthScreen(),
                         ),
                   routes: {
-                    'Home Page': (context) => HomePage(),
+                    'home': (context) => HomePage(),
                     'profile': (context) => newuserprofileprofile(auth.userName,auth.email),
                     'recommend': (context) => RecommendPage(auth.userName),
                     'cuisines': (context) => CuisinePage(),
