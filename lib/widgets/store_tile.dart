@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:wisefood/providers/stores.dart';
 
 class StoreTile extends StatelessWidget {
-  static const routeName = '/store-detail';
+  static const routeName = '/store-tile';
 
   @override
   Widget build(BuildContext context) {

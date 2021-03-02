@@ -16,6 +16,7 @@ class StoreItem extends StatelessWidget {
       child: GridTile(
         child: GestureDetector(
           onTap: () {
+            //msh bey3mel haga
             Navigator.of(context).pushNamed(
               StoreDetail.routeName,
               arguments: store.id,
