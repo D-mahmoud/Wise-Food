@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wisefood/providers/stores.dart';
-import 'package:provider/provider.dart' as provider;
 
-class StoreProfile extends StatefulWidget {
-  @override
-  _StoreProfileState createState() => _StoreProfileState();
-}
+class StoreDetail extends StatelessWidget {
+  static const routeName = '/store-detail';
 
-class _StoreProfileState extends State<StoreProfile> {
   @override
   Widget build(BuildContext context) {
-    final storeID = ModalRoute.of(context).settings.arguments as String;
-    final loadedStore = provider.Provider.of<Stores>(
+    final productId =
+        ModalRoute.of(context).settings.arguments as String; // is the id!
+    final loadedStore = Provider.of<Stores>(
       context,
       listen: false,
-    ).findById(storeID);
-    print(storeID);
+    ).findById(productId);
     return Scaffold(
       appBar: AppBar(
         title: Text(loadedStore.storeTitle),

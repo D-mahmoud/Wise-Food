@@ -32,7 +32,6 @@ class _AddPageState extends State<AddPage> {
     review: '',
   );
   var _initValues = {
-    'id': 0,
     'storeTitle': '',
     'rating': '',
     'number': '',
@@ -219,7 +218,6 @@ class _AddPageState extends State<AddPage> {
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
                           initialValue: _initValues['number'],
-                          
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
