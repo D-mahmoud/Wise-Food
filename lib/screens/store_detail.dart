@@ -7,12 +7,12 @@ class StoreDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productId =
+    final storeId =
         ModalRoute.of(context).settings.arguments as String; // is the id!
     final loadedStore = Provider.of<Stores>(
       context,
       listen: false,
-    ).findById(productId);
+    ).findById(storeId);
     return Scaffold(
       appBar: AppBar(
         title: Text(loadedStore.storeTitle),

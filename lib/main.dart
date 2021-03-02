@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
                         ),
                   routes: {
                     'home': (context) => HomePage(),
-                    'profile': (context) => newuserprofileprofile(auth.userName,auth.email),
+                    'profile': (context) => UserProfile(auth.userName,auth.email),
                     'recommend': (context) => RecommendPage(auth.userName),
                     'cuisines': (context) => CuisinePage(),
                     'settings': (context) => SettingsPage(),
