@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //import 'package:lec16_shop/screens/orders_screen.dart';
-import 'package:wisefood/widgets/joinus.dart';
+
 import 'package:wisefood/providers/auth.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -17,10 +17,12 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
+            leading: Icon(Icons.home),
             title: Text('Home'),
             onTap: () => Navigator.pushNamed(context, 'home'),
           ),
           ListTile(
+            leading: Icon(Icons.supervised_user_circle),
             title: Text('Profile'),
             onTap: () => Navigator.pushNamed(context, 'profile'),
           ),
@@ -30,22 +32,27 @@ class AppDrawer extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, 'recommend'),
           ),
           ListTile(
+            leading: Icon(Icons.group_work),
             title: Text('Cuisines'),
             onTap: () => Navigator.pushNamed(context, 'cuisines'),
           ),
           ListTile(
+            leading: Icon(Icons.add_sharp),
             title: Text('Join Us'),
             onTap: () => Navigator.pushNamed(context, 'join us'),
           ),
           ListTile(
+            leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () => Navigator.pushNamed(context, 'settings'),
           ),
           ListTile(
+            leading: Icon(Icons.help_center),
             title: Text('FAQs'),
             onTap: () => Navigator.pushNamed(context, 'faqs'),
           ),
           ListTile(
+            leading: Icon(Icons.help),
             title: Text('Help'),
             onTap: () => Navigator.pushNamed(context, 'help'),
           ),
