@@ -104,11 +104,11 @@ class Auth with ChangeNotifier {
 
   Future<bool> autoLogin() async {
     final prefs = await SharedPreferences.getInstance();
-    if (!prefs.containsKey('MIUShop_User')) {
+    if (!prefs.containsKey('wisefood_User')) {
       return false;
     }
     final savedUserData =
-        json.decode(prefs.getString('MIUShop_User')) as Map<String, dynamic>;
+        json.decode(prefs.getString('wisefood_User')) as Map<String, dynamic>;
 
     _expiryDate = DateTime.parse(savedUserData['expiryDate']);
     if (_expiryDate.isBefore(DateTime.now())) {
@@ -146,7 +146,7 @@ class Auth with ChangeNotifier {
     if (_authTimer != null) {
       _authTimer.cancel();
     }
-    //final timeInSeconds = _expiryDate.difference(DateTime.now()).inSeconds;
+
     _authTimer = Timer(_expiryDate.difference(DateTime.now()), logout);
   }
 }

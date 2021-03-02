@@ -1,84 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:wisefood/widgets/menu_tile.dart';
+import 'package:provider/provider.dart';
 import 'package:wisefood/screens/Edit_Store.dart';
+import 'package:wisefood/providers/stores.dart';
+import 'package:wisefood/widgets/admin_store_item.dart';
+import 'package:wisefood/widgets/drawer.dart';
 
+class AdminPage extends StatelessWidget {
+  static const routeName = '/user-stores';
 
-class AdminPage extends StatefulWidget {
-  @override
-  _AdminPageState createState() => _AdminPageState();
-}
+  Future<void> _refreshStores(BuildContext context) async {
+    await Provider.of<Stores>(context, listen: false)
+        .fetchAndSetStores(filterByUser: true);
+  }
 
-class _AdminPageState extends State<AdminPage> {
-  bool isSearch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
+        title: const Text('Available Stores'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              // Navigator.of(context).pushNamed(EditStore.routeName);
 
-            ///search bar by using textfields
-            title: !isSearch
-                ? Text('Control Page')
-                : TextField(
-                    decoration: InputDecoration(
-                        hintText: 'Search For Restaurants Here'),
-                  ),
-            actions: <Widget>[
-              isSearch
-                  ? IconButton(
-                      icon: Icon(Icons.cancel),
-                      color: Colors.black,
-                      onPressed: () {
-                        setState(() {
-                          this.isSearch = false;
-                        });
-                      })
-                  : Row(children: [
-                      IconButton(
-                        icon: Icon(
-                          Icons.add,
-                          color: Colors.black,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => AddPage()),
-                          );
-                        },
-                      ),
-                      IconButton(
-                          icon: Icon(
-                            Icons.search,
-                            color: Colors.black,
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditStore()),
+              );
+            },
+          ),
+        ],
+      ),
+      drawer: AppDrawer(),
+      body: FutureBuilder<Object>(
+          future: _refreshStores(context),
+          builder: (context, snapshot) {
+            return snapshot.connectionState == ConnectionState.waiting
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : RefreshIndicator(
+                    onRefresh: () => _refreshStores(context),
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Consumer<Stores>(
+                        builder: (context, storesData, child) =>
+                            ListView.builder(
+                          itemCount: storesData.items.length,
+                          itemBuilder: (_, i) => Column(
+                            children: [
+                              AdminStoreItem(
+                                storesData.items[i].id,
+                                storesData.items[i].storeTitle,
+                                storesData.items[i].number,
+                              ),
+                              Divider(),
+                            ],
                           ),
-                          onPressed: () {
-                            setState(() {
-                              this.isSearch = true;
-                            });
-                          }),
-                    ]),
-            ]),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GridView.count(
-              padding: const EdgeInsets.all(5),
-              crossAxisCount: 1,
-              children: <Widget>[
-                // MenuTile(
-                //     image: appLogic.getData(0)[2],
-                //     text: appLogic.getData(0)[0]),
-                // MenuTile(
-                //     image: appLogic.getData(1)[2],
-                //     text: appLogic.getData(1)[0]),
-                // MenuTile(
-                //     image: appLogic.getData(2)[2],
-                //     text: appLogic.getData(2)[0]),
-                // MenuTile(
-                //     image: appLogic.getData(3)[2],
-                //     text: appLogic.getData(3)[0]),
-                // MenuTile(
-                //     image: appLogic.getData(4)[2],
-                //     text: appLogic.getData(4)[0]),
-              ]),
-        ));
+                        ),
+                      ),
+                    ),
+                  );
+          }),
+    );
   }
 }

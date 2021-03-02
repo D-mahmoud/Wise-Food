@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -7,13 +8,14 @@ import 'auth.dart';
 
 class Stores with ChangeNotifier {
   static const baseUrl =
-      "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/";
+      "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app";
 
   List<Store> _storeDB = [];
   String authToken;
   String userId;
 
   Stores(this.authToken, this.userId, this._storeDB);
+
   List<Store> get items {
     return [..._storeDB];
   }
@@ -23,26 +25,35 @@ class Stores with ChangeNotifier {
   }
 
   Store findById(String id) {
-    return _storeDB.firstWhere((storeTitle) => storeTitle.id == id);
+    return _storeDB.firstWhere((store) => store.id == id, orElse: () => null);
   }
 
   Future<void> fetchAndSetStores({bool filterByUser = false}) async {
     final filterString =
         filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
-    //const url =
-    //'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores.json';
+
     var url = '$baseUrl/stores.json?auth=$authToken&$filterString';
     try {
       final response = await http.get(url);
       final dbData = json.decode(response.body) as Map<String, dynamic>;
+      if (dbData == null) {
+        return;
+      }
+      url = '$baseUrl/userFav/$userId.json?auth=$authToken';
+      final favoriteResponse = await http.get(url);
+      final favoriteData = json.decode(favoriteResponse.body);
 
       final List<Store> loadedStores = [];
       dbData.forEach((storeId, data) {
+        print('Products receiveToken, store: $storeId');
         loadedStores.add(Store(
+          id: storeId,
           storeTitle: data['storeTitle'],
-         // rating: data['rating'],
+          // rating: data['rating'],
           location: data['location'],
           number: data['number'],
+          isFavorite:
+              favoriteData == null ? false : favoriteData[storeId] ?? false,
           imageUrl: data['image'],
         ));
       });
@@ -87,7 +98,7 @@ class Stores with ChangeNotifier {
     //);
   }
 
-  Future<void> updateStore(int id, Store newStore) async {
+  Future<void> updateStore(String id, Store newStore) async {
     // final url =
     //     'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores/$id.json';
 
@@ -123,7 +134,21 @@ class Stores with ChangeNotifier {
       print('...');
     }
   }
-//delete na2sa
+
+  Future<void> deleteStore(String id) async {
+    final url = '$baseUrl/$id.json?auth=$authToken';
+    final existingProductIndex = _storeDB.indexWhere((store) => store.id == id);
+    var existingProduct = _storeDB[existingProductIndex];
+    _storeDB.removeAt(existingProductIndex);
+    notifyListeners();
+    final response = await http.delete(url);
+    if (response.statusCode >= 400) {
+      _storeDB.insert(existingProductIndex, existingProduct);
+      notifyListeners();
+      throw HttpException('Could not delete product.');
+    }
+    existingProduct = null;
+  }
 
   void receiveToken(Auth auth, List<Store> items) {
     authToken = auth.token;
