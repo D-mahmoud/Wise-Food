@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rating_bar/rating_bar.dart';
 import 'package:wisefood/providers/stores.dart';
-// import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class StoreTile extends StatelessWidget {
   static const routeName = '/store-detail';

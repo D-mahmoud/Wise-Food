@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -133,7 +134,21 @@ class Stores with ChangeNotifier {
       print('...');
     }
   }
-//delete na2sa
+
+  Future<void> deleteStore(String id) async {
+    final url = '$baseUrl/$id.json?auth=$authToken';
+    final existingProductIndex = _storeDB.indexWhere((store) => store.id == id);
+    var existingProduct = _storeDB[existingProductIndex];
+    _storeDB.removeAt(existingProductIndex);
+    notifyListeners();
+    final response = await http.delete(url);
+    if (response.statusCode >= 400) {
+      _storeDB.insert(existingProductIndex, existingProduct);
+      notifyListeners();
+      throw HttpException('Could not delete product.');
+    }
+    existingProduct = null;
+  }
 
   void receiveToken(Auth auth, List<Store> items) {
     authToken = auth.token;

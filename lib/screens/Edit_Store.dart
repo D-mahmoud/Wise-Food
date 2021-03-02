@@ -7,12 +7,13 @@ import 'package:wisefood/providers/stores.dart';
 const pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
 final validatePhone = RegExp(pattern);
 
-class AddPage extends StatefulWidget {
+class EditStore extends StatefulWidget {
+  static const routeName = '/edit-store';
   @override
-  _AddPageState createState() => _AddPageState();
+  _EditStoreState createState() => _EditStoreState();
 }
 
-class _AddPageState extends State<AddPage> {
+class _EditStoreState extends State<EditStore> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
 
   final _priceFocusNode = FocusNode();

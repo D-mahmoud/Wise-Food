@@ -2,19 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wisefood/models/store.dart';
 import 'package:wisefood/providers/auth.dart';
-import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/screens/store_detail.dart';
 
 class StoreItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<Store>(context, listen: false);
-    final storeId = ModalRoute.of(context).settings.arguments as String;
+
     final authData = Provider.of<Auth>(context, listen: false);
-    final loadedStore = Provider.of<Stores>(
-      context,
-      listen: false,
-    ).findById(storeId);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
@@ -32,7 +27,7 @@ class StoreItem extends StatelessWidget {
           // ),
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.green[200],
           leading: Consumer<Store>(
             builder: (ctx, product, _) => IconButton(
               icon: Icon(
