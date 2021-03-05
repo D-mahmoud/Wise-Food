@@ -13,6 +13,7 @@ class StoreDetail extends StatelessWidget {
       context,
       listen: false,
     ).findById(storeId);
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(loadedStore.storeTitle),

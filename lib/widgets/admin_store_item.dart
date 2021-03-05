@@ -3,11 +3,13 @@ import 'package:provider/provider.dart';
 
 import 'package:wisefood/screens/Edit_Store.dart';
 import 'package:wisefood/providers/stores.dart';
+import 'package:wisefood/screens/store_detail.dart';
 
 class AdminStoreItem extends StatelessWidget {
   final String id;
   final String title;
   final String imageUrl;
+ 
 
   AdminStoreItem(this.id, this.title, this.imageUrl);
 
@@ -34,9 +36,10 @@ class AdminStoreItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () async {
+                print(id);//id mab3oot sa7
                 try {
-                  await Provider.of<Stores>(context, listen: false)
-                      .deleteStore(id);
+    await Provider.of<Stores>(context, listen: false).deleteStore(id);
+                      
                 } catch (error) {
                   scaffold.showSnackBar(
                     SnackBar(

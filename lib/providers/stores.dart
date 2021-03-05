@@ -64,6 +64,22 @@ class Stores with ChangeNotifier {
     }
   }
 
+  Future<void> deleteStore(String id) async {
+    final url = '$baseUrl/stores/$id.json?auth=$authToken';
+    final existingProductIndex = _storeDB.indexWhere((store) => store.id == id);
+
+    var existingProduct = _storeDB[existingProductIndex];//optimistic update
+    _storeDB.removeAt(existingProductIndex);
+    notifyListeners();
+    final response = await http.delete(url);
+    if (response.statusCode >= 400) {
+      _storeDB.insert(existingProductIndex, existingProduct);
+      notifyListeners();
+      throw HttpException('Could not delete product.');
+    }
+    existingProduct = null;
+  }
+
   Future<void> addStore(Store store) async {
     final url = '$baseUrl/stores.json?auth=$authToken';
 
@@ -133,21 +149,6 @@ class Stores with ChangeNotifier {
     } else {
       print('...');
     }
-  }
-
-  Future<void> deleteStore(String id) async {
-    final url = '$baseUrl/$id.json?auth=$authToken';
-    final existingProductIndex = _storeDB.indexWhere((store) => store.id == id);
-    var existingProduct = _storeDB[existingProductIndex];
-    _storeDB.removeAt(existingProductIndex);
-    notifyListeners();
-    final response = await http.delete(url);
-    if (response.statusCode >= 400) {
-      _storeDB.insert(existingProductIndex, existingProduct);
-      notifyListeners();
-      throw HttpException('Could not delete product.');
-    }
-    existingProduct = null;
   }
 
   void receiveToken(Auth auth, List<Store> items) {
