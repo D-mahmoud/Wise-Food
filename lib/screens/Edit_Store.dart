@@ -29,8 +29,9 @@ class _EditStoreState extends State<EditStore> {
     rating: '',
     number: '',
     location: '',
-    imageUrl: '',
-    review: '',
+    cuisine: '',
+    //imageUrl: '',
+    // review: '',
   );
   var _initValues = {
     'storeTitle': '',
@@ -39,15 +40,16 @@ class _EditStoreState extends State<EditStore> {
     'location': '',
     'image': '',
     'review': '',
+    'cuisine': '',
   };
   var _isInit = true;
   var _isLoading = false;
 
-  @override
-  void initState() {
-    _imageUrlFocusNode.addListener(_updateImageUrl);
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   _imageUrlFocusNode.addListener(_updateImageUrl);
+  //   super.initState();
+  // }
 
   @override
   void didChangeDependencies() {
@@ -62,6 +64,7 @@ class _EditStoreState extends State<EditStore> {
           'rating': _editedStore.rating,
           'location': _editedStore.location,
           'number': _editedStore.number,
+          'cuisine': _editedStore.cuisine,
         };
         _imageUrlController.text = _editedStore.imageUrl;
       }
@@ -72,7 +75,7 @@ class _EditStoreState extends State<EditStore> {
 
   @override
   void dispose() {
-    _imageUrlFocusNode.removeListener(_updateImageUrl);
+    // _imageUrlFocusNode.removeListener(_updateImageUrl);
     _priceFocusNode.dispose();
     _descriptionFocusNode.dispose();
     _imageUrlController.dispose();
@@ -80,18 +83,18 @@ class _EditStoreState extends State<EditStore> {
     super.dispose();
   }
 
-  void _updateImageUrl() {
-    if (!_imageUrlFocusNode.hasFocus) {
-      if ((!_imageUrlController.text.startsWith('http') &&
-              !_imageUrlController.text.startsWith('https')) ||
-          (!_imageUrlController.text.endsWith('.png') &&
-              !_imageUrlController.text.endsWith('.jpg') &&
-              !_imageUrlController.text.endsWith('.jpeg'))) {
-        return;
-      }
-      setState(() {});
-    }
-  }
+  // void _updateImageUrl() {
+  //   if (!_imageUrlFocusNode.hasFocus) {
+  //     if ((!_imageUrlController.text.startsWith('http') &&
+  //             !_imageUrlController.text.startsWith('https')) ||
+  //         (!_imageUrlController.text.endsWith('.png') &&
+  //             !_imageUrlController.text.endsWith('.jpg') &&
+  //             !_imageUrlController.text.endsWith('.jpeg'))) {
+  //       return;
+  //     }
+  //     setState(() {});
+  //   }
+  // }
 
   Future<void> _saveForm() async {
     final isValid = _formKey.currentState.validate();
@@ -179,6 +182,7 @@ class _EditStoreState extends State<EditStore> {
                               rating: _editedStore.rating,
                               location: _editedStore.location,
                               number: _editedStore.number,
+                              cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
                             );
                             print('saved value is $value');
@@ -209,6 +213,7 @@ class _EditStoreState extends State<EditStore> {
                               rating: _editedStore.rating,
                               location: value,
                               number: _editedStore.number,
+                              cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
                             );
                             print('saved value is $value');
@@ -239,21 +244,22 @@ class _EditStoreState extends State<EditStore> {
                               rating: _editedStore.rating,
                               location: _editedStore.location,
                               number: value,
+                              cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
                             );
                             print('saved value is $value');
                           },
                         ),
                       ),
+                      //cuisines
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-                          keyboardType: TextInputType.url,
-                          style: TextStyle(color: Colors.green),
+                          initialValue: _initValues['cuisine'],
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Image",
+                              labelText: "Cuisine",
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           validator: (value) {
@@ -270,73 +276,90 @@ class _EditStoreState extends State<EditStore> {
                               rating: _editedStore.rating,
                               location: _editedStore.location,
                               number: _editedStore.number,
-                              imageUrl: value,
-                            );
-                            print('saved value is $value');
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.url,
-                          style: TextStyle(color: Colors.green),
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Rating",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _editedStore = Store(
-                              id: _editedStore.id,
-                              storeTitle: _editedStore.storeTitle,
-                              rating: value,
-                              location: _editedStore.location,
-                              number: _editedStore.number,
+                              cuisine: value,
                               imageUrl: _editedStore.imageUrl,
                             );
                             print('saved value is $value');
                           },
                         ),
                       ),
+                      //Image
+
+                      // Padding(
+                      //   padding: const EdgeInsets.all(20.0),
+                      //   child: TextFormField(
+                      //     keyboardType: TextInputType.url,
+                      //     style: TextStyle(color: Colors.green),
+                      //     decoration: InputDecoration(
+                      //         contentPadding:
+                      //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                      //         labelText: "Image",
+                      //         border: OutlineInputBorder(
+                      //             borderRadius: BorderRadius.circular(32.0))),
+                      //     validator: (value) {
+                      //       if (value.isEmpty) {
+                      //         return 'Please enter some text';
+                      //       }
+
+                      //       return null;
+                      //     },
+                      //     onSaved: (value) {
+                      //       _editedStore = Store(
+                      //         id: _editedStore.id,
+                      //         storeTitle: _editedStore.storeTitle,
+                      //         rating: _editedStore.rating,
+                      //         location: _editedStore.location,
+                      //         number: _editedStore.number,
+                      //          cuisine:_editedStore.cuisine,
+
+                      //         imageUrl: value,
+                      //       );
+                      //       print('saved value is $value');
+                      //     },
+                      //   ),
+                      // ),
+
+                      //Rating
+
+                      // Padding(
+                      //   padding: const EdgeInsets.all(20.0),
+                      //   child: TextFormField(
+                      //     keyboardType: TextInputType.url,
+                      //     style: TextStyle(color: Colors.green),
+                      //     decoration: InputDecoration(
+                      //         contentPadding:
+                      //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                      //         labelText: "Rating",
+                      //         border: OutlineInputBorder(
+                      //             borderRadius: BorderRadius.circular(32.0))),
+                      //     validator: (value) {
+                      //       if (value.isEmpty) {
+                      //         return 'Please enter some text';
+                      //       }
+
+                      //       return null;
+                      //     },
+                      //     onSaved: (value) {
+                      //       _editedStore = Store(
+                      //         id: _editedStore.id,
+                      //         storeTitle: _editedStore.storeTitle,
+                      //         rating: value,
+                      //         location: _editedStore.location,
+                      //         number: _editedStore.number,
+                      // cuisine:_editedStore.cuisine,
+
+                      //         imageUrl: _editedStore.imageUrl,
+                      //       );
+                      //       print('saved value is $value');
+                      //     },
+                      //   ),
+                      // ),
                       Padding(
                         padding: const EdgeInsets.all(20),
                         child: Material(
                             elevation: 5.0,
                             borderRadius: BorderRadius.circular(30.0),
                             color: Colors.green[300],
-                            // child: MaterialButton(
-                            //     minWidth: MediaQuery.of(context).size.width,
-                            //     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                            //     onPressed: () {
-                            //       // Validate returns true if the form is valid, or false
-
-                            //       // otherwise.
-                            //       if (_formKey.currentState.validate()) {
-                            //         // If the form is valid, display a Snackbar.
-
-                            //         Scaffold.of(context).showSnackBar(
-                            //             SnackBar(content: Text('Processing Data')));
-                            //         _formKey.currentState.save();
-
-                            //         _formKey.currentState.reset();
-                            //         //                        Navigator.push(
-                            //         // context,
-                            //         // MaterialPageRoute(builder: (context) =>  appLogic.addStore(Store store)));
-                            //       } else {
-                            //         Scaffold.of(context).showSnackBar(SnackBar(
-                            //             content: Text('Please Fill all Fields')));
-                            //       }
-                            //       // _formKey.currentState.save();
-                            //     },
                             child: MaterialButton(
                               onPressed: _saveForm,
                               child: Text('Submit'),
