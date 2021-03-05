@@ -51,7 +51,7 @@ class AdminPage extends StatelessWidget {
                           itemCount: storesData.items.length,
                           itemBuilder: (_, i) => Column(
                             children: [
-                              Text(storesData.items[i].id),
+                              // Text(storesData.items[i].id),
                               AdminStoreItem(
                                 storesData.items[i].id,
                                 storesData.items[i].storeTitle,
