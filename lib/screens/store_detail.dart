@@ -52,31 +52,42 @@ class StoreDetail extends StatelessWidget {
               ),
             ),
 
-            Padding(
-              ///Rating Bar using Flutter
-              padding: const EdgeInsets.all(10.0),
-              child: new Container(
-                child: RatingBarIndicator(
-                  rating: loadedStore.rating,
-                  itemBuilder: (context, index) => Icon(
-                    Icons.star_border_outlined,
-                    color: Colors.amber,
-                  ),
-                  itemCount: 5,
-                  itemSize: 50.0,
-                  direction: Axis.horizontal,
-                ),
-              ),
-            ),
+            // Padding(
+            //   ///Rating Bar using Flutter
+            //   padding: const EdgeInsets.all(10.0),
+            //   child: new Container(
+            //     child: RatingBarIndicator(
+            //       rating: loadedStore.rating,
+            //       itemBuilder: (context, index) => Icon(
+            //         Icons.star_border_outlined,
+            //         color: Colors.amber,
+            //       ),
+            //       itemCount: 5,
+            //       itemSize: 50.0,
+            //       direction: Axis.horizontal,
+            //     ),
 
-            // new Container(
-            //     child: RatingBar.readOnly(
-            //   initialRating: loadedStore.rating,
-            //   isHalfAllowed: true,
-            //   halfFilledIcon: Icons.star_half,
-            //   filledIcon: Icons.star,
-            //   emptyIcon: Icons.star_border,
-            // )),
+            //   ),
+            // ),
+// new Container(
+//   child:Text(loadedStore.rating.toString() ),
+// ),
+            new Container(
+                child: RatingBar.builder(
+              initialRating: loadedStore.rating,
+              // minRating: 2,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => Icon(
+                Icons.star,
+                color: Colors.amber,
+              ),
+              // onRatingUpdate: (rating) {
+              //   print(rating);
+              // },
+            )),
           ],
         ),
       ),
