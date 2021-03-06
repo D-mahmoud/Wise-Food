@@ -5,6 +5,7 @@ import 'package:wisefood/providers/auth.dart';
 import 'package:wisefood/screens/store_detail.dart';
 
 class StoreItem extends StatelessWidget {
+  static const routeName = 'store-item';
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<Store>(context, listen: false);
@@ -17,7 +18,7 @@ class StoreItem extends StatelessWidget {
         child: GestureDetector(
           onTap: () {
             print(store.storeTitle);
-            Navigator.pushNamed(
+            Navigator.pushNamed( 
               context,
               StoreDetail.routeName,
               arguments: store.id,
