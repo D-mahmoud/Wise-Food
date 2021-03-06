@@ -52,6 +52,7 @@ class Stores with ChangeNotifier {
           rating: data['rating'],
           location: data['location'],
           number: data['number'],
+          cuisine: data['cuisine'],
           isFavorite:
               favoriteData == null ? false : favoriteData[storeId] ?? false,
           imageUrl: data['image'],
@@ -84,6 +85,7 @@ class Stores with ChangeNotifier {
     final url = '$baseUrl/stores.json?auth=$authToken';
 
     try {
+
       final response = await http.post(
         url,
         body: json.encode({
@@ -91,6 +93,7 @@ class Stores with ChangeNotifier {
           'rating': store.rating,
           'location': store.location,
           'number': store.number,
+          'cuisine':store.cuisine,
           //'image': store.image,
         }),
       );
@@ -142,6 +145,7 @@ class Stores with ChangeNotifier {
             'rating': newStore.rating,
             'location': newStore.location,
             'number': newStore.number,
+            'cuisine':newStore.cuisine,
             'image': newStore.imageUrl,
           }));
       _storeDB[strIndex] = newStore;

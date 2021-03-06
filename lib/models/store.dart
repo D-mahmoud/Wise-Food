@@ -12,6 +12,8 @@ class Store with ChangeNotifier {
   final String location;
   final String number;
   final String review;
+  final String cuisine;                             
+
   bool isFavorite;
 
   Store(
@@ -22,6 +24,7 @@ class Store with ChangeNotifier {
       this.location,
       this.number,
       this.review,
+      this.cuisine,
       this.isFavorite = false});
 
   void _setFavValue(bool newValue) {
