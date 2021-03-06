@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:wisefood/models/store.dart';
 import 'package:wisefood/providers/stores.dart';
@@ -30,7 +30,7 @@ class _EditStoreState extends State<EditStore> {
   var _editedStore = Store(
     id: null,
     storeTitle: '',
-    rating: 0,
+    rating: 0.0,
     number: '',
     location: '',
     cuisine: '',
@@ -39,7 +39,7 @@ class _EditStoreState extends State<EditStore> {
   );
   var _initValues = {
     'storeTitle': '',
-    'rating': 0,
+    'rating': 0.0,
     'number': '',
     'location': '',
     'image': '',
@@ -142,14 +142,16 @@ class _EditStoreState extends State<EditStore> {
     });
     Navigator.of(context).pop();
   }
-File _image;
-Future pickImage() async{
+
+  File _image;
+  Future pickImage() async {
     final picker = ImagePicker();
     PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
     setState(() {
-      _image=File(pickedFile.path);
+      _image = File(pickedFile.path);
     });
-}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -297,7 +299,9 @@ Future pickImage() async{
                       //Image
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: _image ==null ?Text("no image"):Image.file(_image),
+                        child: _image == null
+                            ? Text("no image")
+                            : Image.file(_image),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
@@ -332,46 +336,38 @@ Future pickImage() async{
                         //   },
                         // ),
                         child: FloatingActionButton(
-                          onPressed:pickImage,
+                          onPressed: pickImage,
                           child: Icon(Icons.camera_alt),
                         ),
                       ),
 
                       //Rating
-                      
-                      // Padding(
-                      //   padding: const EdgeInsets.all(20.0),
-                      //   child: TextFormField(
-                      //     keyboardType: TextInputType.url,
-                      //     style: TextStyle(color: Colors.green),
-                      //     decoration: InputDecoration(
-                      //         contentPadding:
-                      //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                      //         labelText: "Rating",
-                      //         border: OutlineInputBorder(
-                      //             borderRadius: BorderRadius.circular(32.0))),
-                      //     validator: (value) {
-                      //       if (value.isEmpty) {
-                      //         return 'Please enter some text';
-                      //       }
 
-                      //       return null;
-                      //     },
-                      //     onSaved: (value) {
-                      //       _editedStore = Store(
-                      //         id: _editedStore.id,
-                      //         storeTitle: _editedStore.storeTitle,
-                      //         rating: value,
-                      //         location: _editedStore.location,
-                      //         number: _editedStore.number,
-                      // cuisine:_editedStore.cuisine,
+                      Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: RatingBar.builder(
+                            initialRating: 0,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                            itemBuilder: (context, _) => Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            onRatingUpdate: (rating) {
+                              _editedStore = Store(
+                                id: _editedStore.id,
+                                storeTitle: _editedStore.storeTitle,
+                                rating: rating,
+                                location: _editedStore.location,
+                                number: _editedStore.number,
+                                cuisine: _editedStore.cuisine,
 
-                      //         imageUrl: _editedStore.imageUrl,
-                      //       );
-                      //       print('saved value is $value');
-                      //     },
-                      //   ),
-                      // ),
+                                //imageUrl: value,
+                              );
+                            },
+                          )),
                       Padding(
                         padding: const EdgeInsets.all(20),
                         child: Material(
