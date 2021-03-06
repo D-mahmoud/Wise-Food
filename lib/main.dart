@@ -71,6 +71,7 @@ class MyApp extends StatelessWidget {
                     'join us': (context) => JoinUsPage(),
                     'admin': (context) => AdminPage(),
                     'store-detail': (context) => StoreDetail(),
+                    
                   },
                 )));
   }
