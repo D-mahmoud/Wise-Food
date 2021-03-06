@@ -1,4 +1,8 @@
+// import 'dart:html';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:provider/provider.dart';
 import 'package:wisefood/models/store.dart';
@@ -138,8 +142,14 @@ class _EditStoreState extends State<EditStore> {
     });
     Navigator.of(context).pop();
   }
-
-// zawdy type 3ashan cuisine page tzbot
+File _image;
+Future pickImage() async{
+    final picker = ImagePicker();
+    PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      _image=File(pickedFile.path);
+    });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -283,44 +293,52 @@ class _EditStoreState extends State<EditStore> {
                           },
                         ),
                       ),
+
                       //Image
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: _image ==null ?Text("no image"):Image.file(_image),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        // child: TextFormField(
+                        //   keyboardType: TextInputType.url,
+                        //   style: TextStyle(color: Colors.green),
+                        //   decoration: InputDecoration(
+                        //       contentPadding:
+                        //           EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                        //       labelText: "Image",
+                        //       border: OutlineInputBorder(
+                        //           borderRadius: BorderRadius.circular(32.0))),
+                        //   validator: (value) {
+                        //     if (value.isEmpty) {
+                        //       return 'Please enter some text';
+                        //     }
 
-                      // Padding(
-                      //   padding: const EdgeInsets.all(20.0),
-                      //   child: TextFormField(
-                      //     keyboardType: TextInputType.url,
-                      //     style: TextStyle(color: Colors.green),
-                      //     decoration: InputDecoration(
-                      //         contentPadding:
-                      //             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                      //         labelText: "Image",
-                      //         border: OutlineInputBorder(
-                      //             borderRadius: BorderRadius.circular(32.0))),
-                      //     validator: (value) {
-                      //       if (value.isEmpty) {
-                      //         return 'Please enter some text';
-                      //       }
+                        //     return null;
+                        //   },
+                        //   onSaved: (value) {
+                        //     _editedStore = Store(
+                        //       id: _editedStore.id,
+                        //       storeTitle: _editedStore.storeTitle,
+                        //       rating: _editedStore.rating,
+                        //       location: _editedStore.location,
+                        //       number: _editedStore.number,
+                        //        cuisine:_editedStore.cuisine,
 
-                      //       return null;
-                      //     },
-                      //     onSaved: (value) {
-                      //       _editedStore = Store(
-                      //         id: _editedStore.id,
-                      //         storeTitle: _editedStore.storeTitle,
-                      //         rating: _editedStore.rating,
-                      //         location: _editedStore.location,
-                      //         number: _editedStore.number,
-                      //          cuisine:_editedStore.cuisine,
-
-                      //         imageUrl: value,
-                      //       );
-                      //       print('saved value is $value');
-                      //     },
-                      //   ),
-                      // ),
+                        //       imageUrl: value,
+                        //     );
+                        //     print('saved value is $value');
+                        //   },
+                        // ),
+                        child: FloatingActionButton(
+                          onPressed:pickImage,
+                          child: Icon(Icons.camera_alt),
+                        ),
+                      ),
 
                       //Rating
-
+                      
                       // Padding(
                       //   padding: const EdgeInsets.all(20.0),
                       //   child: TextFormField(
