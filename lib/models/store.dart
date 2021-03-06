@@ -7,7 +7,7 @@ class Store with ChangeNotifier {
       "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app";
   final String id;
   final String storeTitle;
-  final String rating;
+  final double rating;
   final String imageUrl;
   final String location;
   final String number;

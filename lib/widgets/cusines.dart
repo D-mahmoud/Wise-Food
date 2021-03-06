@@ -1,5 +1,8 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wisefood/models/store.dart';
+import 'package:wisefood/screens/store_detail.dart';
 
 class CuisinePage extends StatefulWidget {
   @override
@@ -11,6 +14,8 @@ class __CuisinePageState extends State<CuisinePage> {
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<Store>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
 
@@ -43,8 +48,7 @@ class __CuisinePageState extends State<CuisinePage> {
       body: Container(
         height: 550,
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Expanded(
               child: ListView(
@@ -56,7 +60,13 @@ class __CuisinePageState extends State<CuisinePage> {
                       images: [
                         InkWell(
                             onTap: () {
-                              print("chinese");
+                              print("Chinese");
+
+                              Navigator.pushNamed(
+                                context,
+                                StoreDetail.routeName,
+                                arguments: store.id,
+                              );
                             },
                             child: Image.asset('images/chinese.png',
                                 fit: BoxFit.fill)),
@@ -82,20 +92,19 @@ class __CuisinePageState extends State<CuisinePage> {
                 ],
               ),
             ),
-           
             Container(
               height: 100,
               child: Padding(
-                padding:EdgeInsets.only(top: 0,bottom:0),
+                padding: EdgeInsets.only(top: 0, bottom: 0),
                 // const EdgeInsets.all(8.0),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       RaisedButton(
-                       padding:
-                         //   EdgeInsets.symmetric(horizontal: 50.0, vertical: 50.0),
-                           const EdgeInsets.all(40.0),
+                        padding:
+                            //   EdgeInsets.symmetric(horizontal: 50.0, vertical: 50.0),
+                            const EdgeInsets.all(40.0),
                         color: Colors.green[100],
                         onPressed: () {},
                         child: Text(
@@ -107,9 +116,9 @@ class __CuisinePageState extends State<CuisinePage> {
                         ),
                       ),
                       RaisedButton(
-                         padding:
-                        //     // EdgeInsets.symmetric(horizontal: 50.0, vertical: 50.0),
-                             const EdgeInsets.all(40.0),
+                        padding:
+                            //     // EdgeInsets.symmetric(horizontal: 50.0, vertical: 50.0),
+                            const EdgeInsets.all(40.0),
                         color: Colors.green[100],
                         onPressed: () {},
                         child: Text(
@@ -124,36 +133,36 @@ class __CuisinePageState extends State<CuisinePage> {
               ),
             ),
             Padding(
-                padding:EdgeInsets.only(top: 8,bottom:1,right: 0),
+              padding: EdgeInsets.only(top: 8, bottom: 1, right: 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   RaisedButton(
-                     padding:
-                     const EdgeInsets.all(40.0),
-
+                    padding: const EdgeInsets.all(40.0),
                     color: Colors.green[100],
                     onPressed: () {},
                     child: Text(
                       'Italian',
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
                   RaisedButton(
-                   padding:
+                    padding:
                         //  EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                         const EdgeInsets.all(40.0),
-                      //  EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+                        const EdgeInsets.all(40.0),
+                    //  EdgeInsets.symmetric(horizontal: 40, vertical: 40),
                     color: Colors.green[100],
                     onPressed: () {},
                     child: Text(
                       'Oriental',
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
                 ],
@@ -175,7 +184,8 @@ class __CuisinePageState extends State<CuisinePage> {
                       'Mexican',
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
                 ],

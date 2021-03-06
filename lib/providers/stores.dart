@@ -25,7 +25,7 @@ class Stores with ChangeNotifier {
   }
 
   Store findById(String id) {
-    return _storeDB.firstWhere((store) => store.id == id, orElse: () => null);
+    return _storeDB.firstWhere((store) => store.id == id);
   }
 
   Future<void> fetchAndSetStores({bool filterByUser = false}) async {
@@ -49,7 +49,7 @@ class Stores with ChangeNotifier {
         loadedStores.add(Store(
           id: storeId,
           storeTitle: data['storeTitle'],
-          // rating: data['rating'],
+          rating: data['rating'],
           location: data['location'],
           number: data['number'],
           isFavorite:
@@ -68,7 +68,7 @@ class Stores with ChangeNotifier {
     final url = '$baseUrl/stores/$id.json?auth=$authToken';
     final existingProductIndex = _storeDB.indexWhere((store) => store.id == id);
 
-    var existingProduct = _storeDB[existingProductIndex];//optimistic update
+    var existingProduct = _storeDB[existingProductIndex]; //optimistic update
     _storeDB.removeAt(existingProductIndex);
     notifyListeners();
     final response = await http.delete(url);
@@ -88,7 +88,7 @@ class Stores with ChangeNotifier {
         url,
         body: json.encode({
           'storeTitle': store.storeTitle,
-          // 'rating': store.rating,
+          'rating': store.rating,
           'location': store.location,
           'number': store.number,
           //'image': store.image,
@@ -97,7 +97,7 @@ class Stores with ChangeNotifier {
 
       final newStore = Store(
           storeTitle: store.storeTitle,
-          // rating: store.rating,
+          rating: store.rating,
           location: store.imageUrl,
           number: store.number,
           // image: store.image,

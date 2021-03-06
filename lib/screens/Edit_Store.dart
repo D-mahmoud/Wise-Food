@@ -26,7 +26,7 @@ class _EditStoreState extends State<EditStore> {
   var _editedStore = Store(
     id: null,
     storeTitle: '',
-    rating: '',
+    rating: 0,
     number: '',
     location: '',
     imageUrl: '',
@@ -34,7 +34,7 @@ class _EditStoreState extends State<EditStore> {
   );
   var _initValues = {
     'storeTitle': '',
-    'rating': '',
+    'rating': 0,
     'number': '',
     'location': '',
     'image': '',
@@ -298,7 +298,7 @@ class _EditStoreState extends State<EditStore> {
                             _editedStore = Store(
                               id: _editedStore.id,
                               storeTitle: _editedStore.storeTitle,
-                              rating: value,
+                              rating: value as double,
                               location: _editedStore.location,
                               number: _editedStore.number,
                               imageUrl: _editedStore.imageUrl,

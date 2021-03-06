@@ -4,7 +4,7 @@ import 'package:wisefood/models/store.dart';
 import 'package:wisefood/providers/auth.dart';
 import 'package:wisefood/screens/store_detail.dart';
 
-class StoreItem extends StatelessWidget {
+class StoreType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<Store>(context, listen: false);
@@ -16,9 +16,8 @@ class StoreItem extends StatelessWidget {
       child: GridTile(
         child: GestureDetector(
           onTap: () {
-            print(store.storeTitle);
-            Navigator.pushNamed(
-              context,
+            //msh bey3mel haga
+            Navigator.of(context).pushNamed(
               StoreDetail.routeName,
               arguments: store.id,
             );
@@ -43,7 +42,7 @@ class StoreItem extends StatelessWidget {
           ),
           title: Text(
             store.storeTitle,
-            textAlign: TextAlign.left,
+            textAlign: TextAlign.center,
           ),
         ),
       ),

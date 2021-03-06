@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wisefood/screens/store_detail.dart';
 import 'package:wisefood/widgets/cusines.dart';
 import 'package:wisefood/widgets/faq.dart';
 import 'package:wisefood/widgets/help.dart';
@@ -13,8 +14,12 @@ import 'package:wisefood/widgets/home.dart';
 import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/providers/auth.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => Auth(),
@@ -56,7 +61,8 @@ class MyApp extends StatelessWidget {
                         ),
                   routes: {
                     'home': (context) => HomePage(),
-                    'profile': (context) => UserProfile(auth.userName,auth.email),
+                    'profile': (context) =>
+                        UserProfile(auth.userName, auth.email),
                     'recommend': (context) => RecommendPage(auth.userName),
                     'cuisines': (context) => CuisinePage(),
                     'settings': (context) => SettingsPage(),
@@ -64,6 +70,7 @@ class MyApp extends StatelessWidget {
                     'help': (context) => HelpPage(),
                     'join us': (context) => JoinUsPage(),
                     'admin': (context) => AdminPage(),
+                    'store-detail': (context) => StoreDetail(),
                   },
                 )));
   }

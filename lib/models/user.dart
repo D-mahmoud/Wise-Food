@@ -1,16 +1,15 @@
 class User {
   String id;
-  String name;
+  String fname;
+  String lname;
   double number;
   String image;
-  String username;
-  String password;
 
-  User(
-      {this.id,
-      this.name,
-      this.number,
-      this.image,
-      this.username,
-      this.password});
+  User({
+    this.id,
+    this.fname,
+    this.lname,
+    this.number,
+    this.image,
+  });
 }
