@@ -40,11 +40,11 @@ dependencies:
   firebase_core: ^0.5.3
   flutter_launcher_icons: ^0.8.1
   firebase_storage: ^4.0.0
-  firebase_messaging: ^7.0.3
+ # firebase_messaging: ^7.0.3
 
 
   
-  firebase_auth: ^0.18.4+1
+  #firebase_auth: ^0.18.4+1
   
   cloud_firestore: ^0.14.4
 

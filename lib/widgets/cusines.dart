@@ -1,7 +1,7 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/store_item.dart';
-import 'package:wisefood/widgets/store_tile.dart';
+
 
 class CuisinePage extends StatefulWidget {
   @override
