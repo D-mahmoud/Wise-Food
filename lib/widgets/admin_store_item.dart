@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:wisefood/screens/Edit_Store.dart';
+import 'package:wisefood/screens/Edit_add_Store.dart';
 import 'package:wisefood/providers/stores.dart';
 
 class AdminStoreItem extends StatelessWidget {
