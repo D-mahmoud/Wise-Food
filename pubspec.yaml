@@ -46,7 +46,7 @@ dependencies:
   
   #firebase_auth: ^0.18.4+1
   
-  cloud_firestore: ^0.14.4
+  #cloud_firestore: ^0.14.4
 
  
 

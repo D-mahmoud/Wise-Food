@@ -96,6 +96,9 @@ class _RecommendPageState extends State<RecommendPage> {
                       setState(() {
                         this.isSearch = true;
                       });
+
+                      //search here
+                      
                     })
           ]),
        drawer: AppDrawer(),
