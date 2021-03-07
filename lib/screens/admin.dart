@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:wisefood/screens/Edit_Store.dart';
+import 'package:wisefood/screens/Edit_add_Store.dart';
 import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/widgets/admin_store_item.dart';
 import 'package:wisefood/widgets/drawer.dart';

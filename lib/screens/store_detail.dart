@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-
 import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/widgets/googleMap.dart';
 
@@ -12,7 +11,7 @@ class StoreDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final storeId =
-        ModalRoute.of(context).settings.arguments as String; // is the id!
+        ModalRoute.of(context).settings.arguments as String;
     final loadedStore = Provider.of<Stores>(
       context,
       listen: false,

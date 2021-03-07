@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wisefood/screens/Edit_add_Store.dart';
 import 'package:wisefood/screens/store_detail.dart';
 import 'package:wisefood/widgets/cusines.dart';
 import 'package:wisefood/widgets/faq.dart';
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
                     'join us': (context) => JoinUsPage(),
                     'admin': (context) => AdminPage(),
                     'store-detail': (context) => StoreDetail(),
-                    
+                    'edit-store':(context)=>EditStore(),
                   },
                 )));
   }
