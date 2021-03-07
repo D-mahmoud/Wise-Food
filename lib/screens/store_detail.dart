@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'package:wisefood/providers/stores.dart';
+import 'package:wisefood/widgets/googleMap.dart';
 
 class StoreDetail extends StatelessWidget {
   static const routeName = 'store-detail';
@@ -88,6 +90,11 @@ class StoreDetail extends StatelessWidget {
               //   print(rating);
               // },
             )),
+            new Container(
+              height: 300,
+              width: 300,
+              child: Maps(),
+            ),
           ],
         ),
       ),
