@@ -118,26 +118,10 @@ class Stores with ChangeNotifier {
   }
 
   Future<void> updateStore(String id, Store newStore) async {
-    // final url =
-    //     'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app/stores/$id.json';
+    final url = '$baseUrl/stores/$id.json?auth=$authToken';
 
-    // final storeIndex = _storeDB.indexWhere((store) => store.id == id);
-    // if (storeIndex >= 0) {
-    //   await http.patch(url,
-    //       body: json.encode({
-    //         'id': newStore.id,
-    //         'storeTitle': newStore.storeTitle,
-    //         'rating': newStore.rating,
-    //         'location': newStore.location,
-    //         'number': newStore.number,
-    //         'image': newStore.image,
-    //       }));
-    //   _storeDB[storeIndex] = newStore;
-    //   notifyListeners();
-    // }
-    final strIndex = _storeDB.indexWhere((str) => str.id == id);
-    if (strIndex >= 0) {
-      final url = '$baseUrl/stores/$id.json?auth=$authToken';
+    final storeIndex = _storeDB.indexWhere((store) => store.id == id);
+    if (storeIndex >= 0) {
       await http.patch(url,
           body: json.encode({
             'id': newStore.id,
@@ -145,14 +129,31 @@ class Stores with ChangeNotifier {
             'rating': newStore.rating,
             'location': newStore.location,
             'number': newStore.number,
-            'cuisine':newStore.cuisine,
-            'image': newStore.imageUrl,
+                  'cuisine':newStore.cuisine,
+
+            //'image': newStore.image,
           }));
-      _storeDB[strIndex] = newStore;
+      _storeDB[storeIndex] = newStore;
       notifyListeners();
-    } else {
-      print('...');
     }
+    // final strIndex = _storeDB.indexWhere((str) => str.id == id);
+    // if (strIndex >= 0) {
+    //   final url = '$baseUrl/stores/$id.json?auth=$authToken';
+    //   await http.patch(url,
+    //       body: json.encode({
+    //         'id': newStore.id,
+    //         'storeTitle': newStore.storeTitle,
+    //         'rating': newStore.rating,
+    //         'location': newStore.location,
+    //         'number': newStore.number,
+    //         'cuisine':newStore.cuisine,
+    //         'image': newStore.imageUrl,
+    //       }));
+    //   _storeDB[strIndex] = newStore;
+    //   notifyListeners();
+    // } else {
+    //   print('...');
+    // }
   }
 
   void receiveToken(Auth auth, List<Store> items) {

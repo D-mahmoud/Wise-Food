@@ -34,7 +34,7 @@ class AdminStoreItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () async {
-                print(id); //id mab3oot sa7
+               // print(id); //id mab3oot sa7
                 try {
                   await Provider.of<Stores>(context, listen: false)
                       .deleteStore(id);

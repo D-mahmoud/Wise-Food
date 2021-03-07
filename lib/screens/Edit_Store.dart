@@ -12,7 +12,7 @@ const pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
 final validatePhone = RegExp(pattern);
 
 class EditStore extends StatefulWidget {
-  static const routeName = '/edit-store';
+  static const routeName = 'edit-store';
   @override
   _EditStoreState createState() => _EditStoreState();
 }
@@ -112,6 +112,7 @@ class _EditStoreState extends State<EditStore> {
     if (_editedStore.id != null) {
       await Provider.of<Stores>(context, listen: false)
           .updateStore(_editedStore.id, _editedStore);
+
     } else {
       try {
         await Provider.of<Stores>(context, listen: false)
