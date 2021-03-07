@@ -8,8 +8,7 @@ class StoreDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final storeId =
-        ModalRoute.of(context).settings.arguments as String;
+    final storeId = ModalRoute.of(context).settings.arguments as String;
     final loadedStore = Provider.of<Stores>(
       context,
       listen: false,
@@ -33,6 +32,14 @@ class StoreDetail extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               '${loadedStore.number}',
+              style: TextStyle(
+                color: Colors.grey, 
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              '${loadedStore.cuisine}',
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 20,

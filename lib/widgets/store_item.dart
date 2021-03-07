@@ -5,6 +5,7 @@ import 'package:wisefood/providers/auth.dart';
 import 'package:wisefood/screens/store_detail.dart';
 
 class StoreItem extends StatelessWidget {
+   
   static const routeName = 'store-item';
   @override
   Widget build(BuildContext context) {
