@@ -54,7 +54,7 @@ class Stores with ChangeNotifier {
           number: data['number'],
           cuisine: data['cuisine'],
           longitude: data['Lng'],
-          latitude: data['Lat'],
+          latitude: data['Ltd'],
           isFavorite:
               favoriteData == null ? false : favoriteData[storeId] ?? false,
           imageUrl: data['image'],
