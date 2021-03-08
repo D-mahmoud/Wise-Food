@@ -57,10 +57,6 @@ class AppDrawer extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, 'help'),
           ),
           ListTile(
-            title: Text('Admin'),
-            onTap: () => Navigator.pushNamed(context, 'admin'),
-          ),
-          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Log Out'),
             onTap: () {
@@ -68,6 +64,15 @@ class AppDrawer extends StatelessWidget {
               Provider.of<Auth>(context, listen: false).logout();
             },
           ),
+          Provider.of<Auth>(context, listen: false).userId ==
+                  'IDcEFegccXPYUOm9TDlShgBo0kb2'
+              ? ListTile(
+                  title: Text('Admin'),
+                  onTap: () => Navigator.pushNamed(context, 'admin'),
+                )
+              : ListTile(
+                  title: Text(' '),
+                ),
         ],
       ),
     );

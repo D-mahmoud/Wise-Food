@@ -164,5 +164,6 @@ class Stores with ChangeNotifier {
     userId = auth.userId;
 
     _storeDB = items;
+    print(authToken);
   }
 }
