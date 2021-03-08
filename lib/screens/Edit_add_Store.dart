@@ -34,6 +34,8 @@ class _EditStoreState extends State<EditStore> {
     number: '',
     location: '',
     cuisine: '',
+    longitude: 0.0,
+    latitude: 0.0,
     //imageUrl: '',
     // review: '',
   );
@@ -45,6 +47,8 @@ class _EditStoreState extends State<EditStore> {
     'image': '',
     'review': '',
     'cuisine': '',
+    'Lng': 0.0,
+    'Ltd': 0.0,
   };
   var _isInit = true;
   var _isLoading = false;
@@ -69,6 +73,8 @@ class _EditStoreState extends State<EditStore> {
           'location': _editedStore.location,
           'number': _editedStore.number,
           'cuisine': _editedStore.cuisine,
+          'Lng': _editedStore.longitude,
+          'Ltd': _editedStore.latitude,
         };
         _imageUrlController.text = _editedStore.imageUrl;
       }
@@ -112,7 +118,6 @@ class _EditStoreState extends State<EditStore> {
     if (_editedStore.id != null) {
       await Provider.of<Stores>(context, listen: false)
           .updateStore(_editedStore.id, _editedStore);
-
     } else {
       try {
         await Provider.of<Stores>(context, listen: false)
@@ -369,6 +374,72 @@ class _EditStoreState extends State<EditStore> {
                               );
                             },
                           )),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: TextFormField(
+                          initialValue: _initValues['Lng'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: "Longitude",
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _editedStore = Store(
+                              id: _editedStore.id,
+                              storeTitle: _editedStore.storeTitle,
+                              rating: _editedStore.rating,
+                              location: _editedStore.location,
+                              number: value,
+                              cuisine: _editedStore.cuisine,
+                              imageUrl: _editedStore.imageUrl,
+                              longitude: _editedStore.longitude,
+                              latitude: _editedStore.latitude,
+                            );
+                            print('saved value is $value');
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: TextFormField(
+                          initialValue: _initValues['Ltd'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Latitude',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _editedStore = Store(
+                              id: _editedStore.id,
+                              storeTitle: _editedStore.storeTitle,
+                              rating: _editedStore.rating,
+                              location: _editedStore.location,
+                              number: value,
+                              cuisine: _editedStore.cuisine,
+                              imageUrl: _editedStore.imageUrl,
+                              longitude: _editedStore.longitude,
+                              latitude: _editedStore.latitude,
+                            );
+                            print('saved value is $value');
+                          },
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(20),
                         child: Material(
