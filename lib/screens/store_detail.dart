@@ -18,7 +18,7 @@ class StoreDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedStore.storeTitle),
+        title: Text("Restaurant Info"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -31,7 +31,19 @@ class StoreDetail extends StatelessWidget {
             //     fit: BoxFit.cover,
             //   ),
             // ),
-           
+             Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                width: double.infinity,
+                child: Text(
+              
+                 loadedStore.storeTitle,
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
