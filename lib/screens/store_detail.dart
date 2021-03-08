@@ -31,15 +31,6 @@ class StoreDetail extends StatelessWidget {
             //     fit: BoxFit.cover,
             //   ),
             // ),
-<<<<<<< HEAD
-            SizedBox(height: 10),
-            Text(
-              '${loadedStore.number}',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 20,
-              ),
-=======
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(children: <Widget>[
@@ -58,7 +49,6 @@ class StoreDetail extends StatelessWidget {
                   ),
                 ),
               ]),
->>>>>>> f4beabf1e4bee17b3502d71c1908e6c9c3830245
             ),
             SizedBox(height: 10),
             Text(
@@ -118,13 +108,6 @@ class StoreDetail extends StatelessWidget {
                   softWrap: true,
                 ),
               ),
-<<<<<<< HEAD
-              // onRatingUpdate: (rating) {
-              //   print(rating);
-              // },
-            )),
-            new Container(),
-=======
             ),
 
             new Container(
@@ -132,7 +115,6 @@ class StoreDetail extends StatelessWidget {
               width: 300,
               child: Maps(),
             ),
->>>>>>> f4beabf1e4bee17b3502d71c1908e6c9c3830245
           ],
         ),
       ),
