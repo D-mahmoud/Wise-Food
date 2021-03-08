@@ -23,14 +23,14 @@ class StoreDetail extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            // Container(
-            //   height: 300,
-            //   width: double.infinity,
-            //   child: Image.network(
-            //     loadedStore.imageUrl,
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                loadedStore.imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(

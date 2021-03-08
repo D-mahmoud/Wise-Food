@@ -55,9 +55,9 @@ class Stores with ChangeNotifier {
           cuisine: data['cuisine'],
           longitude: data['Lng'],
           latitude: data['Ltd'],
+          imageUrl: data['imageUrl'],
           isFavorite:
               favoriteData == null ? false : favoriteData[storeId] ?? false,
-          imageUrl: data['image'],
         ));
       });
       _storeDB = loadedStores;
@@ -95,16 +95,16 @@ class Stores with ChangeNotifier {
           'location': store.location,
           'number': store.number,
           'cuisine': store.cuisine,
-          //'image': store.image,
+          'imageUrl': store.imageUrl,
         }),
       );
 
       final newStore = Store(
           storeTitle: store.storeTitle,
           rating: store.rating,
-          location: store.imageUrl,
+          location: store.location,
           number: store.number,
-          // image: store.image,
+          imageUrl: store.imageUrl,
           id: json.decode(response.body)['name']);
 
       _storeDB.add(newStore);
@@ -133,30 +133,12 @@ class Stores with ChangeNotifier {
             'cuisine': newStore.cuisine,
             'Lng': newStore.longitude,
             'Lat': newStore.latitude,
-
-            //'image': newStore.image,
+            'imageUrl': newStore.imageUrl,
           }));
       _storeDB[storeIndex] = newStore;
       notifyListeners();
     }
-    // final strIndex = _storeDB.indexWhere((str) => str.id == id);
-    // if (strIndex >= 0) {
-    //   final url = '$baseUrl/stores/$id.json?auth=$authToken';
-    //   await http.patch(url,
-    //       body: json.encode({
-    //         'id': newStore.id,
-    //         'storeTitle': newStore.storeTitle,
-    //         'rating': newStore.rating,
-    //         'location': newStore.location,
-    //         'number': newStore.number,
-    //         'cuisine':newStore.cuisine,
-    //         'image': newStore.imageUrl,
-    //       }));
-    //   _storeDB[strIndex] = newStore;
-    //   notifyListeners();
-    // } else {
-    //   print('...');
-    // }
+   
   }
 
   void receiveToken(Auth auth, List<Store> items) {
