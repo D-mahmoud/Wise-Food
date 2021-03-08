@@ -12,7 +12,9 @@ class Store with ChangeNotifier {
   final String location;
   final String number;
   final String review;
-  final String cuisine;                             
+  final String cuisine;
+  final double longitude;
+  final double latitude;
 
   bool isFavorite;
 
@@ -25,6 +27,8 @@ class Store with ChangeNotifier {
       this.number,
       this.review,
       this.cuisine,
+      this.longitude,
+      this.latitude,
       this.isFavorite = false});
 
   void _setFavValue(bool newValue) {

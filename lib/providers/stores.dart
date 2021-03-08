@@ -53,6 +53,8 @@ class Stores with ChangeNotifier {
           location: data['location'],
           number: data['number'],
           cuisine: data['cuisine'],
+          longitude: data['Lng'],
+          latitude: data['Ltd'],
           isFavorite:
               favoriteData == null ? false : favoriteData[storeId] ?? false,
           imageUrl: data['image'],
@@ -129,6 +131,8 @@ class Stores with ChangeNotifier {
             'location': newStore.location,
             'number': newStore.number,
             'cuisine': newStore.cuisine,
+            'Lng': newStore.longitude,
+            'Lat': newStore.latitude,
 
             //'image': newStore.image,
           }));
