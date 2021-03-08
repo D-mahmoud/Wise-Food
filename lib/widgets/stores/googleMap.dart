@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Maps extends StatefulWidget {
-  double longitude;
-  double latitude;
-  Maps(this.longitude, this.latitude);
-  _MapsState createState() => _MapsState(this.longitude, this.latitude);
+  static double longitude;
+  static double latitude;
+  Maps(longitude, latitude);
+  LatLng center = LatLng(longitude, latitude);
+  _MapsState createState() => _MapsState(center);
 }
 
 class _MapsState extends State<Maps> {
-  static double longitude;
-  static double latitude;
-  _MapsState(longitude, latitude);
+  static LatLng center;
+
+  _MapsState(center);
 
   GoogleMapController mapController;
-  LatLng _center = LatLng(longitude, latitude);
+
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
@@ -25,7 +26,7 @@ class _MapsState extends State<Maps> {
         body: GoogleMap(
             onMapCreated: _onMapCreated,
             initialCameraPosition: CameraPosition(
-              target: _center,
+              target: center,
               zoom: 11.0,
             )));
   }
