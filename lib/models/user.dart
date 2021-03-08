@@ -1,10 +1,4 @@
 class User {
-  String id;
-  String fname;
-  String lname;
-  double number;
-  String image;
-
   User({
     this.id,
     this.fname,
@@ -12,4 +6,9 @@ class User {
     this.number,
     this.image,
   });
+  String id;
+  String fname;
+  String lname;
+  double number;
+  String image;
 }

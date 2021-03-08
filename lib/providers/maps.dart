@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -8,7 +7,7 @@ import 'auth.dart';
 
 class MapsProv with ChangeNotifier {
   static const baseUrl =
-      "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app";
+      'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app';
 
   List<GMap> _mapDB = [];
   String authToken;
@@ -39,7 +38,7 @@ class MapsProv with ChangeNotifier {
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);
 
-      final List<GMap> loadedMaps = [];
+      final loadedMaps = <GMap>[];
       dbData.forEach((storeId, data) {
         print('Stores receiveToken, store: $storeId');
         loadedMaps.add(GMap(
