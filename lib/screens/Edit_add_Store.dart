@@ -126,11 +126,7 @@ class _EditStoreState extends State<EditStore> {
       } catch (error) {
         
         print(error);
-<<<<<<< HEAD
         print("??????????");
-=======
-       
->>>>>>> 87337ba28a70974ba15b24dd35cf0ef192eccacb
         await showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
@@ -219,20 +215,10 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-<<<<<<< HEAD
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(
                                 RegExp('[a-zA-Z]')),
                           ],
-=======
-                          initialValue: _initValues['location'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: 'Location',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
->>>>>>> 87337ba28a70974ba15b24dd35cf0ef192eccacb
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Please enter data';
@@ -433,7 +419,7 @@ class _EditStoreState extends State<EditStore> {
                             )
                            
                             ),
-                      );                  ],
+                      ); ],
                   ),
                 ),
               ),
