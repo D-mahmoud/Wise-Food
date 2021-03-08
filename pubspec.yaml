@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    uses-material-design: true
+  
     
  
   
@@ -41,14 +41,6 @@ dependencies:
   firebase_core: ^0.5.3
   flutter_launcher_icons: ^0.8.1
   firebase_storage: ^4.0.0
- # firebase_messaging: ^7.0.3
-  google_maps_flutter: ^0.5.27+3
-  json_serializable: ^3.3.0
-  
-  #firebase_auth: ^0.18.4+1
-  
- # cloud_firestore: ^0.14.4
-
  
 
 
