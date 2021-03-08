@@ -381,7 +381,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Longitude",
+                              labelText: 'Longitude',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           validator: (value) {
@@ -397,10 +397,10 @@ class _EditStoreState extends State<EditStore> {
                               storeTitle: _editedStore.storeTitle,
                               rating: _editedStore.rating,
                               location: _editedStore.location,
-                              number: value,
+                              number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
-                              longitude: _editedStore.longitude,
+                              longitude: double.parse(value),
                               latitude: _editedStore.latitude,
                             );
                             print('saved value is $value');
@@ -430,11 +430,11 @@ class _EditStoreState extends State<EditStore> {
                               storeTitle: _editedStore.storeTitle,
                               rating: _editedStore.rating,
                               location: _editedStore.location,
-                              number: value,
+                              number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
                               longitude: _editedStore.longitude,
-                              latitude: _editedStore.latitude,
+                              latitude: double.parse(value),
                             );
                             print('saved value is $value');
                           },
