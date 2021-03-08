@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:wisefood/providers/stores.dart';
-import 'package:geolocator/geolocator.dart';
+//import 'package:geolocator/geolocator.dart';
 
 class Maps2 extends StatefulWidget {
   @override
@@ -48,14 +48,14 @@ class _Maps2State extends State<Maps2> {
       listen: false,
     ).returnAll;
     getloc() async {
-      position = await Geolocator().getLastKnownPosition();
+      //    position = await Geolocator().getLastKnownPosition();
     }
 
     return Scaffold(
         body: GoogleMap(
       onMapCreated: _onMapCreated,
       initialCameraPosition: CameraPosition(
-        target: position,
+        //   target: position,
         zoom: 11.0,
       ),
       markers: _markers.values.toSet(),
