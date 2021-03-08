@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                     'join us': (context) => JoinUsPage(),
                     'admin': (context) => AdminPage(),
                     'store-detail': (context) => StoreDetail(),
-                    'edit-store':(context)=>EditStore(),
+                    'edit-store': (context) => EditStore(),
                   },
                 )));
   }
