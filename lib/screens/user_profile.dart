@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/drawer.dart';
+import 'package:wisefood/widgets/stores/nearBy.dart';
 
 class UserProfile extends StatefulWidget {
   UserProfile(this._userName, this._email);
@@ -137,6 +138,14 @@ class _UserProfileState extends State<UserProfile> {
                           textAlign: TextAlign.center,
                         ),
                       ),
+                    ),
+                    Transform.translate(
+                      offset: Offset(33.2, 300),
+                      child: SizedBox(
+                          width: 271.0,
+                          child: Container(
+                            child: Maps2(),
+                          )),
                     ),
                   ],
                 ),
