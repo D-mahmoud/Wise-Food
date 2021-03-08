@@ -7,13 +7,14 @@ import 'package:wisefood/providers/stores.dart';
 import 'package:provider/provider.dart';
 
 enum FilterOptions {
-  Favorites,
-  All,
+  favorites,
+  all,
 }
 
 class RecommendPage extends StatefulWidget {
-  final _userName;
   RecommendPage(this._userName);
+  final _userName;
+
   @override
   _RecommendPageState createState() => _RecommendPageState();
 }
@@ -24,10 +25,12 @@ class _RecommendPageState extends State<RecommendPage> {
   var _isLoading = true;
   bool isSearch = false;
 
+  @override
   void initState() {
     super.initState();
   }
 
+  @override
   void didChangeDependencies() {
     if (_isInit) {
       setState(() {
@@ -59,7 +62,7 @@ class _RecommendPageState extends State<RecommendPage> {
             PopupMenuButton(
               onSelected: (FilterOptions selectedValue) {
                 setState(() {
-                  if (selectedValue == FilterOptions.Favorites) {
+                  if (selectedValue == FilterOptions.favorites) {
                     _showOnlyFavorites = true;
                   } else {
                     _showOnlyFavorites = false;
@@ -72,11 +75,11 @@ class _RecommendPageState extends State<RecommendPage> {
               itemBuilder: (_) => [
                 PopupMenuItem(
                   child: Text('Only Favorites'),
-                  value: FilterOptions.Favorites,
+                  value: FilterOptions.favorites,
                 ),
                 PopupMenuItem(
                   child: Text('Show All'),
-                  value: FilterOptions.All,
+                  value: FilterOptions.all,
                 ),
               ],
             ),
@@ -86,7 +89,7 @@ class _RecommendPageState extends State<RecommendPage> {
                     color: Colors.black,
                     onPressed: () {
                       setState(() {
-                        this.isSearch = false;
+                        isSearch = false;
                       });
                     })
                 : IconButton(
@@ -94,7 +97,7 @@ class _RecommendPageState extends State<RecommendPage> {
                     color: Colors.black,
                     onPressed: () {
                       setState(() {
-                        this.isSearch = true;
+                        isSearch = true;
                       });
 
                       //search here

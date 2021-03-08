@@ -35,6 +35,8 @@ class _EditStoreState extends State<EditStore> {
     number: '',
     location: '',
     cuisine: '',
+    longitude: 0.0,
+    latitude: 0.0,
     //imageUrl: '',
     // review: '',
   );
@@ -46,6 +48,8 @@ class _EditStoreState extends State<EditStore> {
     'image': '',
     'review': '',
     'cuisine': '',
+    'Lng': 0.0,
+    'Ltd': 0.0,
   };
   var _isInit = true;
   var _isLoading = false;
@@ -70,6 +74,8 @@ class _EditStoreState extends State<EditStore> {
           'location': _editedStore.location,
           'number': _editedStore.number,
           'cuisine': _editedStore.cuisine,
+          'Lng': _editedStore.longitude,
+          'Ltd': _editedStore.latitude,
         };
         _imageUrlController.text = _editedStore.imageUrl;
       }
@@ -118,13 +124,17 @@ class _EditStoreState extends State<EditStore> {
         await Provider.of<Stores>(context, listen: false)
             .addStore(_editedStore);
       } catch (error) {
-        print("ERRRRRPR ");
+        
         print(error);
+<<<<<<< HEAD
         print("??????????");
+=======
+       
+>>>>>>> 87337ba28a70974ba15b24dd35cf0ef192eccacb
         await showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text("error"),
+            title: Text('error'),
             content: Text('Something went wrong.'),
             actions: <Widget>[
               FlatButton(
@@ -147,7 +157,7 @@ class _EditStoreState extends State<EditStore> {
   File _image;
   Future pickImage() async {
     final picker = ImagePicker();
-    PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
+    var pickedFile = await picker.getImage(source: ImageSource.gallery);
     setState(() {
       _image = File(pickedFile.path);
     });
@@ -189,7 +199,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Name",
+                              labelText: 'Name',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
@@ -209,10 +219,20 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+<<<<<<< HEAD
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(
                                 RegExp('[a-zA-Z]')),
                           ],
+=======
+                          initialValue: _initValues['location'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Location',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
+>>>>>>> 87337ba28a70974ba15b24dd35cf0ef192eccacb
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Please enter data';
@@ -260,7 +280,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Phone Number",
+                              labelText: 'Phone Number',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
@@ -296,7 +316,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Cuisine",
+                              labelText: 'Cuisine',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
@@ -318,7 +338,7 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: _image == null
-                            ? Text("no image")
+                            ? Text('no image')
                             : Image.file(_image),
                       ),
                       Padding(
@@ -387,6 +407,21 @@ class _EditStoreState extends State<EditStore> {
                             },
                           )),
                       Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: TextFormField(
+                          initialValue: _initValues['Lng'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Longitude',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                      Padding(
                         padding: const EdgeInsets.all(20),
                         child: Material(
                             elevation: 5.0,
@@ -396,11 +431,9 @@ class _EditStoreState extends State<EditStore> {
                               onPressed: _saveForm,
                               child: Text('Submit'),
                             )
-                            //push hena
-                            //),
+                           
                             ),
-                      ),
-                    ],
+                      );                  ],
                   ),
                 ),
               ),

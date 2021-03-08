@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/drawer.dart';
 
 class UserProfile extends StatefulWidget {
+  UserProfile(this._userName, this._email);
   final _userName;
   final _email;
-  UserProfile(this._userName, this._email);
+
   // newuserprofileprofile({
   //   Key key,
   // }) : super(key: key);
@@ -18,7 +19,7 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Profile"),
+        title: Text('My Profile'),
       ),
       drawer: AppDrawer(),
       body: Stack(
