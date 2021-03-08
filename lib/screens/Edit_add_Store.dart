@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
@@ -112,7 +113,6 @@ class _EditStoreState extends State<EditStore> {
     if (_editedStore.id != null) {
       await Provider.of<Stores>(context, listen: false)
           .updateStore(_editedStore.id, _editedStore);
-
     } else {
       try {
         await Provider.of<Stores>(context, listen: false)
@@ -120,7 +120,7 @@ class _EditStoreState extends State<EditStore> {
       } catch (error) {
         print("ERRRRRPR ");
         print(error);
-        print("tab3anaaaah??????????");
+        print("??????????");
         await showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
@@ -174,6 +174,17 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20),
                         child: TextFormField(
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z]')),
+                          ],
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter data';
+                            }
+
+                            return null;
+                          },
                           initialValue: _initValues['storeTitle'],
                           decoration: InputDecoration(
                               contentPadding:
@@ -181,13 +192,6 @@ class _EditStoreState extends State<EditStore> {
                               labelText: "Name",
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-
-                            return null;
-                          },
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -205,13 +209,10 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-                          initialValue: _initValues['location'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Location",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z]')),
+                          ],
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Please enter data';
@@ -219,6 +220,13 @@ class _EditStoreState extends State<EditStore> {
 
                             return null;
                           },
+                          initialValue: _initValues['location'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: "Location",
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -236,6 +244,18 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+                          maxLength: 11,
+                          //keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                          ],
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter data';
+                            }
+
+                            return null;
+                          },
                           initialValue: _initValues['number'],
                           decoration: InputDecoration(
                               contentPadding:
@@ -243,13 +263,6 @@ class _EditStoreState extends State<EditStore> {
                               labelText: "Phone Number",
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-
-                            return null;
-                          },
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -268,6 +281,17 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z]')),
+                          ],
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter data';
+                            }
+
+                            return null;
+                          },
                           initialValue: _initValues['cuisine'],
                           decoration: InputDecoration(
                               contentPadding:
@@ -275,13 +299,6 @@ class _EditStoreState extends State<EditStore> {
                               labelText: "Cuisine",
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-
-                            return null;
-                          },
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
