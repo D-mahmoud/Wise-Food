@@ -101,7 +101,6 @@ class Stores with ChangeNotifier {
           'imageUrl': store.imageUrl,
           'Lng': store.longitude,
           'Ltd': store.latitude,
-         
         }),
       );
 
@@ -141,13 +140,10 @@ class Stores with ChangeNotifier {
             'Lat': newStore.latitude,
             'imageUrl': newStore.imageUrl,
             'Ltd': newStore.latitude,
-
-           
           }));
       _storeDB[storeIndex] = newStore;
       notifyListeners();
     }
-   
   }
 
   void receiveToken(Auth auth, List<Store> items) {
