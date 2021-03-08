@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/widgets/stores/googleMap.dart';
+import 'package:wisefood/widgets/stores/nearBy.dart';
 
 class StoreDetail extends StatelessWidget {
   static const routeName = 'store-detail';
@@ -92,11 +93,9 @@ class StoreDetail extends StatelessWidget {
                     ),
                   ]),
             ),
-
             SizedBox(
               height: 10,
             ),
-
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
@@ -112,7 +111,6 @@ class StoreDetail extends StatelessWidget {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
@@ -138,7 +136,6 @@ class StoreDetail extends StatelessWidget {
                     )),
               ),
             ),
-
             Container(
               height: 300,
               width: 300,

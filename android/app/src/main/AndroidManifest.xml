@@ -10,7 +10,10 @@
         android:label="wisefood"
         android:icon="@mipmap/ic_launcher">
         
+        <meta-data android:name= "com.google.android.geo.API_KEY"
+        android:value="AIzaSyC_dN2O8ZmHQjNBCaiDqUvBD5bitV1HcJQ" /> 
         
+     
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
