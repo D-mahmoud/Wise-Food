@@ -41,6 +41,7 @@ dependencies:
   url_launcher: ^5.7.10
   firebase_core: ^0.5.3
   flutter_launcher_icons: ^0.8.1
+  flutter_settings_screens: ^0.2.1+1
   firebase_storage: ^4.0.0
   google_maps_flutter: ^1.2.0
   cupertino_icons: ^1.0.0
