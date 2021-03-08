@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:wisefood/widgets/stores_grid.dart';
+import 'package:wisefood/widgets//stores/stores_grid.dart';
 import 'package:wisefood/widgets/drawer.dart';
 
 import 'package:wisefood/providers/stores.dart';
@@ -98,10 +98,9 @@ class _RecommendPageState extends State<RecommendPage> {
                       });
 
                       //search here
-                      
                     })
           ]),
-       drawer: AppDrawer(),
+      drawer: AppDrawer(),
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(),

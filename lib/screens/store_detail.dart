@@ -3,7 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:wisefood/providers/stores.dart';
-import 'package:wisefood/widgets/googleMap.dart';
+import 'package:wisefood/widgets/stores/googleMap.dart';
 
 class StoreDetail extends StatelessWidget {
   static const routeName = 'store-detail';
@@ -31,6 +31,7 @@ class StoreDetail extends StatelessWidget {
             //     fit: BoxFit.cover,
             //   ),
             // ),
+<<<<<<< HEAD
             SizedBox(height: 10),
             Text(
               '${loadedStore.number}',
@@ -38,6 +39,26 @@ class StoreDetail extends StatelessWidget {
                 color: Colors.grey,
                 fontSize: 20,
               ),
+=======
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(children: <Widget>[
+                SizedBox(height: 10),
+                Text('Call Us:',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 20,
+                    )),
+                SizedBox(height: 10),
+                Text(
+                  '  ${loadedStore.number}',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                ),
+              ]),
+>>>>>>> f4beabf1e4bee17b3502d71c1908e6c9c3830245
             ),
             SizedBox(height: 10),
             Text(
@@ -50,53 +71,68 @@ class StoreDetail extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              width: double.infinity,
-              child: Text(
-                loadedStore.location,
-                textAlign: TextAlign.center,
-                softWrap: true,
+
+            Padding(
+              ///Rating Bar using Flutter
+              padding: const EdgeInsets.all(10.0),
+              child: new Container(
+                child: RatingBarIndicator(
+                  rating: loadedStore.rating,
+                  itemBuilder: (context, index) => Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  itemCount: 5,
+                  itemSize: 30.0,
+                  direction: Axis.horizontal,
+                ),
               ),
             ),
-
-            // Padding(
-            //   ///Rating Bar using Flutter
-            //   padding: const EdgeInsets.all(10.0),
-            //   child: new Container(
-            //     child: RatingBarIndicator(
-            //       rating: loadedStore.rating,
-            //       itemBuilder: (context, index) => Icon(
-            //         Icons.star_border_outlined,
-            //         color: Colors.amber,
-            //       ),
-            //       itemCount: 5,
-            //       itemSize: 50.0,
-            //       direction: Axis.horizontal,
-            //     ),
-
-            //   ),
-            // ),
 // new Container(
 //   child:Text(loadedStore.rating.toString() ),
 // ),
-            new Container(
-                child: RatingBar.builder(
-              initialRating: loadedStore.rating,
-              // minRating: 2,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Colors.amber,
+            // new Container(
+            //     child: RatingBar.builder(
+            //   initialRating: loadedStore.rating,
+            //   // minRating: 2,
+            //   direction: Axis.horizontal,
+            //   allowHalfRating: true,
+            //   itemCount: 5,
+            //   itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+            //   itemBuilder: (context, _) => Icon(
+            //     Icons.star,
+            //     color: Colors.amber,
+            //   ),
+            //   // onRatingUpdate: (rating) {
+            //   //   print(rating);
+            //   // },
+            // )),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                width: double.infinity,
+                child: Text(
+                  loadedStore.location,
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                ),
               ),
+<<<<<<< HEAD
               // onRatingUpdate: (rating) {
               //   print(rating);
               // },
             )),
             new Container(),
+=======
+            ),
+
+            new Container(
+              height: 300,
+              width: 300,
+              child: Maps(),
+            ),
+>>>>>>> f4beabf1e4bee17b3502d71c1908e6c9c3830245
           ],
         ),
       ),
