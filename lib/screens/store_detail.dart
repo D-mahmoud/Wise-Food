@@ -143,8 +143,7 @@ class StoreDetail extends StatelessWidget {
             new Container(
               height: 300,
               width: 300,
-
-              //  child: Maps(),
+              child: Maps(loadedStore.id),
             ),
           ],
         ),
