@@ -35,7 +35,7 @@ class StoreDetail extends StatelessWidget {
             Text(
               '${loadedStore.number}',
               style: TextStyle(
-                color: Colors.grey, 
+                color: Colors.grey,
                 fontSize: 20,
               ),
             ),
@@ -96,11 +96,7 @@ class StoreDetail extends StatelessWidget {
               //   print(rating);
               // },
             )),
-            new Container(
-              height: 300,
-              width: 300,
-              child: Maps(),
-            ),
+            new Container(),
           ],
         ),
       ),
