@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   firebase_messaging: ^7.0.3
+  geolocator: '^2.0.1'
     
  
   

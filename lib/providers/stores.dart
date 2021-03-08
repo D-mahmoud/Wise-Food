@@ -28,6 +28,10 @@ class Stores with ChangeNotifier {
     return _storeDB.firstWhere((store) => store.id == id);
   }
 
+  List<Store> returnAll() {
+    return _storeDB;
+  }
+
   Future<void> fetchAndSetStores({bool filterByUser = false}) async {
     final filterString =
         filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
@@ -63,7 +67,7 @@ class Stores with ChangeNotifier {
       _storeDB = loadedStores;
       notifyListeners();
     } catch (error) {
-      throw (error);
+      rethrow;
     }
   }
 
