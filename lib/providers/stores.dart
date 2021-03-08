@@ -7,14 +7,13 @@ import 'package:wisefood/models/store.dart';
 import 'auth.dart';
 
 class Stores with ChangeNotifier {
+  Stores(this.authToken, this.userId, this._storeDB);
   static const baseUrl =
-      "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app";
+      'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app';
 
   List<Store> _storeDB = [];
   String authToken;
   String userId;
-
-  Stores(this.authToken, this.userId, this._storeDB);
 
   List<Store> get items {
     return [..._storeDB];
@@ -47,7 +46,7 @@ class Stores with ChangeNotifier {
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);
 
-      final List<Store> loadedStores = [];
+      final loadedStores = <Store>[];
       dbData.forEach((storeId, data) {
         print('Stores receiveToken, store: $storeId');
         loadedStores.add(Store(
@@ -59,9 +58,9 @@ class Stores with ChangeNotifier {
           cuisine: data['cuisine'],
           longitude: data['Lng'],
           latitude: data['Ltd'],
+          imageUrl: data['imageUrl'],
           isFavorite:
               favoriteData == null ? false : favoriteData[storeId] ?? false,
-          imageUrl: data['image'],
         ));
       });
       _storeDB = loadedStores;
@@ -99,18 +98,19 @@ class Stores with ChangeNotifier {
           'location': store.location,
           'number': store.number,
           'cuisine': store.cuisine,
+          'imageUrl': store.imageUrl,
           'Lng': store.longitude,
           'Ltd': store.latitude,
-          //'image': store.image,
+         
         }),
       );
 
       final newStore = Store(
           storeTitle: store.storeTitle,
           rating: store.rating,
-          location: store.imageUrl,
+          location: store.location,
           number: store.number,
-          // image: store.image,
+          imageUrl: store.imageUrl,
           id: json.decode(response.body)['name']);
 
       _storeDB.add(newStore);
@@ -138,31 +138,16 @@ class Stores with ChangeNotifier {
             'number': newStore.number,
             'cuisine': newStore.cuisine,
             'Lng': newStore.longitude,
+            'Lat': newStore.latitude,
+            'imageUrl': newStore.imageUrl,
             'Ltd': newStore.latitude,
 
-            //'image': newStore.image,
+           
           }));
       _storeDB[storeIndex] = newStore;
       notifyListeners();
     }
-    // final strIndex = _storeDB.indexWhere((str) => str.id == id);
-    // if (strIndex >= 0) {
-    //   final url = '$baseUrl/stores/$id.json?auth=$authToken';
-    //   await http.patch(url,
-    //       body: json.encode({
-    //         'id': newStore.id,
-    //         'storeTitle': newStore.storeTitle,
-    //         'rating': newStore.rating,
-    //         'location': newStore.location,
-    //         'number': newStore.number,
-    //         'cuisine':newStore.cuisine,
-    //         'image': newStore.imageUrl,
-    //       }));
-    //   _storeDB[strIndex] = newStore;
-    //   notifyListeners();
-    // } else {
-    //   print('...');
-    // }
+   
   }
 
   void receiveToken(Auth auth, List<Store> items) {

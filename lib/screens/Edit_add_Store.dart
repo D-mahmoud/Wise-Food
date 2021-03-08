@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
@@ -34,30 +35,31 @@ class _EditStoreState extends State<EditStore> {
     number: '',
     location: '',
     cuisine: '',
+    imageUrl: '',
     longitude: 0.0,
     latitude: 0.0,
-    //imageUrl: '',
-    // review: '',
+  
   );
   var _initValues = {
     'storeTitle': '',
     'rating': 0.0,
     'number': '',
     'location': '',
-    'image': '',
     'review': '',
     'cuisine': '',
+    'imageUrl' :'',
+
     'Lng': 0.0,
     'Ltd': 0.0,
   };
   var _isInit = true;
   var _isLoading = false;
 
-  // @override
-  // void initState() {
-  //   _imageUrlFocusNode.addListener(_updateImageUrl);
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    _imageUrlFocusNode.addListener(_updateImageUrl);
+    super.initState();
+  }
 
   @override
   void didChangeDependencies() {
@@ -85,7 +87,7 @@ class _EditStoreState extends State<EditStore> {
 
   @override
   void dispose() {
-    // _imageUrlFocusNode.removeListener(_updateImageUrl);
+    _imageUrlFocusNode.removeListener(_updateImageUrl);
     _priceFocusNode.dispose();
     _descriptionFocusNode.dispose();
     _imageUrlController.dispose();
@@ -93,18 +95,18 @@ class _EditStoreState extends State<EditStore> {
     super.dispose();
   }
 
-  // void _updateImageUrl() {
-  //   if (!_imageUrlFocusNode.hasFocus) {
-  //     if ((!_imageUrlController.text.startsWith('http') &&
-  //             !_imageUrlController.text.startsWith('https')) ||
-  //         (!_imageUrlController.text.endsWith('.png') &&
-  //             !_imageUrlController.text.endsWith('.jpg') &&
-  //             !_imageUrlController.text.endsWith('.jpeg'))) {
-  //       return;
-  //     }
-  //     setState(() {});
-  //   }
-  // }
+  void _updateImageUrl() {
+    if (!_imageUrlFocusNode.hasFocus) {
+      if ((!_imageUrlController.text.startsWith('http') &&
+              !_imageUrlController.text.startsWith('https')) ||
+          (!_imageUrlController.text.endsWith('.png') &&
+              !_imageUrlController.text.endsWith('.jpg') &&
+              !_imageUrlController.text.endsWith('.jpeg'))) {
+        return;
+      }
+      setState(() {});
+    }
+  }
 
   Future<void> _saveForm() async {
     final isValid = _formKey.currentState.validate();
@@ -123,13 +125,13 @@ class _EditStoreState extends State<EditStore> {
         await Provider.of<Stores>(context, listen: false)
             .addStore(_editedStore);
       } catch (error) {
-        print("ERRRRRPR ");
+        
         print(error);
-        print("tab3anaaaah??????????");
+        print("??????????");
         await showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text("error"),
+            title: Text('error'),
             content: Text('Something went wrong.'),
             actions: <Widget>[
               FlatButton(
@@ -149,14 +151,16 @@ class _EditStoreState extends State<EditStore> {
     Navigator.of(context).pop();
   }
 
-  File _image;
-  Future pickImage() async {
-    final picker = ImagePicker();
-    PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
-    setState(() {
-      _image = File(pickedFile.path);
-    });
-  }
+  // File _image;
+  // String _uploadedFileURL;   
+  
+  // Future pickImage() async {
+  //   final picker = ImagePicker();
+  //   PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
+  //   setState(() {
+  //     _image = File(pickedFile.path);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -179,20 +183,24 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20),
                         child: TextFormField(
-                          initialValue: _initValues['storeTitle'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Name",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z]')),
+                          ],
                           validator: (value) {
                             if (value.isEmpty) {
-                              return 'Please enter some text';
+                              return 'Please enter data';
                             }
 
                             return null;
                           },
+                          initialValue: _initValues['storeTitle'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Name',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -210,13 +218,10 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-                          initialValue: _initValues['location'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Location",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z]')),
+                          ],
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Please enter data';
@@ -224,6 +229,13 @@ class _EditStoreState extends State<EditStore> {
 
                             return null;
                           },
+                          initialValue: _initValues['location'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: "Location",
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -241,20 +253,25 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-                          initialValue: _initValues['number'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Phone Number",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
+                          maxLength: 11,
+                          //keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                          ],
                           validator: (value) {
                             if (value.isEmpty) {
-                              return 'Please enter some text';
+                              return 'Please enter data';
                             }
 
                             return null;
                           },
+                          initialValue: _initValues['number'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Phone Number',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -273,20 +290,24 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-                          initialValue: _initValues['cuisine'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Cuisine",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z]')),
+                          ],
                           validator: (value) {
                             if (value.isEmpty) {
-                              return 'Please enter some text';
+                              return 'Please enter data';
                             }
 
                             return null;
                           },
+                          initialValue: _initValues['cuisine'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Cuisine',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -303,48 +324,48 @@ class _EditStoreState extends State<EditStore> {
                       ),
 
                       //Image
+                      // Padding(
+                      //   padding: const EdgeInsets.all(20.0),
+                      //   child: _image == null
+                      //       ? Text("no image")
+                      //       : Image.file(_image),
+                      // ),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: _image == null
-                            ? Text("no image")
-                            : Image.file(_image),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        // child: TextFormField(
-                        //   keyboardType: TextInputType.url,
-                        //   style: TextStyle(color: Colors.green),
-                        //   decoration: InputDecoration(
-                        //       contentPadding:
-                        //           EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        //       labelText: "Image",
-                        //       border: OutlineInputBorder(
-                        //           borderRadius: BorderRadius.circular(32.0))),
-                        //   validator: (value) {
-                        //     if (value.isEmpty) {
-                        //       return 'Please enter some text';
-                        //     }
+                        child: TextFormField(
+                          keyboardType: TextInputType.url,
+                          style: TextStyle(color: Colors.green),
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: "Image",
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
 
-                        //     return null;
-                        //   },
-                        //   onSaved: (value) {
-                        //     _editedStore = Store(
-                        //       id: _editedStore.id,
-                        //       storeTitle: _editedStore.storeTitle,
-                        //       rating: _editedStore.rating,
-                        //       location: _editedStore.location,
-                        //       number: _editedStore.number,
-                        //        cuisine:_editedStore.cuisine,
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _editedStore = Store(
+                              id: _editedStore.id,
+                              storeTitle: _editedStore.storeTitle,
+                              rating: _editedStore.rating,
+                              location: _editedStore.location,
+                              number: _editedStore.number,
+                               cuisine:_editedStore.cuisine,
 
-                        //       imageUrl: value,
-                        //     );
-                        //     print('saved value is $value');
-                        //   },
-                        // ),
-                        child: FloatingActionButton(
-                          onPressed: pickImage,
-                          child: Icon(Icons.camera_alt),
+                              imageUrl: value,
+                            );
+                            print('saved value is $value');
+                          },
                         ),
+                        // child: FloatingActionButton(
+                        //   onPressed: pickImage,
+                        //   child: Icon(Icons.camera_alt),
+                        // ),
                       ),
 
                       //Rating
@@ -370,10 +391,24 @@ class _EditStoreState extends State<EditStore> {
                                 number: _editedStore.number,
                                 cuisine: _editedStore.cuisine,
 
-                                //imageUrl: value,
+                                imageUrl: _editedStore.imageUrl,
                               );
                             },
                           )),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: TextFormField(
+                          initialValue: _initValues['Lng'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Longitude',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
 
                       Padding(
                         padding: const EdgeInsets.all(20),
@@ -385,11 +420,9 @@ class _EditStoreState extends State<EditStore> {
                               onPressed: _saveForm,
                               child: Text('Submit'),
                             )
-                            //push hena
-                            //),
+                           
                             ),
-                      ),
-                    ],
+                      ); }))],
                   ),
                 ),
               ),

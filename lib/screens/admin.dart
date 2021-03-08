@@ -55,7 +55,7 @@ class AdminPage extends StatelessWidget {
                               AdminStoreItem(
                                 storesData.items[i].id,
                                 storesData.items[i].storeTitle,
-                                storesData.items[i].number,
+                                storesData.items[i].imageUrl,
 
                               ),
                               Divider(),

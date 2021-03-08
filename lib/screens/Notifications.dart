@@ -15,7 +15,7 @@ class _NotificationsState extends State<Notifications> {
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
   void register() {
-    _firebaseMessaging.getToken().then((token) => print("My token is $token"));
+    _firebaseMessaging.getToken().then((token) => print('My token is $token'));
   }
 
   @override
@@ -27,24 +27,24 @@ class _NotificationsState extends State<Notifications> {
   void getMessage() {
     _firebaseMessaging.configure(
       onMessage: (message) async {
-        print("onMessage_________________");
+        print('onMessage_________________');
         setState(() {
-          _messageTitle = message["notification"]["title"];
-          _messageBody = message["notification"]["body"];
+          _messageTitle = message['notification']['title'];
+          _messageBody = message['notification']['body'];
         });
       },
       onResume: (message) async {
-        print("onResume_________________");
+        print('onResume_________________');
         setState(() {
-          _messageTitle = message["notification"]["title"];
-          _messageBody = message["notification"]["body"];
+          _messageTitle = message['notification']['title'];
+          _messageBody = message['notification']['body'];
         });
       },
       onLaunch: (message) async {
-        print("onLaunch_________________");
+        print('onLaunch_________________');
         setState(() {
-          _messageTitle = message["notification"]["title"];
-          _messageBody = message["notification"]["body"];
+          _messageTitle = message['notification']['title'];
+          _messageBody = message['notification']['body'];
         });
       },
     );
@@ -65,7 +65,7 @@ class _NotificationsState extends State<Notifications> {
                 'Message Title: $_messageTitle',
               ),
               OutlineButton(
-                child: Text("Register My Device"),
+                child: Text('Register My Device'),
                 onPressed: () {
                   register();
                 },

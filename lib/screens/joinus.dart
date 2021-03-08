@@ -6,24 +6,21 @@ class JoinUsPage extends StatefulWidget {
   _JoinUsPageState createState() => _JoinUsPageState();
 }
 
-
-
 class _JoinUsPageState extends State<JoinUsPage> {
-
   _sendingMails() async {
-  // const url = 'mailto:partenership@wisefood.org';
-  // if (await canLaunch(url)) {
-  //   await launch(url);
-  // } else {
-  //   throw 'Could not launch $url';
-  // }
-   if (await canLaunch("mailto:partenership@wisefood.org")) {
-      await launch("mailto:partenership@wisefood.org");
+    // const url = 'mailto:partenership@wisefood.org';
+    // if (await canLaunch(url)) {
+    //   await launch(url);
+    // } else {
+    //   throw 'Could not launch $url';
+    // }
+    if (await canLaunch('mailto:partenership@wisefood.org')) {
+      await launch('mailto:partenership@wisefood.org');
     } else {
       throw 'Could not launch';
     }
-  
-}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +43,7 @@ class _JoinUsPageState extends State<JoinUsPage> {
               Container(child: Image(image: AssetImage('images/partner.png'))),
               RaisedButton(
                 color: Colors.green[100],
-                onPressed:
-                _sendingMails,
+                onPressed: _sendingMails,
                 child: Text(
                   'Email Us',
                   textAlign: TextAlign.center,

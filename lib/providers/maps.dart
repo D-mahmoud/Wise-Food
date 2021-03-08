@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:wisefood/models/map.dart';
@@ -39,7 +38,7 @@ class MapsProv with ChangeNotifier {
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);
 
-      final List<GMap> loadedMaps = [];
+      final loadedMaps = <GMap>[];
       dbData.forEach((storeId, data) {
         print('Stores receiveToken, store: $storeId');
         loadedMaps.add(GMap(

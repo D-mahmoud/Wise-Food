@@ -17,7 +17,7 @@ class FAQPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child:
-                  Text("Wise Foods is an online food recommendations service."),
+                  Text('Wise Foods is an online food recommendations service.'),
             ),
             Card(
                 child: ListTile(
@@ -28,7 +28,7 @@ class FAQPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                "We simply take your submitted order and send it to the restaurant through a completely automated process, so you don’t have to deal with all the hassle of ordering and we make sure that you receive your order on time, every-time!",
+                'We simply take your submitted order and send it to the restaurant through a completely automated process, so you don’t have to deal with all the hassle of ordering and we make sure that you receive your order on time, every-time!',
                 style: TextStyle(fontSize: 15),
               ),
             ),
@@ -39,7 +39,7 @@ class FAQPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                  "Yes. You can view the latest restaurant promotions and discount coupon in offers tab."),
+                  'Yes. You can view the latest restaurant promotions and discount coupon in offers tab.'),
             ),
             Card(
                 child: ListTile(
@@ -48,7 +48,7 @@ class FAQPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                  "You can simply click on the icon ‘add to favorite’ available on all menu items on restaurants. You can also easily go to my favorites section on My Account page re order these items."),
+                  'You can simply click on the icon ‘add to favorite’ available on all menu items on restaurants. You can also easily go to my favorites section on My Account page re order these items.'),
             ),
           ],
         ),

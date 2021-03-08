@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/widgets/stores/googleMap.dart';
@@ -18,19 +17,19 @@ class StoreDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Restaurant Info"),
+        title: Text('Restaurant Info'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            // Container(
-            //   height: 300,
-            //   width: double.infinity,
-            //   child: Image.network(
-            //     loadedStore.imageUrl,
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                loadedStore.imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
@@ -100,7 +99,7 @@ class StoreDetail extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: new Container(
+              child: Container(
                 child: RatingBarIndicator(
                   rating: loadedStore.rating,
                   itemBuilder: (context, index) => Icon(
@@ -131,7 +130,7 @@ class StoreDetail extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 width: double.infinity,
-                child: Text("Visit us:",
+                child: Text('Visit us:',
                     textAlign: TextAlign.left,
                     softWrap: true,
                     style: TextStyle(

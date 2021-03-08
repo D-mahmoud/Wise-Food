@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:wisefood/widgets/drawer.dart';
-import 'package:wisefood/screens/Notifications.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -39,7 +38,7 @@ class _HomePageeState extends State<HomePage>
         ///adding image as background fpor our app
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/image_2.jpg"),
+            image: AssetImage('images/image_2.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.6), BlendMode.dstATop),
