@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wisefood/models/map.dart';
+import 'package:wisefood/providers/auth.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -22,6 +25,9 @@ class _MapsState extends State<Maps> {
   }
 
   Widget build(BuildContext context) {
+    final map = Provider.of<GMap>(context, listen: false);
+
+    final authData = Provider.of<Auth>(context, listen: false);
     return Scaffold(
         body: GoogleMap(
             onMapCreated: _onMapCreated,
