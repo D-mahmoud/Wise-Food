@@ -133,7 +133,6 @@ packages:
       name: checked_yaml
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "1.0.4"
   cli_util:
     dependency: transitive
@@ -156,9 +155,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.6.0"
-=======
-    version: "1.1.0-nullsafety.1"
->>>>>>> 402d9cc3a0a25c5050c33e409cd9cb3348a1338c
   collection:
     dependency: transitive
     description:
