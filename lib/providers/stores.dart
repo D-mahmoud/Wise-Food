@@ -45,7 +45,7 @@ class Stores with ChangeNotifier {
 
       final List<Store> loadedStores = [];
       dbData.forEach((storeId, data) {
-        print('Products receiveToken, store: $storeId');
+        print('Stores receiveToken, store: $storeId');
         loadedStores.add(Store(
           id: storeId,
           storeTitle: data['storeTitle'],
@@ -85,7 +85,6 @@ class Stores with ChangeNotifier {
     final url = '$baseUrl/stores.json?auth=$authToken';
 
     try {
-
       final response = await http.post(
         url,
         body: json.encode({
@@ -93,7 +92,7 @@ class Stores with ChangeNotifier {
           'rating': store.rating,
           'location': store.location,
           'number': store.number,
-          'cuisine':store.cuisine,
+          'cuisine': store.cuisine,
           //'image': store.image,
         }),
       );
@@ -129,7 +128,7 @@ class Stores with ChangeNotifier {
             'rating': newStore.rating,
             'location': newStore.location,
             'number': newStore.number,
-                  'cuisine':newStore.cuisine,
+            'cuisine': newStore.cuisine,
 
             //'image': newStore.image,
           }));
@@ -159,7 +158,7 @@ class Stores with ChangeNotifier {
   void receiveToken(Auth auth, List<Store> items) {
     authToken = auth.token;
     userId = auth.userId;
-    print('Products receiveToken, userId: $userId');
+
     _storeDB = items;
   }
 }

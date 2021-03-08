@@ -3,7 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:wisefood/providers/stores.dart';
-import 'package:wisefood/widgets/googleMap.dart';
+import 'package:wisefood/widgets/stores/googleMap.dart';
 
 class StoreDetail extends StatelessWidget {
   static const routeName = 'store-detail';
@@ -35,7 +35,7 @@ class StoreDetail extends StatelessWidget {
             Text(
               '${loadedStore.number}',
               style: TextStyle(
-                color: Colors.grey, 
+                color: Colors.grey,
                 fontSize: 20,
               ),
             ),
