@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wisefood/providers/auth.dart';
 import 'package:wisefood/models/HTTPexception.dart';
+import 'package:wisefood/screens/Notifications.dart';
 
 enum AuthMode { Signup, Login }
 
