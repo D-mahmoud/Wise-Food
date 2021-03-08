@@ -31,14 +31,13 @@ class StoreDetail extends StatelessWidget {
             //     fit: BoxFit.cover,
             //   ),
             // ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 width: double.infinity,
                 child: Text(
-              
-                 loadedStore.storeTitle,
+                  loadedStore.storeTitle,
                   textAlign: TextAlign.center,
                   softWrap: true,
                 ),
@@ -57,7 +56,7 @@ class StoreDetail extends StatelessWidget {
                         )),
                     SizedBox(height: 10),
                     Text(
-                      '${loadedStore.cuisine } ',
+                      '${loadedStore.cuisine} ',
                       style: TextStyle(
                         color: Colors.green,
                         fontSize: 15,
@@ -73,7 +72,7 @@ class StoreDetail extends StatelessWidget {
                         )),
                   ]),
             ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +93,7 @@ class StoreDetail extends StatelessWidget {
                     ),
                   ]),
             ),
-            
+
             SizedBox(
               height: 10,
             ),
@@ -121,34 +120,31 @@ class StoreDetail extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 width: double.infinity,
                 child: Text(
-              
-                'We are in ${loadedStore.location}',
+                  'We are in ${loadedStore.location}',
                   textAlign: TextAlign.center,
                   softWrap: true,
                 ),
               ),
             ),
- Padding(
+            Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 width: double.infinity,
-                child: Text(
-              "Visit us:",
-                  textAlign: TextAlign.left,
-                  softWrap: true,
-                  style: TextStyle(
-                        fontSize: 25,
-                  )
-                ),
+                child: Text("Visit us:",
+                    textAlign: TextAlign.left,
+                    softWrap: true,
+                    style: TextStyle(
+                      fontSize: 25,
+                    )),
               ),
             ),
 
             new Container(
               height: 300,
               width: 300,
-              
-              child: Maps(),
+
+              //  child: Maps(),
             ),
           ],
         ),
