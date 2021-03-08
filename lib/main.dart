@@ -15,6 +15,7 @@ import 'package:wisefood/providers/stores.dart';
 import 'package:wisefood/providers/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:wisefood/screens/Edit_add_Store.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
                     'join us': (context) => JoinUsPage(),
                     'admin': (context) => AdminPage(),
                     'store-detail': (context) => StoreDetail(),
+                    'edit-store':(context)=>EditStore(),
                   },
                 )));
   }
