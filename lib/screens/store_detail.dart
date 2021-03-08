@@ -18,7 +18,7 @@ class StoreDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedStore.storeTitle),
+        title: Text("Restaurant Info"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -31,39 +31,75 @@ class StoreDetail extends StatelessWidget {
             //     fit: BoxFit.cover,
             //   ),
             // ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(children: <Widget>[
-                SizedBox(height: 10),
-                Text('Call Us:',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                    )),
-                SizedBox(height: 10),
-                Text(
-                  '  ${loadedStore.number}',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 20,
-                  ),
+             Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                width: double.infinity,
+                child: Text(
+              
+                 loadedStore.storeTitle,
+                  textAlign: TextAlign.center,
+                  softWrap: true,
                 ),
-              ]),
-            ),
-            SizedBox(height: 10),
-            Text(
-              '${loadedStore.cuisine}',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 20,
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 10),
+                    Text('Our ',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontStyle: FontStyle.italic,
+                        )),
+                    SizedBox(height: 10),
+                    Text(
+                      '${loadedStore.cuisine } ',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text('cuisine ',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontStyle: FontStyle.italic,
+                        )),
+                  ]),
+            ),
+             Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 10),
+                    Text('Call Us:',
+                        style: TextStyle(
+                          fontSize: 20,
+                        )),
+                    SizedBox(height: 10),
+                    Text(
+                      '  ${loadedStore.number}',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ]),
+            ),
+            
             SizedBox(
               height: 10,
             ),
 
             Padding(
-              ///Rating Bar using Flutter
               padding: const EdgeInsets.all(10.0),
               child: new Container(
                 child: RatingBarIndicator(
@@ -78,34 +114,32 @@ class StoreDetail extends StatelessWidget {
                 ),
               ),
             ),
-// new Container(
-//   child:Text(loadedStore.rating.toString() ),
-// ),
-            // new Container(
-            //     child: RatingBar.builder(
-            //   initialRating: loadedStore.rating,
-            //   // minRating: 2,
-            //   direction: Axis.horizontal,
-            //   allowHalfRating: true,
-            //   itemCount: 5,
-            //   itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-            //   itemBuilder: (context, _) => Icon(
-            //     Icons.star,
-            //     color: Colors.amber,
-            //   ),
-            //   // onRatingUpdate: (rating) {
-            //   //   print(rating);
-            //   // },
-            // )),
+
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 width: double.infinity,
                 child: Text(
-                  loadedStore.location,
+              
+                'We are in ${loadedStore.location}',
                   textAlign: TextAlign.center,
                   softWrap: true,
+                ),
+              ),
+            ),
+ Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                width: double.infinity,
+                child: Text(
+              "Visit us:",
+                  textAlign: TextAlign.left,
+                  softWrap: true,
+                  style: TextStyle(
+                        fontSize: 25,
+                  )
                 ),
               ),
             ),
@@ -113,6 +147,7 @@ class StoreDetail extends StatelessWidget {
             new Container(
               height: 300,
               width: 300,
+              
               child: Maps(),
             ),
           ],
