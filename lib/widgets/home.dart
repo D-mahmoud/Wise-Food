@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:wisefood/widgets/drawer.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageeState createState() => _HomePageeState();
@@ -29,7 +30,7 @@ class _HomePageeState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer:AppDrawer(),
+      drawer: AppDrawer(),
       appBar: AppBar(
         title: Text('Home'),
       ),
@@ -52,7 +53,9 @@ class _HomePageeState extends State<HomePage>
                 Padding(
                   padding: const EdgeInsets.only(top: 50, right: 18),
                   child: Container(
-                    child: Text(
+                    
+                    child:
+                     Text(
                       'WISE    FOOD      ',
 
                       textAlign: TextAlign.center,
@@ -60,8 +63,8 @@ class _HomePageeState extends State<HomePage>
                       ///diffrent fonts to use when needed
                       style: TextStyle(
                         // fontFamily: 'MajorMono',
-                        fontFamily: 'Pacifico',
-                        //fontFamily: 'Texturina',
+                        //fontFamily: 'Pacifico',
+                        fontFamily: 'Texturina',
                         fontWeight: FontWeight.bold,
                         fontSize: 40,
                         color: Colors.black,
