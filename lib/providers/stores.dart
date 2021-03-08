@@ -27,6 +27,10 @@ class Stores with ChangeNotifier {
     return _storeDB.firstWhere((store) => store.id == id);
   }
 
+  List<Store> returnAll() {
+    return _storeDB;
+  }
+
   Future<void> fetchAndSetStores({bool filterByUser = false}) async {
     final filterString =
         filterByUser ? 'orderBy="ownerId"&equalTo="$userId"' : '';
@@ -62,7 +66,7 @@ class Stores with ChangeNotifier {
       _storeDB = loadedStores;
       notifyListeners();
     } catch (error) {
-      throw (error);
+      rethrow;
     }
   }
 
@@ -97,7 +101,6 @@ class Stores with ChangeNotifier {
           'imageUrl': store.imageUrl,
           'Lng': store.longitude,
           'Ltd': store.latitude,
-         
         }),
       );
 
@@ -137,13 +140,10 @@ class Stores with ChangeNotifier {
             'Lat': newStore.latitude,
             'imageUrl': newStore.imageUrl,
             'Ltd': newStore.latitude,
-
-           
           }));
       _storeDB[storeIndex] = newStore;
       notifyListeners();
     }
-   
   }
 
   void receiveToken(Auth auth, List<Store> items) {
