@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:wisefood/widgets/drawer.dart';
+import 'package:wisefood/screens/Notifications.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -97,28 +98,6 @@ class _HomePageeState extends State<HomePage>
                           color: Colors.black,
                           fontFamily: 'Pacifico'),
                     ),
-                  ),
-                ),
-                MaterialButton(
-                  shape: CircleBorder(
-                      side: BorderSide(
-                          width: 1,
-                          color: Colors.black,
-                          style: BorderStyle.solid)),
-
-                  ///Make the button circular
-                  // RaisedButton(
-                  color: Colors.green,
-                  onPressed: () => Navigator.pushNamed(context, 'recommend'),
-                  child: Text(
-                    'Motify',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontFamily: 'Pacifico'),
                   ),
                 ),
                 Padding(
