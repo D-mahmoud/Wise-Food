@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' as provider;
-import 'package:wisefood/widgets/stores/store_item.dart';
-
+//import 'package:wisefood/widgets/stores/store_item.dart';
 import 'package:wisefood/providers/stores.dart';
 import './store_item.dart';
 

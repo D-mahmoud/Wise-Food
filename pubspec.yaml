@@ -41,7 +41,8 @@ dependencies:
   firebase_core: ^0.5.3
   flutter_launcher_icons: ^0.8.1
   firebase_storage: ^4.0.0
- 
+  google_maps_flutter: ^1.2.0
+
 
 
 
