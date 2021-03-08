@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:wisefood/models/map.dart';
 import 'auth.dart';
 
-class Maps with ChangeNotifier {
+class MapsProv with ChangeNotifier {
   static const baseUrl =
       "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app";
 
@@ -14,7 +14,7 @@ class Maps with ChangeNotifier {
   String authToken;
   String userId;
 
-  Maps(this.authToken, this.userId, this._mapDB);
+  MapsProv(this.authToken, this.userId, this._mapDB);
 
   List<GMap> get items {
     return [..._mapDB];
