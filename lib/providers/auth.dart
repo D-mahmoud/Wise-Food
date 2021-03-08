@@ -42,7 +42,7 @@ class Auth with ChangeNotifier {
 
   Future<void> _authenticate(
       String email, String password, String action) async {
-    final apiKey = "AIzaSyDUDV3LvvSAN5CspqekdA48a6FBqkor8NY";
+    final apiKey = 'AIzaSyDUDV3LvvSAN5CspqekdA48a6FBqkor8NY';
     final url =
         'https://identitytoolkit.googleapis.com/v1/accounts:$action?key=$apiKey';
     try {
@@ -88,7 +88,7 @@ class Auth with ChangeNotifier {
         'userId': _userId,
         'expiryDate': _expiryDate.toIso8601String(),
       });
-      prefs.setString('MIUShop_User', userData);
+      await prefs.setString('MIUShop_User', userData);
     } catch (error) {
       throw error;
     }
@@ -112,11 +112,11 @@ class Auth with ChangeNotifier {
 
     _expiryDate = DateTime.parse(savedUserData['expiryDate']);
     if (_expiryDate.isBefore(DateTime.now())) {
-      print("Auto Login Date Check failed");
+      print('Auto Login Date Check failed');
       return false;
     }
 
-    print("//Auto Login $savedUserData");
+    print('//Auto Login $savedUserData');
     try {
       _token = savedUserData['token'];
       _userId = savedUserData['userId'];
@@ -139,7 +139,7 @@ class Auth with ChangeNotifier {
 
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    prefs.clear();
+    await prefs.clear();
   }
 
   void _autoLogout() {

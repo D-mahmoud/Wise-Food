@@ -28,7 +28,7 @@ class AuthScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 94.0),
                       child: Image.asset(
-                        "images/logo.png",
+                        'images/logo.png',
                         alignment: Alignment.topCenter,
                         fit: BoxFit.contain,
                       ),
@@ -60,7 +60,7 @@ class AuthCard extends StatefulWidget {
 class _AuthCardState extends State<AuthCard> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   AuthMode _authMode = AuthMode.login;
-  Map<String, String> _authData = {
+  final Map<String, String> _authData = {
     'email': '',
     'password': '',
   };

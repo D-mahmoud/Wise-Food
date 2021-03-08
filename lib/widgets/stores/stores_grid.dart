@@ -5,9 +5,8 @@ import 'package:wisefood/providers/stores.dart';
 import './store_item.dart';
 
 class StoresGrid extends StatelessWidget {
-  final bool showFavs;
-
   StoresGrid(this.showFavs);
+  final bool showFavs;
 
   @override
   Widget build(BuildContext context) {

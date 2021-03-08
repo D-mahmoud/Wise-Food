@@ -1,8 +1,5 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:wisefood/models/store.dart';
-import 'package:wisefood/widgets/stores/store_item.dart';
 import 'package:wisefood/screens/store_detail.dart';
 
 class CuisinePage extends StatefulWidget {
@@ -64,7 +61,7 @@ class __CuisinePageState extends State<CuisinePage> {
                               //   StoreItem.routeName,
                               //   arguments: "chinese",
                               // );
-                              print("Chinese");
+                              print('Chinese');
                             },
                             child: Image.asset('images/chinese.png',
                                 fit: BoxFit.fill)),
@@ -158,7 +155,7 @@ class __CuisinePageState extends State<CuisinePage> {
                       Navigator.pushNamed(
                         context,
                         StoreDetail.routeName,
-                        arguments: "italian",
+                        arguments: 'italian',
                       );
                     },
                     child: Text(

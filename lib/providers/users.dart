@@ -12,7 +12,7 @@ class Users with ChangeNotifier {
 //print(user.uid);
   List<User> _userDB = [];
   static const baseUrl =
-      "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app";
+      'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app';
   Future<void> fetchAndSetProducts() async {
     var url = '$baseUrl/users.json';
     try {

@@ -5,11 +5,10 @@ import 'package:wisefood/screens/Edit_add_Store.dart';
 import 'package:wisefood/providers/stores.dart';
 
 class AdminStoreItem extends StatelessWidget {
+  AdminStoreItem(this.id, this.title, this.imageUrl);
   final String id;
   final String title;
   final String imageUrl;
-
-  AdminStoreItem(this.id, this.title, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class AdminStoreItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () async {
-               // print(id); //id mab3oot sa7
+                // print(id); //id mab3oot sa7
                 try {
                   await Provider.of<Stores>(context, listen: false)
                       .deleteStore(id);

@@ -7,14 +7,13 @@ import 'package:wisefood/models/store.dart';
 import 'auth.dart';
 
 class Stores with ChangeNotifier {
+  Stores(this.authToken, this.userId, this._storeDB);
   static const baseUrl =
-      "https://wise-food-default-rtdb.europe-west1.firebasedatabase.app";
+      'https://wise-food-default-rtdb.europe-west1.firebasedatabase.app';
 
   List<Store> _storeDB = [];
   String authToken;
   String userId;
-
-  Stores(this.authToken, this.userId, this._storeDB);
 
   List<Store> get items {
     return [..._storeDB];
@@ -43,7 +42,7 @@ class Stores with ChangeNotifier {
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);
 
-      final List<Store> loadedStores = [];
+      final loadedStores = <Store>[];
       dbData.forEach((storeId, data) {
         print('Stores receiveToken, store: $storeId');
         loadedStores.add(Store(

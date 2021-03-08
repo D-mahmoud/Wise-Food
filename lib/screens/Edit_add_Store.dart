@@ -123,13 +123,13 @@ class _EditStoreState extends State<EditStore> {
         await Provider.of<Stores>(context, listen: false)
             .addStore(_editedStore);
       } catch (error) {
-        print("ERRRRRPR ");
+        
         print(error);
-        print("tab3anaaaah??????????");
+       
         await showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text("error"),
+            title: Text('error'),
             content: Text('Something went wrong.'),
             actions: <Widget>[
               FlatButton(
@@ -152,7 +152,7 @@ class _EditStoreState extends State<EditStore> {
   File _image;
   Future pickImage() async {
     final picker = ImagePicker();
-    PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
+    var pickedFile = await picker.getImage(source: ImageSource.gallery);
     setState(() {
       _image = File(pickedFile.path);
     });
@@ -183,7 +183,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Name",
+                              labelText: 'Name',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           validator: (value) {
@@ -214,7 +214,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Location",
+                              labelText: 'Location',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           validator: (value) {
@@ -245,7 +245,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Phone Number",
+                              labelText: 'Phone Number',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           validator: (value) {
@@ -277,7 +277,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Cuisine",
+                              labelText: 'Cuisine',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           validator: (value) {
@@ -306,7 +306,7 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: _image == null
-                            ? Text("no image")
+                            ? Text('no image')
                             : Image.file(_image),
                       ),
                       Padding(
@@ -381,7 +381,7 @@ class _EditStoreState extends State<EditStore> {
                           decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Longitude",
+                              labelText: 'Longitude',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
                           validator: (value) {
