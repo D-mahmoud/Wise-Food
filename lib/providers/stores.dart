@@ -95,6 +95,8 @@ class Stores with ChangeNotifier {
           'location': store.location,
           'number': store.number,
           'cuisine': store.cuisine,
+          'Lng': store.longitude,
+          'Ltd': store.latitude,
           //'image': store.image,
         }),
       );
@@ -132,7 +134,7 @@ class Stores with ChangeNotifier {
             'number': newStore.number,
             'cuisine': newStore.cuisine,
             'Lng': newStore.longitude,
-            'Lat': newStore.latitude,
+            'Ltd': newStore.latitude,
 
             //'image': newStore.image,
           }));
