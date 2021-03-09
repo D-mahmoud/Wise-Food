@@ -5,7 +5,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:  Text("loading",style:TextStyle(
+        child:  Text("loading....",style:TextStyle(
           fontSize: 50
         ),),
           //   Image.asset(
