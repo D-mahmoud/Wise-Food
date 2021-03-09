@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisefood/widgets/drawer.dart';
 import 'package:wisefood/widgets/stores/nearBy.dart';
+import 'dart:ui' as ui;
 
 class UserProfile extends StatefulWidget {
   UserProfile(this._userName, this._email);
@@ -30,7 +31,6 @@ class _UserProfileState extends State<UserProfile> {
             child: Transform.rotate(
               angle: 0.0,
               child:
-                  // Adobe XD layer: 'profile - settings' (group)
                   SizedBox(
                 width: 412.0,
                 height: 907.0,
@@ -39,29 +39,28 @@ class _UserProfileState extends State<UserProfile> {
                     Transform.translate(
                       offset: Offset(20.2, 70.5),
                       child:
-                          // Adobe XD layer: 'text' (text)
                           Text(
-                        'Personal Information',
+                        ' Your Personal Information:',
                         style: TextStyle(
                           fontFamily: 'SF Pro Text',
                           fontSize: 20,
-                          color: Colors.green[200],
                           letterSpacing: -0.15,
+                          fontStyle: FontStyle.italic,
                         ),
                         textAlign: TextAlign.left,
                       ),
                     ),
                     Transform.translate(
-                      offset: Offset(40.2, 100.5),
+                      offset: Offset(40.2, 120.5),
                       child:
-                          // Adobe XD layer: 'text' (text)
                           Text(
                         'Username',
                         style: TextStyle(
                           fontFamily: 'SF Pro Text',
                           fontSize: 20,
-                          color: Colors.green[200],
+                          color: Colors.green,
                           letterSpacing: -0.15,
+                          fontStyle: FontStyle.italic,
                         ),
                         textAlign: TextAlign.left,
                       ),
@@ -69,22 +68,22 @@ class _UserProfileState extends State<UserProfile> {
                     Transform.translate(
                       offset: Offset(33.2, 200.1),
                       child:
-                          // Adobe XD layer: 'text' (text)
                           Text(
                         'Email',
                         style: TextStyle(
                           fontFamily: 'SF Pro Text',
                           fontSize: 20,
-                          color: Colors.green[200],
+                          color: Colors.green,
                           letterSpacing: -0.15,
+                                                    fontStyle: FontStyle.italic,
+
                         ),
                         textAlign: TextAlign.left,
                       ),
                     ),
                     Transform.translate(
-                      offset: Offset(33.2, 130.1),
+                      offset: Offset(33.2, 150.1),
                       child:
-                          // Adobe XD layer: 'text' (text)
                           Text(
                         ' ${widget._userName} ',
                         style: TextStyle(
@@ -97,9 +96,8 @@ class _UserProfileState extends State<UserProfile> {
                       ),
                     ),
                     Transform.translate(
-                      offset: Offset(33.2, 250.7),
+                      offset: Offset(33.2, 230.7),
                       child:
-                          // Adobe XD layer: 'text' (text)
                           Text(
                         ' ${widget._email} ',
                         style: TextStyle(
@@ -112,7 +110,7 @@ class _UserProfileState extends State<UserProfile> {
                       ),
                     ),
                     Transform.translate(
-                      offset: Offset(133.2, 860.4),
+                      offset: Offset(133.2, 830.4),
                       child: Container(
                         width: 147.2,
                         height: 5.5,
@@ -125,22 +123,30 @@ class _UserProfileState extends State<UserProfile> {
                     Transform.translate(
                       offset: Offset(71.0, 10),
                       child: SizedBox(
-                        width: 271.0,
-                        child: Text(
-                          'Hello ${widget._userName}! ',
-                          style: TextStyle(
-                            fontFamily: 'SF Pro Text',
-                            fontSize: 35,
-                            color: const Color(0xff242134),
-                            fontWeight: FontWeight.w700,
-                            height: 1,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
+                          width: 271.0,
+                          child:
+                            
+                              Text(
+                            'Hello ${widget._userName} ',
+                            style: TextStyle(
+                                fontSize: 40,
+                                foreground: Paint()
+                                  ..shader = ui.Gradient.linear(
+                                    const Offset(0, 20),
+                                    const Offset(150, 20),
+                                    <Color>[
+                                      Colors.green,
+                                      Colors.greenAccent,
+                                    ],
+                                  )),
+                          )),
                     ),
                     Transform.translate(
                       offset: Offset(33.2, 300),
+                      child: Text("All Nearby Restaurants:")
+                    ),
+                    Transform.translate(
+                      offset: Offset(33.2, 320),
                       child: SizedBox(
                           width: 271.0,
                           child: Container(
