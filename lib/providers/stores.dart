@@ -110,6 +110,8 @@ class Stores with ChangeNotifier {
           location: store.location,
           number: store.number,
           imageUrl: store.imageUrl,
+          longitude:store.longitude,
+          latitude: store.latitude,
           id: json.decode(response.body)['name']);
 
       _storeDB.add(newStore);
