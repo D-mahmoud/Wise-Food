@@ -181,17 +181,6 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20),
                         child: TextFormField(
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(
-                                RegExp('[a-zA-Z]')),
-                          ],
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter data';
-                            }
-
-                            return null;
-                          },
                           initialValue: _initValues['storeTitle'],
                           decoration: InputDecoration(
                               contentPadding:
@@ -199,6 +188,13 @@ class _EditStoreState extends State<EditStore> {
                               labelText: 'Name',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                            return null;
+                          },
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -208,9 +204,8 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
-                               latitude: _editedStore.latitude,
-                                                            longitude: _editedStore.longitude,
-                             
+                              latitude: _editedStore.latitude,
+                              longitude: _editedStore.longitude,
                             );
                             print('saved value is $value');
                           },
@@ -219,6 +214,13 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+                          initialValue: _initValues['location'],
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                              labelText: 'Location',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(32.0))),
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(
                                 RegExp('[a-zA-Z]')),
@@ -230,13 +232,6 @@ class _EditStoreState extends State<EditStore> {
 
                             return null;
                           },
-                          initialValue: _initValues['location'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: "Location",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -246,9 +241,8 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
-                               latitude: _editedStore.latitude,
-                                                            longitude: _editedStore.longitude,
-                            
+                              latitude: _editedStore.latitude,
+                              longitude: _editedStore.longitude,
                             );
                             print('saved value is $value');
                           },
@@ -286,7 +280,7 @@ class _EditStoreState extends State<EditStore> {
                                   location: _editedStore.location,
                                   number: _editedStore.number,
                                   latitude: double.parse(value),
-                                                            longitude: _editedStore.longitude,
+                                  longitude: _editedStore.longitude,
                                   cuisine: _editedStore.cuisine,
                                   imageUrl: _editedStore.imageUrl,
                                 );
@@ -325,11 +319,10 @@ class _EditStoreState extends State<EditStore> {
                                   rating: _editedStore.rating,
                                   location: _editedStore.location,
                                   number: _editedStore.number,
-                                 longitude: double.parse(value),
+                                  longitude: double.parse(value),
                                   latitude: _editedStore.latitude,
                                   cuisine: _editedStore.cuisine,
                                   imageUrl: _editedStore.imageUrl,
-                                  
                                 );
                                 print('saved value is $value');
                               },
@@ -340,18 +333,6 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-                          maxLength: 11,
-                          //keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                          ],
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter data';
-                            }
-
-                            return null;
-                          },
                           initialValue: _initValues['number'],
                           decoration: InputDecoration(
                               contentPadding:
@@ -359,6 +340,13 @@ class _EditStoreState extends State<EditStore> {
                               labelText: 'Phone Number',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                            return null;
+                          },
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -368,9 +356,8 @@ class _EditStoreState extends State<EditStore> {
                               number: value,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
-                               latitude: _editedStore.latitude,
-                                                            longitude: _editedStore.longitude,
-                            
+                              latitude: _editedStore.latitude,
+                              longitude: _editedStore.longitude,
                             );
                             print('saved value is $value');
                           },
@@ -380,17 +367,6 @@ class _EditStoreState extends State<EditStore> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(
-                                RegExp('[a-zA-Z]')),
-                          ],
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter data';
-                            }
-
-                            return null;
-                          },
                           initialValue: _initValues['cuisine'],
                           decoration: InputDecoration(
                               contentPadding:
@@ -398,6 +374,13 @@ class _EditStoreState extends State<EditStore> {
                               labelText: 'Cuisine',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(32.0))),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                            return null;
+                          },
                           onSaved: (value) {
                             _editedStore = Store(
                               id: _editedStore.id,
@@ -407,9 +390,8 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: value,
                               imageUrl: _editedStore.imageUrl,
-                               latitude: _editedStore.latitude,
-                                                            longitude: _editedStore.longitude,
-                              
+                              latitude: _editedStore.latitude,
+                              longitude: _editedStore.longitude,
                             );
                             print('saved value is $value');
                           },
@@ -450,9 +432,8 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: value,
-                               latitude: _editedStore.latitude,
-                                                            longitude: _editedStore.longitude,
-                            
+                              latitude: _editedStore.latitude,
+                              longitude: _editedStore.longitude,
                             );
                             print('saved value is $value');
                           },
@@ -486,13 +467,27 @@ class _EditStoreState extends State<EditStore> {
                                 number: _editedStore.number,
                                 cuisine: _editedStore.cuisine,
                                 imageUrl: _editedStore.imageUrl,
-                                 latitude: _editedStore.latitude,
-                                                            longitude: _editedStore.longitude,
-                               
+                                latitude: _editedStore.latitude,
+                                longitude: _editedStore.longitude,
                               );
                             },
                           )),
-                   
+                      Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: TextFormField(
+                              initialValue: _initValues['Lng'],
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.fromLTRB(
+                                      20.0, 15.0, 20.0, 15.0),
+                                  labelText: 'Longitude',
+                                  border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(32.0))),
+                              // ignore: missing_return
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter some text';
+                                }
 
                                 Padding(
                                   padding: const EdgeInsets.all(20),
@@ -503,8 +498,9 @@ class _EditStoreState extends State<EditStore> {
                                       child: MaterialButton(
                                         onPressed: _saveForm,
                                         child: Text('Submit'),
-                                          )),
-                      ),
+                                      )),
+                                );
+                              }))
                     ],
                   ),
                 ),
