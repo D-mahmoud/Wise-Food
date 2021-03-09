@@ -141,7 +141,7 @@ class Stores with ChangeNotifier {
             'Lng': newStore.longitude,
             'Lat': newStore.latitude,
             'imageUrl': newStore.imageUrl,
-            'Ltd': newStore.latitude,
+            'Ltd': newStore.longitude,
           }));
       _storeDB[storeIndex] = newStore;
       notifyListeners();

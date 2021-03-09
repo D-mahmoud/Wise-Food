@@ -73,7 +73,7 @@ class _EditStoreState extends State<EditStore> {
           'location': _editedStore.location,
           'number': _editedStore.number,
           'cuisine': _editedStore.cuisine,
-          'imageUrl':_editedStore.imageUrl,
+          'imageUrl': _editedStore.imageUrl,
           'Lng': _editedStore.longitude,
           'Ltd': _editedStore.latitude,
         };
@@ -208,9 +208,9 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
-                                                            latitude: _editedStore.latitude,
+                               latitude: _editedStore.latitude,
                                                             longitude: _editedStore.longitude,
-
+                             
                             );
                             print('saved value is $value');
                           },
@@ -246,91 +246,94 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
-                                latitude: _editedStore.latitude,
+                               latitude: _editedStore.latitude,
                                                             longitude: _editedStore.longitude,
-
+                            
                             );
                             print('saved value is $value');
                           },
                         ),
-                      ),   Padding(
+                      ),
+                      Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: [
                           Expanded(
                             child: TextFormField(
-                            inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                          ],
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter data';
-                            }
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp('[0-9]')),
+                              ],
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter data';
+                                }
 
-                            return null;
-                          },
-                          initialValue: _initValues['Lat'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: 'Lat',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
-                          onSaved: (value) {
-                            _editedStore = Store(
-                              id: _editedStore.id,
-                              storeTitle: _editedStore.storeTitle,
-                              rating: _editedStore.rating,
-                              location: _editedStore.location,
-                              number: _editedStore.number,
-                              latitude: double.parse(value),
-                              cuisine: _editedStore.cuisine,
-                              imageUrl: _editedStore.imageUrl,
+                                return null;
+                              },
+                              initialValue: _initValues['Lat'],
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.fromLTRB(
+                                      20.0, 15.0, 20.0, 15.0),
+                                  labelText: 'Lat',
+                                  border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(32.0))),
+                              onSaved: (value) {
+                                _editedStore = Store(
+                                  id: _editedStore.id,
+                                  storeTitle: _editedStore.storeTitle,
+                                  rating: _editedStore.rating,
+                                  location: _editedStore.location,
+                                  number: _editedStore.number,
+                                  latitude: double.parse(value),
                                                             longitude: _editedStore.longitude,
-
-                            );
-                            print('saved value is $value');
-                          },
-                        ),
+                                  cuisine: _editedStore.cuisine,
+                                  imageUrl: _editedStore.imageUrl,
+                                );
+                                print('saved value is $value');
+                              },
                             ),
-                         // ),
+                          ),
+                          // ),
                           SizedBox(
                             width: 75,
                           ),
                           Expanded(
-                            child:TextFormField(
-                          //   inputFormatters: [
-                          //   FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                          // ],
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter data';
-                            }
+                            child: TextFormField(
+                              //   inputFormatters: [
+                              //   FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                              // ],
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter data';
+                                }
 
-                            return null;
-                          },
-                          initialValue: _initValues['Lat'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: 'Lng',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
-                          onSaved: (value) {
-                            _editedStore = Store(
-                              id: _editedStore.id,
-                              storeTitle: _editedStore.storeTitle,
-                              rating: _editedStore.rating,
-                              location: _editedStore.location,
-                              number: _editedStore.number,
-                              longitude: double.parse(value),
-                              latitude: _editedStore.latitude,
-                              cuisine: _editedStore.cuisine,
-                              imageUrl: _editedStore.imageUrl,
-                              
-                            );
-                            print('saved value is $value');
-                          },
-                        ),
+                                return null;
+                              },
+                              initialValue: _initValues['Lat'],
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.fromLTRB(
+                                      20.0, 15.0, 20.0, 15.0),
+                                  labelText: 'Lng',
+                                  border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(32.0))),
+                              onSaved: (value) {
+                                _editedStore = Store(
+                                  id: _editedStore.id,
+                                  storeTitle: _editedStore.storeTitle,
+                                  rating: _editedStore.rating,
+                                  location: _editedStore.location,
+                                  number: _editedStore.number,
+                                 longitude: double.parse(value),
+                                  latitude: _editedStore.latitude,
+                                  cuisine: _editedStore.cuisine,
+                                  imageUrl: _editedStore.imageUrl,
+                                  
+                                );
+                                print('saved value is $value');
+                              },
+                            ),
                           )
                         ]),
                       ),
@@ -365,9 +368,9 @@ class _EditStoreState extends State<EditStore> {
                               number: value,
                               cuisine: _editedStore.cuisine,
                               imageUrl: _editedStore.imageUrl,
-                                latitude: _editedStore.latitude,
+                               latitude: _editedStore.latitude,
                                                             longitude: _editedStore.longitude,
-
+                            
                             );
                             print('saved value is $value');
                           },
@@ -404,9 +407,9 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: value,
                               imageUrl: _editedStore.imageUrl,
-                                latitude: _editedStore.latitude,
+                               latitude: _editedStore.latitude,
                                                             longitude: _editedStore.longitude,
-
+                              
                             );
                             print('saved value is $value');
                           },
@@ -447,9 +450,9 @@ class _EditStoreState extends State<EditStore> {
                               number: _editedStore.number,
                               cuisine: _editedStore.cuisine,
                               imageUrl: value,
-                                latitude: _editedStore.latitude,
+                               latitude: _editedStore.latitude,
                                                             longitude: _editedStore.longitude,
-
+                            
                             );
                             print('saved value is $value');
                           },
@@ -462,7 +465,6 @@ class _EditStoreState extends State<EditStore> {
 
                       //Rating
 
-                   
                       Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: RatingBar.builder(
@@ -484,27 +486,13 @@ class _EditStoreState extends State<EditStore> {
                                 number: _editedStore.number,
                                 cuisine: _editedStore.cuisine,
                                 imageUrl: _editedStore.imageUrl,
-                                  latitude: _editedStore.latitude,
+                                 latitude: _editedStore.latitude,
                                                             longitude: _editedStore.longitude,
-
+                               
                               );
                             },
                           )),
-                      Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: TextFormField(
-                              initialValue: _initValues['Lng'],
-                              decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  labelText: 'Longitude',
-                                  border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(32.0))),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'Please enter some text';
-                                }
+                   
 
                                 Padding(
                                   padding: const EdgeInsets.all(20),
@@ -515,9 +503,8 @@ class _EditStoreState extends State<EditStore> {
                                       child: MaterialButton(
                                         onPressed: _saveForm,
                                         child: Text('Submit'),
-                                      )),
-                                );
-                              }))
+                                          )),
+                      ),
                     ],
                   ),
                 ),
