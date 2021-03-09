@@ -38,7 +38,6 @@ class _EditStoreState extends State<EditStore> {
     imageUrl: '',
     longitude: 0.0,
     latitude: 0.0,
-  
   );
   var _initValues = {
     'storeTitle': '',
@@ -47,8 +46,7 @@ class _EditStoreState extends State<EditStore> {
     'location': '',
     'review': '',
     'cuisine': '',
-    'imageUrl' :'',
-
+    'imageUrl': '',
     'Lng': 0.0,
     'Ltd': 0.0,
   };
@@ -125,7 +123,6 @@ class _EditStoreState extends State<EditStore> {
         await Provider.of<Stores>(context, listen: false)
             .addStore(_editedStore);
       } catch (error) {
-        
         print(error);
         print("??????????");
         await showDialog(
@@ -152,8 +149,8 @@ class _EditStoreState extends State<EditStore> {
   }
 
   // File _image;
-  // String _uploadedFileURL;   
-  
+  // String _uploadedFileURL;
+
   // Future pickImage() async {
   //   final picker = ImagePicker();
   //   PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
@@ -355,8 +352,7 @@ class _EditStoreState extends State<EditStore> {
                               rating: _editedStore.rating,
                               location: _editedStore.location,
                               number: _editedStore.number,
-                               cuisine:_editedStore.cuisine,
-
+                              cuisine: _editedStore.cuisine,
                               imageUrl: value,
                             );
                             print('saved value is $value');
@@ -390,39 +386,39 @@ class _EditStoreState extends State<EditStore> {
                                 location: _editedStore.location,
                                 number: _editedStore.number,
                                 cuisine: _editedStore.cuisine,
-
                                 imageUrl: _editedStore.imageUrl,
                               );
                             },
                           )),
                       Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: TextFormField(
-                          initialValue: _initValues['Lng'],
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              labelText: 'Longitude',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0))),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Please enter some text';
-                            }
+                          padding: const EdgeInsets.all(20.0),
+                          child: TextFormField(
+                              initialValue: _initValues['Lng'],
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.fromLTRB(
+                                      20.0, 15.0, 20.0, 15.0),
+                                  labelText: 'Longitude',
+                                  border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(32.0))),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter some text';
+                                }
 
-                      Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Material(
-                            elevation: 5.0,
-                            borderRadius: BorderRadius.circular(30.0),
-                            color: Colors.green[300],
-                            child: MaterialButton(
-                              onPressed: _saveForm,
-                              child: Text('Submit'),
-                            )
-                           
-                            ),
-                      ); }))],
+                                Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Material(
+                                      elevation: 5.0,
+                                      borderRadius: BorderRadius.circular(30.0),
+                                      color: Colors.green[300],
+                                      child: MaterialButton(
+                                        onPressed: _saveForm,
+                                        child: Text('Submit'),
+                                      )),
+                                );
+                              }))
+                    ],
                   ),
                 ),
               ),
