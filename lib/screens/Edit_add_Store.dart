@@ -491,16 +491,33 @@ class _EditStoreState extends State<EditStore> {
                             },
                           )),
                       Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Material(
-                            elevation: 5.0,
-                            borderRadius: BorderRadius.circular(30.0),
-                            color: Colors.green[300],
-                            child: MaterialButton(
-                              onPressed: _saveForm,
-                              child: Text('Submit'),
-                            )),
-                      ),
+                          padding: const EdgeInsets.all(20.0),
+                          child: TextFormField(
+                              initialValue: _initValues['Lng'],
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.fromLTRB(
+                                      20.0, 15.0, 20.0, 15.0),
+                                  labelText: 'Longitude',
+                                  border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(32.0))),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter some text';
+                                }
+
+                                Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Material(
+                                      elevation: 5.0,
+                                      borderRadius: BorderRadius.circular(30.0),
+                                      color: Colors.green[300],
+                                      child: MaterialButton(
+                                        onPressed: _saveForm,
+                                        child: Text('Submit'),
+                                      )),
+                                );
+                              }))
                     ],
                   ),
                 ),
